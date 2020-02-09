@@ -1,0 +1,32 @@
+.chart-enter {
+    opacity: 0;
+    transform: scaleY(0);
+    max-height: 0;
+    transform-origin: top;
+    overflow: hidden;
+}
+
+.chart-enter.chart-enter-active {
+    opacity: 1;
+    transform: scaleY(1);
+    max-height: 1000px;
+    
+    transition: transform 500ms, max-height 1000ms, opacity 1000ms;
+}
+
+.chart-leave {
+    opacity: 1;
+    transform: scaleY(1);
+    max-height: 1000px;
+    transform-origin: bottom;
+    overflow: hidden;
+
+}
+
+.chart-leave.chart-leave-active {
+    opacity: 0;
+    transform: scaleY(0);
+    max-height: 0;
+    overflow: hidden;
+    transition: transform 500ms, max-height 1000ms, opacity 1000ms;
+}

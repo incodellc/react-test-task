@@ -1,0 +1,5 @@
+export const PUT_DATA = "PUT_DATA";
+export const RESET_HISTORY = "RESET_HISTORY";
+export const SET_NASDAQ_LIST = "SET_NASDAQ_LIST";
+export const SET_NASDAQ_CURRENT = "SET_NASDAQ_CURRENT";
+export const SET_CONNECT = "SET_CONNECT";
