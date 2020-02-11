@@ -72,6 +72,16 @@ app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
+//post request for changing FETCH_INTERVAL
+app.post('/:sec', function(req, res) {
+  try {
+    FETCH_INTERVAL = req.params.sec;
+    res.status(200).send();
+  } catch(error) {
+      res.status(400).send();
+  }
+});
+
 io.sockets.on('connection', function(socket) {
   socket.on('ticker', function(ticker) {
     trackTicker(socket, ticker);

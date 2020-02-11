@@ -1,3 +1,82 @@
-.stock-ticker {
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
+  .stock-ticker {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    .loading {
+      font-size: 2rem;
+      text-align: center;
+    }
+  
+    .reload-time {
+      text-align: center;
+      // justify-content: center;
+  
+      form {
+        select {
+          width: 330px;
+          height: 40px;
+          font-size: 1.4rem;
+          background: none;
+          border: 1px solid black;
+          padding-left: 10px;
+        }
+  
+        button {
+          height: 40px;
+          width: 90px;
+          background: none;
+          border: none;
+          background: black;
+          color: #fff;
+          font-size: 1.4rem;
+          cursor: pointer;
+        }
+      }
+    }
+    
+    li {
+      list-style-type: none;
+    }
+  
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+  
+    .info-list {
+      ul {
+        padding: 0;
+        margin: 0;
+        width: 550px;
+        justify-content: center;
+        margin: 0 auto;
+        li {
+          font-size: 1.5rem;
+          display: flex;
+          margin-top: 5px;
+          width: 100%;
+          border: 2px solid black;
+          padding: 15px;
+          border-radius: 6px;
+  
+          .show-change {
+            margin-left: 10px;
+            float: right;
+            div {
+              display: flex;
+            }
+  
+            div:first-child {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }  
+  }
 }
