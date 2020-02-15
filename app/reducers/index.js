@@ -1,8 +1,6 @@
-const stockTicker = (state = {}, action) => {
-    switch (action.type) {
-        default:
-            return state;
-    }
-};
+import { combineReducers } from 'redux';
 
-export default stockTicker;
+import Ticket from './ticker';
+export default combineReducers({
+    Ticket
+});
