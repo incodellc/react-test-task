@@ -1,7 +1,4 @@
-import {
-    TICKET,
-    successAction
-} from '../types';
+import { TICKET, successAction } from '../types';
 const initialState = {
     data: []
 };
@@ -13,5 +10,7 @@ export default function Ticket(state = initialState, action) {
                 ...state,
                 data: [...state.data, action.data]
             };
+        default:
+            return state;
     }
 }
