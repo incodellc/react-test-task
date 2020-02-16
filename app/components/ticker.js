@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect as ioConnect } from '../services';
-
+import '../styles/application.scss';
 import Tickers from './tickerPrice';
 import { connect } from 'react-redux';
 import { getTicker } from '../store/selectors/selectors';
@@ -18,17 +18,23 @@ class TickerTable extends React.Component {
     render() {
         console.log('render ticker', this.props.ticker);
         return (
-      <div>
-        ticker
-        {this.props.ticker.map(ticker => (
-          <Tickers ticker={ticker} />
-        ))}
+      <div className="table">
+        <div className="actual-price">
+          actual Price
+          {(this.props.ticker[this.props.ticker.length - 1] || {}).price}
+        </div>
+        <div className="price">
+          Price History
+          {this.props.ticker.map(ticker => (
+            <Tickers ticker={ticker} />
+          ))}
+        </div>
       </div>
     );
     }
 }
 TickerTable.propTypes = {
-    ticker: PropTypes.object,
+    ticker: PropTypes.array,
     newTicker: PropTypes.func
 };
 function mapStateToProps(state) {

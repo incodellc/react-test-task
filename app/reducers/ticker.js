@@ -8,7 +8,10 @@ export default function Ticket(state = initialState, action) {
             console.log('this is TICKER', action);
             return {
                 ...state,
-                data: [...state.data, action.data]
+                data: [
+                    ...(state.data.length > 9 ? state.data.slice(-9) : state.data),
+                    action.data
+                ]
             };
         default:
             return state;

@@ -1,3 +1,28 @@
 .stock-ticker {
-
+}
+.table {
+  display: flex;
+  background-color: rgba(163, 161, 161, 0.493);
+  border: 1px black solid;
+  border-radius: 10px;
+  width: 90%;
+  flex-wrap: wrap;
+}
+.block {
+  border: 1px black solid;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 3px;
+}
+.price {
+  border: 1px black solid;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 3px;
+  width: 50%;
+}
+.actual-price {
+  width: 50%;
+  margin: 5px;
+  padding: 5px;
 }
