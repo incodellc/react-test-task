@@ -1,15 +1,14 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { connectToStreamServer, toggleTicker } from './store/actions/action-creators';
-import { tickersSelector } from './store/selectors';
+import { connectToStreamServer } from './store/actions/action-creators';
+import { isConnectedSelector } from './store/selectors';
 import { Sidebar, Segment } from 'semantic-ui-react';
-import { Layout, TickerList, TickerListItem } from './components';
+import { Layout, TickerList } from './components';
 
 const App = () => {
     const dispatch = useDispatch();
-    const tickers = useSelector(tickersSelector);
+    const isConnected = useSelector(isConnectedSelector); 
     const connectToStreamServerHandler = useCallback(() => dispatch(connectToStreamServer()), [dispatch]);
-    const toggleTickerHandler = useCallback((e, { id }) => dispatch(toggleTicker(id)), [dispatch]);
 
     useEffect(() => connectToStreamServerHandler(), [connectToStreamServerHandler]);
 
@@ -20,17 +19,7 @@ const App = () => {
                     animation='push'
                     visible={true}
                 >
-                    <TickerList>
-                        {
-                            tickers.map(ticker => (
-                                <TickerListItem
-                                    key={ticker.tickerId}
-                                    ticker={ticker}
-                                    onTickerClick={toggleTickerHandler}
-                                />
-                            ))
-                        }
-                    </TickerList>
+                    <TickerList />
                 </Sidebar>
                 <Sidebar.Pusher>
                     <Segment 

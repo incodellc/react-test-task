@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTicker } from '../../store/actions/action-creators';
+import { tickersSelector } from '../../store/selectors';
 import { List } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import { TickerListItem } from '../../components';
 
-const TickerList = ({ children }) => {
+const TickerList = () => {
+    const dispatch = useDispatch();
+    const tickers = useSelector(tickersSelector);
+    const toggleTickerHandler = useCallback((e, { id }) => dispatch(toggleTicker(id)), [dispatch]);
+
     return (
         <List 
             celled 
             selection 
             verticalAlign='middle'
         >
-            {children}
+            {
+                tickers.map(ticker => (
+                    <TickerListItem
+                        key={ticker.tickerId}
+                        ticker={ticker}
+                        onTickerClick={toggleTickerHandler}
+                    />
+                ))
+            }
         </List>
     );
-};
-
-TickerList.propTypes = {
-    children: PropTypes.node.isRequired
 };
 
 export default TickerList;
