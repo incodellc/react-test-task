@@ -1,8 +1,8 @@
 import React from 'react';
-import '../style.css';
+
 import PropTypes from 'prop-types';
 
-class Ticker extends React.Component {
+class Tickers extends React.Component {
     render() {
         return (
       <div className="">
@@ -11,8 +11,8 @@ class Ticker extends React.Component {
     );
     }
 }
-Ticker.propTypes = {
+Tickers.propTypes = {
     ticker: PropTypes.object
 };
 
-export default Ticker;
+export default Tickers;

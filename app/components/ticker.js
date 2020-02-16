@@ -1,15 +1,15 @@
 import React from 'react';
-import '../style.css';
-import Ticker from './tickerPrice';
+
+import Tickers from './tickerPrice';
 import { connect } from 'react-redux';
 import { getTicker } from '../store/selectors/selectors';
 import PropTypes from 'prop-types';
 class TickerTable extends React.Component {
     render() {
         return (
-      <div className="">
+      <div>
         {this.props.ticker.map(ticker => (
-          <Ticker ticker={ticker}></Ticker>
+          <Tickers ticker={ticker} />
         ))}
       </div>
     );
@@ -19,6 +19,6 @@ TickerTable.propTypes = {
     ticker: PropTypes.object
 };
 function mapStateToProps(state) {
-    return { ticker: getTicker(state) };
+    return { Ticker: getTicker(state) };
 }
 export default connect(mapStateToProps)(TickerTable);
