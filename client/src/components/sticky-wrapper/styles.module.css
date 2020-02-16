@@ -1,0 +1,13 @@
+.stickyWrapper {
+    margin-right: 18.5714rem !important;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.stickyWrapper :global .segment {
+    width: 100%;
+}
+
+.stickyWrapper :global .sticky .segment {
+    width: 100%;
+}

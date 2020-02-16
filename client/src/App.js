@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { connectToStreamServer } from './store/actions/action-creators';
 import { Sidebar, Segment } from 'semantic-ui-react';
-import { Layout, ConnectErrorWrapper, TickerList } from './components';
+import { Layout, ConnectErrorWrapper, TickerList, StickyWrapper } from './components';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -23,12 +23,9 @@ const App = () => {
                         <TickerList />
                     </Sidebar>
                     <Sidebar.Pusher>
-                        <Segment 
-                            basic
-                            style={{marginRight: '18.5714rem'}}
-                        >
+                        <StickyWrapper>
 
-                        </Segment>
+                        </StickyWrapper>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
             </ConnectErrorWrapper>
