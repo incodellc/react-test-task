@@ -20,14 +20,14 @@ class TickerTable extends React.Component {
         return (
       <div className="table">
         <div className="actual-price">
-          actual Price
+          actual Price =
           {(this.props.ticker[this.props.ticker.length - 1] || {}).price}
         </div>
         <div className="price">
-          Price History
           {this.props.ticker.map(ticker => (
             <Tickers ticker={ticker} />
           ))}
+          Price History
         </div>
       </div>
     );
