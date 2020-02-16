@@ -1,0 +1,20 @@
+.tickerListItem {
+    box-shadow: none !important;
+    padding: 0.25rem !important;
+}
+
+.tickerListItem:first-child {
+    border-top: none !important;
+}
+
+.tickerListItem :global .icon {
+    margin: 0 0 0 0.25rem !important;
+}
+
+.tickerListItem :global .priceup {
+    color: #21ba45!important;
+}
+
+.tickerListItem :global .pricedown {
+    color: #db2828!important;
+}

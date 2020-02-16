@@ -34,3 +34,17 @@ export const connectToStreamServer = () => {
         );
     };
 };
+
+export const toggleTicker = (tickerId) => {
+    return {
+        type: actionTypes.TOGGLE_TICKER,
+        tickerId
+    };
+};
+
+export const setHistoryLength = (lengthValue) => {
+    return {
+        type: actionTypes.SET_HISTORY_LENGTH,
+        lengthValue
+    };
+};
