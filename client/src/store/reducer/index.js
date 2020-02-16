@@ -2,7 +2,7 @@ import actionTypes from '../actions/action-types';
 import { fields, tickers, historyLengthOptions, rewriteObjectProps } from '../../utils';
 
 export const initState = {
-    connecting: false,
+    connecting: true,
     connected: false,
     fields: [...fields],
     tickers: [...tickers],
@@ -45,7 +45,8 @@ export const reducer = (state = initState, action) => {
 
         case actionTypes.STREAM_SERVER_DISCONNECT:
             return rewriteObjectProps(state, {
-                connected: false
+                connected: false,
+                connecting: false
             });
         
         case actionTypes.UPDATE_QUOTES:

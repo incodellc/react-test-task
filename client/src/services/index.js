@@ -2,9 +2,14 @@ import io from 'socket.io-client';
 
 export const tickerService = (tickers, connectCallback, resultCallback, disconnectCallback) => {
     const socket = io('/');
+    let timer = setTimeout(() => {
+        socket.disconnect();
+        disconnectCallback();
+    }, 10000);
 
     socket.on('connect', () => {
         console.log('connected');
+        clearTimeout(timer);
         connectCallback();
 
         for(let ticker of tickers) {

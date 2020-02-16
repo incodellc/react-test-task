@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Sidebar, Menu, Header, Icon, Button } from 'semantic-ui-react';
+import { useSelector } from 'react-redux';
+import { isConnectingSelector } from '../../store/selectors';
+import { Sidebar, Menu, Header, Icon, Button, Dimmer, Loader } from 'semantic-ui-react';
 import { InfoBar } from '../../components';
 import styles from './styles.module.css';
 import PropTypes from 'prop-types';
 
 const Layout = ({ children }) => {
     const [visible, setVisible] = useState(false);
+    const isConnecting = useSelector(isConnectingSelector);
 
     return (
         <React.Fragment>
@@ -48,7 +51,10 @@ const Layout = ({ children }) => {
                 <Sidebar.Pusher 
                     dimmed={visible}
                 >
-                    {children}
+                    {isConnecting 
+                        ? <Dimmer active inverted><Loader inverted>Connecting...</Loader></Dimmer>
+                        : children
+                    }
                 </Sidebar.Pusher>
             </Sidebar.Pushable>
         </React.Fragment>
