@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import Ticket from './ticker';
+import ticker from './ticker';
 export default combineReducers({
-    Ticket
+    ticker
 });

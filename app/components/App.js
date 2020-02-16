@@ -1,10 +1,9 @@
 import '../styles/application.scss';
-import { connect } from '../services';
+
 import React, { PureComponent } from 'react';
 import TickerTable from './ticker';
 
 // The below line is here as an example of getting prices
-connect('AAPL');
 
 export default class App extends PureComponent {
     render() {
