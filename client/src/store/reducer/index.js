@@ -1,5 +1,5 @@
 import actionTypes from '../actions/action-types';
-import { fields, tickers, rewriteObjectProps } from '../../utils';
+import { fields, tickers, historyLengthOptions, rewriteObjectProps } from '../../utils';
 
 export const initState = {
     connecting: false,
@@ -15,28 +15,7 @@ export const initState = {
         reverse: false
     },
     historyLength: 100,
-    historyLengthOptions: [
-        {
-            key: 100,
-            text: '100',
-            value: 100
-        },
-        {
-            key: 200,
-            text: '200',
-            value: 200
-        },
-        {
-            key: 500,
-            text: '500',
-            value: 500
-        },
-        {
-            key: 1000,
-            text: '1000',
-            value: 1000
-        }
-    ]
+    historyLengthOptions: [...historyLengthOptions]
 };
 
 export const reducer = (state = initState, action) => {
@@ -75,8 +54,21 @@ export const reducer = (state = initState, action) => {
             });
 
         case actionTypes.TOGGLE_TICKER:
+            {
+                let index = state.bannedTickerIds.findIndex(item => item === action.tickerId);
+                let bannedTickerIds = state.bannedTickerIds;
+                let newBannedTickerIds = index > -1 
+                    ? bannedTickerIds.slice(0, index).concat(bannedTickerIds.slice(index + 1, state.bannedTickerIds.length))
+                    : bannedTickerIds.concat(action.tickerId);
+                return rewriteObjectProps(state, {
+                    bannedTickerIds: newBannedTickerIds
+                });
+            }
 
         case actionTypes.SET_HISTORY_LENGTH:
+            return rewriteObjectProps(state, {
+                historyLength: action.lengthValue
+            });
 
         case actionTypes.APPLY_SORT_PARAMS:
             
