@@ -24,8 +24,9 @@ const quoteGen = (initQuotes) => {
             price = newPrice;
             changePercent = change / price
             if (newPrice <= 200 || newPrice >= 300) {
-                price = +prevQuotes[index].price - change;
-                changePercent = -1 * change / price
+                change = -change;
+                price = +prevQuotes[index].price + change;
+                changePercent = change / price
             }
         }
 

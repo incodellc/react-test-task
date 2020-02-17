@@ -3,27 +3,36 @@ import { Sticky, Segment } from 'semantic-ui-react';
 import styles from './styles.module.css';
 import PropTypes from 'prop-types';
 
-const StickyWrapper = ({ children }) => {
+const StickyWrapper = ({ children, stickyIndex }) => {
     let contextRef = createRef();
     const content = [].concat(children);
+    const contentUp = content.slice(0, stickyIndex);
+    const stickyContent = content[stickyIndex];
+    const contentDown = content.slice(stickyIndex + 1, content.length);
     return (
         <Segment 
             basic
             className={styles.stickyWrapper}
         >
             <div ref={contextRef}>
+                {contentUp.length > 0 ? <Segment basic>{contentUp}</Segment> : null}
                 <Sticky 
                     context={contextRef}
                 >
-                    <Segment basic>{content[0]}</Segment>
+                    <Segment basic>{stickyContent}</Segment>
                 </Sticky>
-                <Segment basic>{content[1]}</Segment>
+                {contentDown.length > 0 ? <Segment basic>{contentDown}</Segment> : null}
             </div>
         </Segment>
     );
 };
 
+StickyWrapper.defaultProps = {
+    stickyIndex: 0
+};
+
 StickyWrapper.propTypes = {
+    stickyIndex: PropTypes.number,
     children: PropTypes.node
 };
 

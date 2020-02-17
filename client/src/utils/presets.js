@@ -198,22 +198,22 @@ export const fields = [
 export const historyLengthOptions = [
     {
         key: 100,
-        text: '100',
+        text: '100 quotes',
         value: 100
     },
     {
         key: 200,
-        text: '200',
+        text: '200 quotes',
         value: 200
     },
     {
         key: 500,
-        text: '500',
+        text: '500 quotes',
         value: 500
     },
     {
         key: 1000,
-        text: '1000',
+        text: '1000 quotes',
         value: 1000
     }
 ];

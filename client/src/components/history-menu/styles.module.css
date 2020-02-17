@@ -1,0 +1,13 @@
+.historyMenu {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: unset;
+}
+
+.historyMenu :global .dropdown {
+    margin-left: 0.5rem !important;
+}
+
+.historyMenu :global .item b {
+    margin-left: 0.5rem !important;
+}

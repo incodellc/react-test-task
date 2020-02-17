@@ -7,5 +7,17 @@ import StickyWrapper from './sticky-wrapper';
 import QuoteFields from './quote-fields';
 import QuoteRow from './quote-row';
 import QuotesGrid from './quote-grid';
+import HistoryMenu from './history-menu';
 
-export { InfoBar, Layout, ConnectErrorWrapper, TickerList, TickerListItem, StickyWrapper, QuoteFields, QuoteRow, QuotesGrid };
+export { 
+    InfoBar, 
+    Layout, 
+    ConnectErrorWrapper, 
+    TickerList, 
+    TickerListItem, 
+    StickyWrapper, 
+    QuoteFields, 
+    QuoteRow, 
+    QuotesGrid, 
+    HistoryMenu
+};

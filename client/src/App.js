@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { connectToStreamServer } from './store/actions/action-creators';
 import { Sidebar } from 'semantic-ui-react';
-import { Layout, ConnectErrorWrapper, TickerList, StickyWrapper, QuoteFields, QuotesGrid } from './components';
+import { Layout, ConnectErrorWrapper, TickerList, StickyWrapper, QuoteFields, QuotesGrid, HistoryMenu } from './components';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -23,7 +23,10 @@ const App = () => {
                         <TickerList />
                     </Sidebar>
                     <Sidebar.Pusher>
-                        <StickyWrapper>
+                        <StickyWrapper 
+                            stickyIndex={1}
+                        >
+                            <HistoryMenu />
                             <QuoteFields />
                             <QuotesGrid />
                         </StickyWrapper>
