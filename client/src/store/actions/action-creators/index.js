@@ -42,9 +42,18 @@ export const toggleTicker = (tickerId) => {
     };
 };
 
+export const applySortParams = (target) => {
+    return {
+        type: actionTypes.APPLY_SORT_PARAMS,
+        target
+    };
+};
+
+
 export const setHistoryLength = (lengthValue) => {
     return {
         type: actionTypes.SET_HISTORY_LENGTH,
         lengthValue
     };
 };
+

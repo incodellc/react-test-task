@@ -7,6 +7,7 @@ export const fieldsSelector = createSelector(state => state.fields, fields => fi
 export const tickersSelector = createSelector(state => state.tickers, tickers => tickers);
 export const historyLengthSelector = createSelector(state => state.historyLength, historyLength => historyLength);
 export const historyLengthOptionsSelector = createSelector(state => state.historyLengthOptions, historyLengthOptions => historyLengthOptions);
+export const sortParamsSelector = createSelector(state => state.sortParams, sortParams => sortParams);
 
 export const isTickerBannedSelector = createSelector(
     state => state.bannedTickerIds,

@@ -6,6 +6,7 @@ import {
     tickersSelector,
     historyLengthSelector,
     historyLengthOptionsSelector,
+    sortParamsSelector,
     isTickerBannedSelector,
     lastQuoteByTickerSelector,
     displayedQuotesSelector
@@ -17,7 +18,7 @@ describe('Check selectors', () => {
     const mockState = { ...initState, quotes: [...quotesExample], bannedTickerIds: ['GOOGL'] }
 
     it('Check isConnectingSelector', () => {
-        expect(isConnectingSelector(mockState)).toEqual(false);
+        expect(isConnectingSelector(mockState)).toEqual(true);
     });
     it('Check isConnectedSelector', () => {
         expect(isConnectedSelector(mockState)).toEqual(false);
@@ -33,6 +34,9 @@ describe('Check selectors', () => {
     });
     it('Check historyLengthOptionsSelector', () => {
         expect(historyLengthOptionsSelector(mockState)).toEqual(expect.arrayContaining(historyLengthOptions));
+    });
+    it('Check sortParamsSelector', () => {
+        expect(sortParamsSelector(mockState)).toEqual(expect.objectContaining(mockState.sortParams));
     });
     it('Check isTickerBannedSelector', () => {
         expect(isTickerBannedSelector(mockState, 'GOOGL')).toEqual(true);

@@ -26,7 +26,7 @@ export const reducer = (state = initState, action) => {
                 connecting: true,
                 bannedTickerIds: [],
                 quotes: [],
-                sort: rewriteObjectProps(state.sort, {
+                sortParams: rewriteObjectProps(state.sortParams, {
                     target: null,
                     isDate: false,
                     order: null,
@@ -66,12 +66,32 @@ export const reducer = (state = initState, action) => {
                 });
             }
 
+        case actionTypes.APPLY_SORT_PARAMS:
+            {
+                let field = state.fields.find(field => field.name === action.target);
+                if (field.sortable) {
+                    let newOrderValue = 'ascending';
+                    let newReverseValue = false;
+                    if (state.sortParams.target === action.target) {
+                        newOrderValue = state.sortParams.order === 'ascending' ? 'descending' : 'ascending';
+                        newReverseValue = state.sortParams.reverse === false ? true : false;
+                    }
+                    return rewriteObjectProps(state, {
+                        sortParams: rewriteObjectProps(state.sortParams, {
+                            target: action.target,
+                            isDate: field.isDate,
+                            order: newOrderValue,
+                            reverse: newReverseValue
+                        })
+                    });
+                }
+                return state;
+            }
+
         case actionTypes.SET_HISTORY_LENGTH:
             return rewriteObjectProps(state, {
                 historyLength: action.lengthValue
             });
-
-        case actionTypes.APPLY_SORT_PARAMS:
             
         default:
             return state;

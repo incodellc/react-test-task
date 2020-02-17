@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { connectToStreamServer } from './store/actions/action-creators';
-import { Sidebar, Segment } from 'semantic-ui-react';
-import { Layout, ConnectErrorWrapper, TickerList, StickyWrapper } from './components';
+import { Sidebar } from 'semantic-ui-react';
+import { Layout, ConnectErrorWrapper, TickerList, StickyWrapper, QuoteFields, QuotesGrid } from './components';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -24,7 +24,8 @@ const App = () => {
                     </Sidebar>
                     <Sidebar.Pusher>
                         <StickyWrapper>
-
+                            <QuoteFields />
+                            <QuotesGrid />
                         </StickyWrapper>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>

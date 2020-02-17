@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 const StickyWrapper = ({ children }) => {
     let contextRef = createRef();
+    const content = [].concat(children);
     return (
         <Segment 
             basic
@@ -14,9 +15,9 @@ const StickyWrapper = ({ children }) => {
                 <Sticky 
                     context={contextRef}
                 >
-                    <Segment basic>{children[0]}</Segment>
+                    <Segment basic>{content[0]}</Segment>
                 </Sticky>
-                <Segment basic>{children[1]}</Segment>
+                <Segment basic>{content[1]}</Segment>
             </div>
         </Segment>
     );

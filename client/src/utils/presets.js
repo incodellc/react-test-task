@@ -146,50 +146,50 @@ export const tickers = [
 
 export const fields = [
     {
-        name: 'exchanger',
-        label: 'Exchange',
+        name: 'exchange',
+        alias: 'Exchange',
         isDate: false,
         sortable: false
     },
     {
         name: 'ticker',
-        label: 'Ticker',
+        alias: 'Ticker',
         isDate: false,
         sortable: true
     },
     {
         name: 'price',
-        label: 'Price',
+        alias: 'Price',
         isDate: false,
         sortable: true
     },
     {
         name: 'change',
-        label: 'Change',
+        alias: 'Change',
         isDate: false,
         sortable: true
     },
     {
         name: 'change_percent',
-        label: 'Change %',
+        alias: 'Change %',
         isDate: false,
         sortable: true
     },
     {
         name: 'dividend',
-        label: 'Dividend',
+        alias: 'Dividend',
         isDate: false,
         sortable: true
     },
     {
         name: 'yield',
-        label: 'Yield',
+        alias: 'Yield',
         isDate: false,
         sortable: true
     },
     {
         name: 'last_trade_time',
-        label: 'Last trade time',
+        alias: 'Last trade time',
         isDate: true,
         sortable: true
     }
