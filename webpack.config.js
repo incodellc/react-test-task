@@ -82,6 +82,10 @@ module.exports = {
         test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
         use: 'file-loader',
       },
+      {
+        test: /\.css$/,
+        loader: 'css-loader'
+      }
     ],
   },
 };

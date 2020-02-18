@@ -90,6 +90,9 @@ module.exports = {
         }, {
             test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
             loader: 'file'
+        }, {
+            test: /\.css$/,
+            loader: 'css-loader'
         }]
     },
     postcss: [
