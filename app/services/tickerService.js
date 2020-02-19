@@ -10,7 +10,7 @@ export const connect = (stockSymbol, callback) => {
 
         socket.on(stockSymbol, (data) => {
             console.log(data);
-            callback(data);
+            callback(JSON.parse(data));
         });
 
         socket.emit('ticker', stockSymbol);
