@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-let socket = null;
+export let socket = null;
 
 export const connect = (stockSymbol, response) => {
     socket = io('http://localhost:4000');
