@@ -18,7 +18,7 @@ class ProgressChangeValue extends PureComponent {
         const {isUpPrice} = this.state;
 
         return (
-            <p style={{color: isUpPrice ? '#3f8600' : '#cf1322'}}>
+            <p style={{color: isUpPrice ? '#3f8600' : '#cf1322', margin: 0}}>
                 <svg viewBox="64 64 896 896"
                      focusable="false"
                      width="1em" height="1em"

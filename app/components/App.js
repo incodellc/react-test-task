@@ -4,6 +4,7 @@ import {connect as serviceConnect} from '../services';
 import connect from 'react-redux/lib/components/connect';
 import React, {PureComponent} from 'react';
 import PricePanel from './PricePanel/PricePanel';
+import SelectInterval from './SelectInterval/SelectInterval';
 
 class App extends PureComponent {
     constructor(props) {
@@ -21,6 +22,7 @@ class App extends PureComponent {
     render() {
         return (
             <div className="stock-ticker">
+                <SelectInterval/>
                 <PricePanel/>
             </div>
         );

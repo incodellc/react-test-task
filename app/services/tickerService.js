@@ -20,3 +20,7 @@ export const connect = (stockSymbol, callback) => {
         console.log('disconnected');
     });
 };
+
+export const changeInterval = (newInterval) => {
+    socket.emit('changeInterval', newInterval);
+};
