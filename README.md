@@ -29,7 +29,9 @@ Once running, if you want to hide the redux dev monitor: ```CTRL+H``` or move it
 ## Run the tests
 1. Open a new bash shell
 2. ```cd app```
-3. ```npm run test_watch``` or ```yarn test_watch```
+3. ```npm run jest_test``` or ```yarn jest_test```
+4. To run tests, comment out css import in components/App.js, like so 
+ // import '../styles/application.scss';
 
 ## Requirements
 

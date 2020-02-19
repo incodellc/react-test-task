@@ -1,3 +1,58 @@
-.stock-ticker {
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+$primary-color: #ECF0F3;
+$table-back-color: #73939D;
+$text-color: #252525;
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: $primary-color;
+    display: flex;
+    justify-content: center;
+    margin-top: 15rem;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $text-color;
+    .stock-header {
+        text-align: center;
+    }
+}
+.stock-ticker {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid $table-back-color;
+    border-radius: 60px;
+    background: $table-back-color;
+    padding: .8rem 2rem 0 2rem;
+    height: 10rem;
+    width: 70vw;
+    text-align: center;
+
+    & > * {
+        padding: .3rem 0 .3rem 0;
+        width: 100%;
+    }
+}
+.ticker-changer {
+    width: 20%;
+    background-color: #75879D;
+}
+
+@media only screen and (max-width: 1024px) {
+    .stock-ticker {
+        height: 30vh;
+        flex-direction: column;
+        justify-content: center;
+        & > * {
+            display: flex;
+            justify-content: space-between;
+        }
+        & > *:not(:last-child) {
+            border-bottom: 1px dashed white;
+        }
+    }
 }

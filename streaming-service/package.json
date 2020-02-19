@@ -8,7 +8,9 @@
     "express": "3.21.2",
     "socket.io": "1.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
