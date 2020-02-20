@@ -1,0 +1,11 @@
+.menu {
+    height: 4rem !important;
+}
+
+.pushable {
+    padding-top: 4rem !important;
+}
+
+.pushable :global .pusher {
+    height: 100%;
+}

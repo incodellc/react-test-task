@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check HistoryMenu component component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ui borderless top fixed menu menu"
+    data-testid="layout-menu"
+  >
+    <div
+      class="item"
+    >
+      <h3
+        class="ui disabled header"
+        data-testid="layout-header"
+      >
+        <i
+          aria-hidden="true"
+          class="factory icon"
+          data-testid="layout-header-icon"
+        />
+        React Price Picker
+      </h3>
+    </div>
+    <div
+      class="right menu"
+    >
+      <div
+        class="item"
+      >
+        <a
+          class="ui basic circular button"
+          data-testid="layout-info-button"
+          role="button"
+        >
+          <i
+            aria-hidden="true"
+            class="info icon"
+            data-testid="layout-info-button-info-icon"
+          />
+          Info
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="pushable pushable"
+    data-testid="layout-body"
+  >
+    <div
+      class="ui segment ui overlay top sidebar infoBar"
+      data-testid="info-bar"
+    >
+      <div
+        class="ui container"
+      >
+        <div
+          class="ui stackable grid"
+        >
+          <div
+            class="three wide column"
+          />
+          <div
+            class="five wide column"
+          >
+            <h4
+              class="ui header"
+            >
+              Contacts
+            </h4>
+            <div
+              class="ui list"
+              role="list"
+            >
+              <div
+                class="item"
+                role="listitem"
+              >
+                <i
+                  aria-hidden="true"
+                  class="user icon"
+                />
+                <div
+                  class="content"
+                >
+                  Kirill Kopitsa
+                </div>
+              </div>
+              <div
+                class="item"
+                role="listitem"
+              >
+                <i
+                  aria-hidden="true"
+                  class="marker icon"
+                />
+                <div
+                  class="content"
+                >
+                  Dnipro, Ukraine
+                </div>
+              </div>
+              <div
+                class="item"
+                role="listitem"
+              >
+                <i
+                  aria-hidden="true"
+                  class="mail icon"
+                />
+                <div
+                  class="content"
+                >
+                  <a
+                    href="mailto:joseff.knecht@gmail.com"
+                  >
+                    joseff.knecht@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div
+                class="item"
+                role="listitem"
+              >
+                <i
+                  aria-hidden="true"
+                  class="github icon"
+                />
+                <div
+                  class="content"
+                >
+                  <a
+                    href="https://github.com/joseffone"
+                  >
+                    github.com/joseffone
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="five wide column"
+          >
+            <h4
+              class="ui header"
+            >
+              About project
+            </h4>
+            <p>
+              This site is a solution of the test task from InCode Group.
+            </p>
+          </div>
+          <div
+            class="three wide column"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="pusher"
+    >
+      <div
+        class="ui active transition visible inverted dimmer"
+        data-testid="layout-body-dimmer"
+        style="display: flex;"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="ui inverted text loader"
+          >
+            Connecting...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

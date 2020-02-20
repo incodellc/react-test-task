@@ -1,0 +1,512 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check TickerList component component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ui celled selection middle aligned list"
+    data-testid="ticker-list"
+    role="list"
+  >
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="AAPL"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-negative"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              213.41
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="pricedown"
+              >
+                -38.72
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="red arrow down big icon"
+            data-testid="ticker-list-item-icon-down"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          AAPL
+        </div>
+        <div
+          class="meta"
+        >
+          Apple Inc.
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="GOOGL"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-positive"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              253.86
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="priceup"
+              >
+                +5.59
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="green arrow up big icon"
+            data-testid="ticker-list-item-icon-up"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          GOOGL
+        </div>
+        <div
+          class="meta"
+        >
+          Alphabet Inc.
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="AMZN"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-positive"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              244.82
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="priceup"
+              >
+                +21.81
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="green arrow up big icon"
+            data-testid="ticker-list-item-icon-up"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          AMZN
+        </div>
+        <div
+          class="meta"
+        >
+          Amazon.com, Inc.
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="ADBE"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-positive"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              275.75
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="priceup"
+              >
+                +11.16
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="green arrow up big icon"
+            data-testid="ticker-list-item-icon-up"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          ADBE
+        </div>
+        <div
+          class="meta"
+        >
+          Adobe Systems Inc.
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="CSCO"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-negative"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              225.81
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="pricedown"
+              >
+                -12.73
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="red arrow down big icon"
+            data-testid="ticker-list-item-icon-down"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          CSCO
+        </div>
+        <div
+          class="meta"
+        >
+          Cisco Systems, Inc.
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="DISCK"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-positive"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              257.54
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="priceup"
+              >
+                +4.77
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="green arrow up big icon"
+            data-testid="ticker-list-item-icon-up"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          DISCK
+        </div>
+        <div
+          class="meta"
+        >
+          Discovery Inc.
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="EBAY"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-negative"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              210.04
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="pricedown"
+              >
+                -29.38
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="red arrow down big icon"
+            data-testid="ticker-list-item-icon-down"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          EBAY
+        </div>
+        <div
+          class="meta"
+        >
+          eBay Inc.
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="NFLX"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-negative"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              230.34
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="pricedown"
+              >
+                -13.58
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="red arrow down big icon"
+            data-testid="ticker-list-item-icon-down"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          NFLX
+        </div>
+        <div
+          class="meta"
+        >
+          Netflix
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="MSFT"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-positive"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              246.52
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="priceup"
+              >
+                +32.02
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="green arrow up big icon"
+            data-testid="ticker-list-item-icon-up"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          MSFT
+        </div>
+        <div
+          class="meta"
+        >
+          Microsoft Corporation
+        </div>
+      </div>
+    </div>
+    <div
+      class="item ui card tickerListItem"
+      data-testid="ticker-list-item"
+      id="TSLA"
+      role="listitem"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="glow right floated animating transition"
+          data-testid="ticker-list-item-negative"
+          style="animation-duration: 2000ms;"
+        >
+          <div
+            class="ui mini statistic"
+          >
+            <div
+              class="value"
+            >
+              204.50
+            </div>
+            <div
+              class="label"
+            >
+              <span
+                class="pricedown"
+              >
+                -45.42
+              </span>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            class="red arrow down big icon"
+            data-testid="ticker-list-item-icon-down"
+          />
+        </div>
+        <div
+          class="header"
+        >
+          TSLA
+        </div>
+        <div
+          class="meta"
+        >
+          Tesla Motors, Inc.
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
