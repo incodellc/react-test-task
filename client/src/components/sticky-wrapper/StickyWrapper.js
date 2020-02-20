@@ -11,12 +11,14 @@ const StickyWrapper = ({ children, stickyIndex }) => {
     const contentDown = content.slice(stickyIndex + 1, content.length);
     return (
         <Segment 
+            data-testid='sticky-wrapper'
             basic
             className={styles.stickyWrapper}
         >
             <div ref={contextRef}>
                 {contentUp.length > 0 ? <Segment basic>{contentUp}</Segment> : null}
                 <Sticky 
+                    data-testid='sticky-wrapper-fragment'
                     context={contextRef}
                 >
                     <Segment basic>{stickyContent}</Segment>

@@ -92,6 +92,21 @@ export const reducer = (state = initState, action) => {
             return rewriteObjectProps(state, {
                 historyLength: action.lengthValue
             });
+
+        case actionTypes.RESET_HISTORY:
+            return rewriteObjectProps(state, {
+                quotes: []
+            });
+
+        case actionTypes.RESET_SORT_PARAMS:
+            return rewriteObjectProps(state, {
+                sortParams: {
+                    target: null,
+                    isDate: false,
+                    order: null,
+                    reverse: false
+                }
+            });
             
         default:
             return state;

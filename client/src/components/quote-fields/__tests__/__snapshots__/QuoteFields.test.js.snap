@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check QuoteFields component component renders correctly 1`] = `
+<DocumentFragment>
+  <table
+    class="ui celled fixed sortable table quoteFields"
+    data-testid="quote-fields"
+  >
+    <thead
+      class=""
+    >
+      <tr
+        class=""
+      >
+        <th
+          class="disabled"
+          data-testid="quote-fields-cell"
+        >
+          Exchange
+        </th>
+        <th
+          class=""
+          data-testid="quote-fields-cell"
+        >
+          Ticker
+        </th>
+        <th
+          class=""
+          data-testid="quote-fields-cell"
+        >
+          Price
+        </th>
+        <th
+          class=""
+          data-testid="quote-fields-cell"
+        >
+          Change
+        </th>
+        <th
+          class=""
+          data-testid="quote-fields-cell"
+        >
+          Change %
+        </th>
+        <th
+          class=""
+          data-testid="quote-fields-cell"
+        >
+          Dividend
+        </th>
+        <th
+          class=""
+          data-testid="quote-fields-cell"
+        >
+          Yield
+        </th>
+        <th
+          class=""
+          data-testid="quote-fields-cell"
+        >
+          Last trade time
+        </th>
+      </tr>
+    </thead>
+  </table>
+</DocumentFragment>
+`;

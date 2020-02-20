@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check TickerListItem component component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="item ui card tickerListItem"
+    data-testid="ticker-list-item"
+    id="AAPL"
+    role="listitem"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="glow right floated animating transition"
+        data-testid="ticker-list-item-negative"
+        style="animation-duration: 2000ms;"
+      >
+        <div
+          class="ui mini statistic"
+        >
+          <div
+            class="value"
+          >
+            213.41
+          </div>
+          <div
+            class="label"
+          >
+            <span
+              class="pricedown"
+            >
+              -38.72
+            </span>
+          </div>
+        </div>
+        <i
+          aria-hidden="true"
+          class="red arrow down big icon"
+          data-testid="ticker-list-item-icon-down"
+        />
+      </div>
+      <div
+        class="header"
+      >
+        AAPL
+      </div>
+      <div
+        class="meta"
+      >
+        Apple Inc.
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

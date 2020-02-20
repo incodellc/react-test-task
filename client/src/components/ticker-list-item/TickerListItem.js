@@ -18,6 +18,7 @@ const TickerListItem = ({ ticker, onTickerClick }) => {
         ? null
         : (
             <Card
+                data-testid='ticker-list-item'
                 as={List.Item}
                 className={styles.tickerListItem}
                 id={ticker.tickerId}
@@ -27,25 +28,25 @@ const TickerListItem = ({ ticker, onTickerClick }) => {
                 <Card.Content>
                     <Transition
                         animation='glow'
-                        duration={1000}
+                        duration={2000}
                         visible={visible}
                     >
                         {lastQuoteByTicker.change < 0 
                             ?
-                                <div className='right floated'>
+                                <div data-testid='ticker-list-item-negative' className='right floated'>
                                     <Statistic size='mini'>
                                         <Statistic.Value>{lastQuoteByTicker.price}</Statistic.Value>
                                         <Statistic.Label><span className='pricedown'>{lastQuoteByTicker.change}</span></Statistic.Label>
                                     </Statistic>
-                                    <Icon size='big' color='red' name='arrow down' />
+                                    <Icon data-testid='ticker-list-item-icon-down' size='big' color='red' name='arrow down' />
                                 </div>
                             :
-                                <div className='right floated'>
+                                <div data-testid='ticker-list-item-positive' className='right floated'>
                                     <Statistic size='mini'>
                                         <Statistic.Value>{lastQuoteByTicker.price}</Statistic.Value>
                                         <Statistic.Label><span className='priceup'>{'+' + lastQuoteByTicker.change}</span></Statistic.Label>
                                     </Statistic>
-                                    <Icon size='big' color='green' name='arrow up' />
+                                    <Icon data-testid='ticker-list-item-icon-up' size='big' color='green' name='arrow up' />
                                 </div>
                         }
                     </Transition>

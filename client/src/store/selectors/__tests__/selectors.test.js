@@ -4,6 +4,7 @@ import {
     isConnectedSelector,
     fieldsSelector,
     tickersSelector,
+    actualHistoryLengthSelector,
     historyLengthSelector,
     historyLengthOptionsSelector,
     sortParamsSelector,
@@ -28,6 +29,9 @@ describe('Check selectors', () => {
     });
     it('Check tickersSelector', () => {
         expect(tickersSelector(mockState)).toEqual(expect.arrayContaining(tickers));
+    });
+    it('Check actualHistoryLengthSelector', () => {
+        expect(actualHistoryLengthSelector(mockState)).toEqual(mockState.quotes.length);
     });
     it('Check historyLengthSelector', () => {
         expect(historyLengthSelector(mockState)).toEqual(100);

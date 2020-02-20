@@ -12,7 +12,8 @@ const QuoteFields = () => {
     const applySortParamsHandler = useCallback((target) => dispatch(applySortParams(target)), [dispatch]);
 
     return (
-        <Table 
+        <Table
+            data-testid='quote-fields'
             sortable 
             celled 
             fixed
@@ -23,6 +24,7 @@ const QuoteFields = () => {
                     {
                         fields.map(field => (
                             <Table.HeaderCell
+                                data-testid='quote-fields-cell'
                                 key={field.name}
                                 disabled={!field.sortable}
                                 sorted={field.name === sortParams.target ? sortParams.order : null}

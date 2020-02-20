@@ -57,3 +57,14 @@ export const setHistoryLength = (lengthValue) => {
     };
 };
 
+export const resetHistory = () => {
+    return {
+        type: actionTypes.RESET_HISTORY
+    };
+};
+
+export const resetSortParams = () => {
+    return {
+        type: actionTypes.RESET_SORT_PARAMS
+    };
+};

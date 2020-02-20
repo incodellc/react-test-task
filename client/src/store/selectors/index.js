@@ -5,6 +5,7 @@ export const isConnectingSelector = createSelector(state => state.connecting, co
 export const isConnectedSelector = createSelector(state => state.connected, connected => connected);
 export const fieldsSelector = createSelector(state => state.fields, fields => fields);
 export const tickersSelector = createSelector(state => state.tickers, tickers => tickers);
+export const actualHistoryLengthSelector = createSelector(state => state.quotes.length, actualHistoryLength => actualHistoryLength);
 export const historyLengthSelector = createSelector(state => state.historyLength, historyLength => historyLength);
 export const historyLengthOptionsSelector = createSelector(state => state.historyLengthOptions, historyLengthOptions => historyLengthOptions);
 export const sortParamsSelector = createSelector(state => state.sortParams, sortParams => sortParams);

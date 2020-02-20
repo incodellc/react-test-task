@@ -12,6 +12,7 @@ const TickerList = () => {
 
     return (
         <List 
+            data-testid='ticker-list'
             celled 
             selection 
             verticalAlign='middle'

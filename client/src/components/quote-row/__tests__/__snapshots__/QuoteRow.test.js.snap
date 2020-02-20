@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check QuoteRow component component renders correctly 1`] = `
+<DocumentFragment>
+  <table
+    class="ui table"
+  >
+    <tbody
+      class=""
+    >
+      <tr
+        class="negative"
+        data-testid="quote-row"
+      >
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          NASDAQ
+        </td>
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          AAPL
+        </td>
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          <i
+            aria-hidden="true"
+            class="arrow alternate circle down icon"
+            data-testid="quote-cell-icon-down"
+          />
+          213.41
+        </td>
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          -38.72
+        </td>
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          -0.18
+        </td>
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          0.56
+        </td>
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          0.55
+        </td>
+        <td
+          class=""
+          data-testid="quote-cell"
+        >
+          15-02-20 23:40:17
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;

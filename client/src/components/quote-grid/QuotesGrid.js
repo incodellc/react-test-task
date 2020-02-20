@@ -9,6 +9,7 @@ const QuotesGrid = () => {
     const displayedQuotes = useSelector(displayedQuotesSelector);
     return (
         <Table
+            data-testid='quotes-grid'
             selectable
             celled
             fixed

@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check HistoryMenu component component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ui text historyMenu menu"
+    data-testid="history-menu"
+  >
+    <div
+      class="left menu"
+      data-testid="history-menu-left"
+    >
+      <div
+        class="item"
+      >
+        <span>
+          Quotes shown:
+        </span>
+        <b>
+          10 out of 10
+        </b>
+      </div>
+    </div>
+    <div
+      class="right menu"
+      data-testid="history-menu-right"
+    >
+      <div
+        class="item"
+      >
+        <span>
+          Max history length:
+        </span>
+        <div
+          aria-expanded="false"
+          class="ui inline scrolling dropdown"
+          data-testid="history-menu-dropdown"
+          role="listbox"
+          tabindex="0"
+        >
+          <div
+            aria-atomic="true"
+            aria-live="polite"
+            class="text"
+            role="alert"
+          >
+            100 quotes
+          </div>
+          <i
+            aria-hidden="true"
+            class="dropdown icon"
+          />
+          <div
+            class="menu transition"
+          >
+            <div
+              aria-checked="true"
+              aria-selected="true"
+              class="active selected item"
+              role="option"
+              style="pointer-events: all;"
+            >
+              <span
+                class="text"
+              >
+                100 quotes
+              </span>
+            </div>
+            <div
+              aria-checked="false"
+              aria-selected="false"
+              class="item"
+              role="option"
+              style="pointer-events: all;"
+            >
+              <span
+                class="text"
+              >
+                200 quotes
+              </span>
+            </div>
+            <div
+              aria-checked="false"
+              aria-selected="false"
+              class="item"
+              role="option"
+              style="pointer-events: all;"
+            >
+              <span
+                class="text"
+              >
+                500 quotes
+              </span>
+            </div>
+            <div
+              aria-checked="false"
+              aria-selected="false"
+              class="item"
+              role="option"
+              style="pointer-events: all;"
+            >
+              <span
+                class="text"
+              >
+                1000 quotes
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        class="item"
+        data-testid="history-menu-reset-history"
+      >
+        Reset History
+      </a>
+      <a
+        class="disabled item"
+        data-testid="history-menu-reset-sorting"
+      >
+        Reset Sorting
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -10,6 +10,7 @@ const ConnectErrorWrapper = ({ children, onReconnectClick }) => {
     const isConnected = useSelector(isConnectedSelector);
     const gag = (
         <Segment 
+            data-testid='connect-error-gag'
             basic 
             placeholder
             className={styles.gag}
@@ -21,6 +22,7 @@ const ConnectErrorWrapper = ({ children, onReconnectClick }) => {
                 Сonnection failed.
             </Header>
             <Button
+                data-testid='reconnect-button'
                 negative
                 onClick={onReconnectClick}
             >
@@ -28,7 +30,7 @@ const ConnectErrorWrapper = ({ children, onReconnectClick }) => {
             </Button>
         </Segment>
     );
-    
+
     return isConnected ? children : isConnecting ? null : gag;
 };
 

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 const InfoBar = ({ animation, direction, visible }) => (
     <Sidebar
+        data-testid='info-bar'
         as={Segment}
         className={styles.infoBar}
         animation={animation}

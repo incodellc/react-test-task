@@ -13,16 +13,18 @@ const Layout = ({ children }) => {
     return (
         <React.Fragment>
             <Menu 
+                data-testid='layout-menu'
                 className={styles.menu}
                 borderless 
                 fixed='top'
             >
                 <Menu.Item>
                     <Header 
+                        data-testid='layout-header'
                         as='h3' 
                         disabled
                     >
-                        <Icon name='factory' />React Price Picker
+                        <Icon data-testid='layout-header-icon' name='factory' />React Price Picker
                     </Header>
                 </Menu.Item>
                 <Menu.Menu 
@@ -30,17 +32,23 @@ const Layout = ({ children }) => {
                 >
                     <Menu.Item>
                         <Button 
+                            data-testid='layout-info-button'
                             as='a' 
                             basic 
-                            circular 
-                            icon={visible ? 'close' : 'info'} 
-                            content='Info' 
+                            circular
                             onClick={() => setVisible(!visible)} 
-                        />
+                        >
+                            {visible 
+                                ? <Icon data-testid='layout-info-button-close-icon' name='close' /> 
+                                : <Icon data-testid='layout-info-button-info-icon' name='info' />
+                            }
+                            Info
+                        </Button>
                     </Menu.Item>
                 </Menu.Menu>
             </Menu>
             <Sidebar.Pushable
+                data-testid='layout-body'
                 className={styles.pushable}
             >
                 <InfoBar 
@@ -52,7 +60,7 @@ const Layout = ({ children }) => {
                     dimmed={visible}
                 >
                     {isConnecting 
-                        ? <Dimmer active inverted><Loader inverted>Connecting...</Loader></Dimmer>
+                        ? <Dimmer data-testid='layout-body-dimmer' active inverted><Loader inverted>Connecting...</Loader></Dimmer>
                         : children
                     }
                 </Sidebar.Pusher>

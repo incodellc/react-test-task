@@ -1,43 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { fieldsSelector } from '../../store/selectors';
-import { Table, Transition, Icon } from 'semantic-ui-react';
+import { Table, Icon } from 'semantic-ui-react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
 const QuoteRow = ({ data }) => {
-    let [visible, setVisible] = useState(true);
     const fields = useSelector(fieldsSelector);
 
-    useEffect(() => setVisible(visible => !visible), [data]);
-
     return (
-        <Transition
-            animation='glow'
-            duration={1000}
-            visible={visible}
+        <Table.Row
+            data-testid='quote-row'
+            positive={data.change >= 0}
+            negative={data.change < 0}
         >
-            <Table.Row
-                positive={data.change >= 0}
-                negative={data.change < 0}
-            >
-                {
-                    fields.map(field => (
-                        <Table.Cell
-                            key={`${data.ticker}_${data.last_trade_time}_${field.name}`}
-                        >
-                            {field.name === 'price'
-                                ? data.change < 0 
-                                    ? <Icon name='arrow alternate circle down'/>
-                                    : <Icon name='arrow alternate circle up'/>
-                                : null 
-                            }
-                            {field.isDate ?  moment(data[field.name]).format('DD-MM-YY HH:mm:ss') : data[field.name]}
-                        </Table.Cell>
-                    ))
-                }
-            </Table.Row>
-        </Transition>
+            {
+                fields.map(field => (
+                    <Table.Cell
+                        data-testid='quote-cell'
+                        key={`${data.ticker}_${data.last_trade_time}_${field.name}`}
+                    >
+                        {field.name === 'price'
+                            ? data.change < 0 
+                                ? <Icon data-testid='quote-cell-icon-down' name='arrow alternate circle down'/>
+                                : <Icon data-testid='quote-cell-icon-up' name='arrow alternate circle up'/>
+                            : null 
+                        }
+                        {field.isDate ?  moment(data[field.name]).format('DD-MM-YY HH:mm:ss') : data[field.name]}
+                    </Table.Cell>
+                ))
+            }
+        </Table.Row>
     );
 };
 

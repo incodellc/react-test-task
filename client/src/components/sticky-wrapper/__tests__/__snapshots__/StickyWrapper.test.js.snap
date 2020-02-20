@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check StickyWrapper component component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ui basic segment stickyWrapper"
+    data-testid="sticky-wrapper"
+  >
+    <div>
+      <div
+        class="ui basic segment"
+      >
+        <div
+          data-testid="sticky-wrapper-target"
+        >
+          Content 1
+        </div>
+      </div>
+      <div
+        class=""
+        data-testid="sticky-wrapper-fragment"
+      >
+        <div />
+        <div
+          class="ui sticky"
+        >
+          <div
+            class="ui basic segment"
+          >
+            <div
+              data-testid="sticky-wrapper-target"
+            >
+              Content 2
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ui basic segment"
+      >
+        <div
+          data-testid="sticky-wrapper-target"
+        >
+          Content 3
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
