@@ -1,14 +1,14 @@
 'use strict';
 
 import React from 'react';
-import PricePanel from './PricePanel.js';
-import loader from './loader.svg';
+import ListBlocksData from '../ListBlocksData/ListBlocksData';
+import {PricePanel} from './PricePanel';
 
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
 import {describe, it} from 'mocha';
 import {expect} from 'chai';
 
-const context = {
+const data = {
     ticker: 'AAPL',
     exchange: 'NASDAQ',
     price: '252.83',
@@ -20,8 +20,15 @@ const context = {
 };
 
 describe('PricePanel', () => {
-    const wrapper = mount(<PricePanel/>, context);
+    const wrapper = shallow(<PricePanel stockTicker={{}}/>);
+
     it('should be render loader image', () => {
-        expect(wrapper.contains(<img src={loader} alt="loading" style={{margin: '0 auto'}}/>)).to.equal(true);
+        expect(wrapper.find('img')).to.have.lengthOf(1);
+    });
+
+    it('after update props should be render list data', () => {
+        wrapper.setProps({stockTicker: data}).update();
+        expect(wrapper.contains(<ListBlocksData objWithData={data}/>)).to.equal(true);
+        expect(wrapper.find('img')).to.have.lengthOf(0);
     });
 });

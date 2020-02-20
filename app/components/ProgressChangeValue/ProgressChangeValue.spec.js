@@ -13,7 +13,7 @@ describe('ProgressChangeValue', () => {
         expect(wrapper.state().isUpPrice).to.equal(true);
     });
 
-    it('should be wrapper component', () => {
+    it('should be render wrapper component', () => {
         expect(wrapper.find('p')).to.have.lengthOf(1);
     });
 

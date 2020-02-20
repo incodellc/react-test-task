@@ -4,17 +4,9 @@ import {connect as serviceConnect} from '../services';
 import connect from 'react-redux/lib/components/connect';
 import React, {PureComponent} from 'react';
 import PricePanel from './PricePanel/PricePanel';
-import SelectInterval from './SelectInterval/SelectInterval';
+import SelectIntervalUpdate from './SelectIntervalUpdate/SelectIntervalUpdate';
 
 class App extends PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidUpdate() {
-        console.log(this.props.stockTicker);
-    }
-
     componentDidMount() {
         serviceConnect('AAPL', this.props.updateStockTicker);
     }
@@ -22,7 +14,7 @@ class App extends PureComponent {
     render() {
         return (
             <div className="stock-ticker">
-                <SelectInterval/>
+                <SelectIntervalUpdate/>
                 <PricePanel/>
             </div>
         );

@@ -67,8 +67,8 @@ function trackTicker(socket, ticker) {
       fetchDataInterval();
     }, currentFetchInterval);
   };
-  fetchDataInterval();
 
+  fetchDataInterval();
 
   socket.on('disconnect', function() {
     clearInterval(timer);
@@ -93,6 +93,7 @@ io.sockets.on('connection', function(socket) {
 
   socket.on('changeInterval', function(newInterval) {
     currentFetchInterval = Number(newInterval);
+    console.log('Update interval')
   });
 });
 
