@@ -5,6 +5,7 @@
 ////
 var FETCH_INTERVAL = 5000;
 var PRETTY_PRINT_JSON = true;
+let currentFetchInterval = FETCH_INTERVAL;
 
 ////
 // START
@@ -52,9 +53,22 @@ function trackTicker(socket, ticker) {
   getQuote(socket, ticker);
 
   // every N seconds
-  var timer = setInterval(function() {
-    getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
+  let timer = null;
+  let intervalTime = null;
+
+  const fetchDataInterval = () => {
+    intervalTime = currentFetchInterval;
+    timer = setInterval(function() {
+      if (intervalTime === currentFetchInterval) {
+        getQuote(socket, ticker);
+        return;
+      }
+      clearTimeout(timer);
+      fetchDataInterval();
+    }, currentFetchInterval);
+  };
+
+  fetchDataInterval();
 
   socket.on('disconnect', function() {
     clearInterval(timer);
@@ -75,6 +89,11 @@ app.get('/', function(req, res) {
 io.sockets.on('connection', function(socket) {
   socket.on('ticker', function(ticker) {
     trackTicker(socket, ticker);
+  });
+
+  socket.on('changeInterval', function(newInterval) {
+    currentFetchInterval = Number(newInterval);
+    console.log('Update interval')
   });
 });
 
