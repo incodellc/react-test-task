@@ -3,7 +3,6 @@ import {connect} from '../services';
 import React, {PureComponent} from 'react';
 
 // The below line is here as an example of getting prices
-connect('AAPL');
 
 class App extends PureComponent {
     render() {
