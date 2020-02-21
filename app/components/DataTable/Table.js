@@ -6,6 +6,7 @@ import TableBody from './TableBody';
 
 const Table = (props)=> {
     function getLastTradeTime(tickerDataArr) {
+        console.log(tickerDataArr);
         const arrLen = tickerDataArr.length;
         return arrLen !== 0 ? tickerDataArr[arrLen - 1].last_trade_time : '0';
     }
