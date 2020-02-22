@@ -18,14 +18,18 @@ const Table = (props)=> {
         }
         return isUpArrow;
     }
-    const {tickerData} = props;
+    const {tickerDataArr} = props;
     return (
         <table>
-            <TableHead changeDate = {getLastTradeTime(tickerData)}/>
+            <TableHead changeDate = {getLastTradeTime(tickerDataArr)}/>
             <tbody>
-                {tickerData.map((item, idx, arr)=>{
+                {tickerDataArr.map((item, idx, arr)=>{
+                    const tableBodyProps = {ticker: item.ticker,
+                                            price: item.price,
+                                            dividend: item.dividend,
+                                            changePercent: item.change_percent};
                     return (<TableBody key={idx + 1}
-                                       tickerDataObj = {item}
+                                       tableBodyProps = {tableBodyProps}
                                        isUpArrow = {getUpOrDownArrow(item, idx, arr)}/>);
                 })}
             </tbody>
@@ -34,7 +38,7 @@ const Table = (props)=> {
 };
 
 Table.propTypes = {
-    tickerData: PropTypes.array
+    tickerDataArr: PropTypes.array
 };
 
 export default Table;
