@@ -8,17 +8,17 @@ const TableHead = ({changeDate})=> {
     }
     return (
     	<thead>
-  				<tr>
-                    <td colSpan={4}>
-                        {`Last change: ${getHumanTime(changeDate)}`}
-                    </td>
-                </tr>
-			    <tr>
-				    <th>Ticker</th>
-				    <th>Price</th>
-				    <th>Change, %</th>
-				    <th>Dividend</th>
-			    </tr>
+  			<tr>
+                <td colSpan={4}>
+                    {`Last change: ${getHumanTime(changeDate)}`}
+                </td>
+            </tr>
+			<tr>
+				<th>Ticker</th>
+				<th>Price</th>
+				<th>Change, %</th>
+				<th>Dividend</th>
+			</tr>
 		</thead>
     );
 };
