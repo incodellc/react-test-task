@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 import TableBody from './TableBody';
 
-describe('Tests from TableBody component', ()=>{
+describe('Tests for TableBody component', ()=>{
 	it('Renders the same number of cells as the data of one ticker', ()=>{
 		const mockTickerData = {first: '', 
 		                        second: '', 

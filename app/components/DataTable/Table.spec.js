@@ -4,6 +4,6 @@ import {shallow} from 'enzyme';
 
 import Tabel from './Tabel';
 
-discribe('Tests from Table component', ()=>{
-	
+discribe('Tests for Table component', ()=>{
+
 });

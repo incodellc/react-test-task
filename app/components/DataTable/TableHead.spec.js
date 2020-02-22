@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 import TableHead from './TableHead';
 
-describe('Tests from TableHead component', ()=>{
+describe('Tests for TableHead component', ()=>{
 	const wrapper = shallow(<TableHead />);
 	const thead = wrapper.find('thead');
 	it('The <thead> is drawn (only once)', ()=>{
