@@ -11,7 +11,7 @@ class App extends PureComponent {
         return (
             <div className="stock-ticker">
                 <h1>Stock Blotter</h1>
-                <TableContainer dataObj = {this.props.state}/>
+                <TableContainer dataObjArr = {this.props.state}/>
             </div>
         );
     }

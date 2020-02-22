@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Table from '../components/DataTable';
 
 const TableContainer = (props)=> {
-    return(<Table tickerDataArr = {props.dataObj}/>);
+    const {ticker, price, change_percent, dividend, last_trade_time} = props.dataObjArr;
+    console.log(ticker, price, change_percent, dividend, last_trade_time, props.dataObjArr);
+    return(<Table tickerDataArr = {props.dataObjArr}/>);
 };
 
 TableContainer.propTypes = {
-    dataObj: PropTypes.array,
+    dataObjArr: PropTypes.array,
 };
 
 export default TableContainer;
