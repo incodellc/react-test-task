@@ -2,24 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TableBody = (props)=> {
-    const {tableBodyProps, isUpArrow} = props;
-    const {ticker, price, changePercent, dividend} = tableBodyProps;
+    const {tickerData, isUpArrow} = props;
+
+    function getUpOrDownArrowForPrice(elem) {
+        let arrow;
+        if(elem === 'price') {
+            arrow = isUpArrow ? <span id="upArrow">&uarr;</span> :
+                                <span id="downArrow">&darr;</span>;
+        }else{
+            arrow = null;
+        }
+        return arrow;
+    }
     return (
         <tr>
-            <td id="ticker">{ticker}</td>
-            <td id="price">
-                {price}
-                {isUpArrow ? <span id="upArrow">&uarr;</span> :
-                             <span id="downArrow">&darr;</span>}
-            </td>
-            <td id="chngPercent">{`${changePercent}%`}</td>
-            <td id="dividend">{dividend}</td>
+            {Object.keys(tickerData).
+                map((item, idx)=>(
+                    <td key={idx + 1} id={item}>
+                        {tickerData[item]}
+                        {getUpOrDownArrowForPrice(item)}
+                    </td>
+                ))
+            }
         </tr>
 	);
 };
 
 TableBody.propTypes = {
-    tableBodyProps: PropTypes.object,
+    tickerData: PropTypes.object,
     isUpArrow: PropTypes.bool
 };
 
