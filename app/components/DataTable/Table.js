@@ -26,8 +26,8 @@ const Table = (props)=> {
                 {tickerDataArr.map((item, idx, arr)=>{
                     const tableBodyProps = {ticker: item.ticker,
                                             price: item.price,
-                                            dividend: item.dividend,
-                                            changePercent: item.change_percent};
+                                            changePercent: item.change_percent,
+                                            dividend: item.dividend};
                     return (<TableBody key={idx + 1}
                                        tableBodyProps = {tableBodyProps}
                                        isUpArrow = {getUpOrDownArrow(item, idx, arr)}/>);
