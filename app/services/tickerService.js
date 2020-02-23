@@ -12,10 +12,8 @@ export const connect = (stockSymbol, dispatch) => {
             // console.log(data);
             dispatch({type: 'LOAD_DATA', payload: JSON.parse(data)});
         });
-
         socket.emit('ticker', stockSymbol);
     });
-
     socket.on('disconnect', () => {
         console.log('disconnected');
     });

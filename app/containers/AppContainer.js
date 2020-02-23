@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {addDataThunkCreator as loadData} from '../thunkCreators';
+import {addDataThunkCreator as loadData, changeSpeed} from '../thunkCreators';
 
 import App from '../components/App';
 
@@ -16,12 +16,14 @@ class AppContainer extends React.Component {
 
 AppContainer.propTypes = {
     dataArr: PropTypes.array,
-    loadData: PropTypes.func
+    loadData: PropTypes.func,
+    changeSpeed: PropTypes.func,
+    spedData: PropTypes.number,
 };
 
 function mapSateToProps(state) {
-    const {dataArr} = state;
-    return {dataArr};
+    const {dataArr, spedData} = state;
+    return {dataArr, spedData};
 }
 
-export default connect(mapSateToProps, {loadData})(AppContainer);
+export default connect(mapSateToProps, {loadData, changeSpeed})(AppContainer);
