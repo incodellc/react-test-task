@@ -52,6 +52,7 @@ function trackTicker(socket, ticker) {
   getQuote(socket, ticker);
 
   // every N seconds
+
   var timer = setInterval(function() {
     getQuote(socket, ticker);
   }, FETCH_INTERVAL);

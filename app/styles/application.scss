@@ -1,3 +1,36 @@
-.stock-ticker {
+.stock-ticker #arrow{
+	position: absolute;
+	right: 10px;
+}
 
+.stock-ticker table{
+	border-collapse: collapse;
+}
+
+.stock-ticker table th{
+	width: 100px;
+}
+
+.stock-ticker tr td{
+	border: solid 1px black;
+}
+
+.stock-ticker td{
+	text-align: center;
+}
+
+.stock-ticker #price{
+	position: relative;
+}
+
+.stock-ticker #price #upArrow, #downArrow{
+	position: absolute;
+	right: 10px;
+}
+.stock-ticker #price #upArrow{
+	color: green;	
+}
+
+.stock-ticker #price #downArrow{
+	color: red;	
 }
