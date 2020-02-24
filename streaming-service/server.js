@@ -83,14 +83,13 @@ function getQuote(socket, ticker) {
 function trackTicker(socket, ticker) {
   console.log('track Ticker')
 
-  // run the first time immediately
-  getQuote(socket, ticker)
+  let interval = null
 
   const runFetchingInterval = () => {
     const time = FETCH_INTERVAL
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
       if (time == FETCH_INTERVAL) {
-        getQuote()
+        getQuote(socket, ticker)
         return
       }
 
@@ -100,7 +99,11 @@ function trackTicker(socket, ticker) {
     }, FETCH_INTERVAL)
   }
 
+  // run the first time immediately
+  getQuote(socket, ticker)
+  runFetchingInterval()
+
   socket.on('disconnect', function() {
-    clearInterval(timer)
+    clearInterval(interval)
   })
 }
