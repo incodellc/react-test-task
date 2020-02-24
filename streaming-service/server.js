@@ -14,6 +14,31 @@ var express = require('express')
 var http = require('http')
 var io = require('socket.io')
 var cors = require('cors')
+require('dotenv/config')
+
+var app = express()
+app.use(cors())
+var server = http.createServer(app)
+
+var io = io.listen(server)
+io.set('origins', '*:*')
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html')
+})
+
+io.sockets.on('connection', function(socket) {
+  socket.on('ticker', function(ticker) {
+    trackTicker(socket, ticker)
+  })
+
+  socket.on('changeInterval', ms => {
+    if (ms < 0) throw new Error('The fetch interval cannot be less than zero')
+    FETCH_INTERVAL = ms
+  })
+})
+
+server.listen(PORT, () => console.log('Server is running on port:', PORT))
 
 function getRandomValBetween(min, max, precision) {
   min = min === undefined ? 0 : min
@@ -61,46 +86,21 @@ function trackTicker(socket, ticker) {
   // run the first time immediately
   getQuote(socket, ticker)
 
-  // every N seconds
-  var timer = setInterval(function() {
-    getQuote(socket, ticker)
-  }, FETCH_INTERVAL)
+  const runFetchingInterval = () => {
+    const time = FETCH_INTERVAL
+    const interval = setInterval(() => {
+      if (time == FETCH_INTERVAL) {
+        getQuote()
+        return
+      }
+
+      // Clear and set new interval time
+      clearInterval(interval)
+      runFetchingInterval()
+    }, FETCH_INTERVAL)
+  }
 
   socket.on('disconnect', function() {
     clearInterval(timer)
   })
 }
-
-var app = express()
-app.use(cors())
-var server = http.createServer(app)
-
-var io = io.listen(server)
-io.set('origins', '*:*')
-
-app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/index.html')
-})
-
-// Change the fetch interval
-app.put('/:ms', (req, res) => {
-  try {
-    const ms = req.params.ms
-    if (ms < 0) throw new Error('The fetch interval cannot be less than zero')
-
-    FETCH_INTERVAL = ms
-    res
-      .status(200)
-      .json({ msg: `The fetch interval was changed: ${FETCH_INTERVAL}ms` })
-  } catch (error) {
-    res.status(200).json({ msg: error.message })
-  }
-})
-
-io.sockets.on('connection', function(socket) {
-  socket.on('ticker', function(ticker) {
-    trackTicker(socket, ticker)
-  })
-})
-
-server.listen(PORT, () => console.log('Server is running on port:', PORT))
