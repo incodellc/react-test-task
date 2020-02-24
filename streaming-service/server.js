@@ -62,9 +62,8 @@ function getUTCDate() {
   )
 }
 
-function getQuote(socket, ticker) {
-  var quote = {
-    ticker: ticker,
+function generateQuote() {
+  return {
     exchange: 'NASDAQ',
     price: getRandomValBetween(100, 300, 2),
     change: getRandomValBetween(0, 200, 2),
@@ -73,6 +72,10 @@ function getQuote(socket, ticker) {
     dividend: getRandomValBetween(0, 1, 2),
     yield: getRandomValBetween(0, 2, 2)
   }
+}
+
+function sendQuote(socket, ticker) {
+  const quote = generateQuote()
 
   socket.emit(
     ticker,
@@ -89,7 +92,7 @@ function trackTicker(socket, ticker) {
     const time = FETCH_INTERVAL
     interval = setInterval(() => {
       if (time == FETCH_INTERVAL) {
-        getQuote(socket, ticker)
+        sendQuote(socket, ticker)
         return
       }
 
@@ -100,7 +103,7 @@ function trackTicker(socket, ticker) {
   }
 
   // run the first time immediately
-  getQuote(socket, ticker)
+  sendQuote(socket, ticker)
   runFetchingInterval()
 
   socket.on('disconnect', function() {
