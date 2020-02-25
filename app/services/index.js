@@ -1,1 +1,2 @@
-export * from './tickerService';
+import socketApi from './tickerService';
+export default socketApi;

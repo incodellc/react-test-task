@@ -46,7 +46,7 @@ function getQuote(socket, ticker) {
 }
 
 function trackTicker(socket, ticker) {
-  console.log('track Ticker');
+  console.log('track Ticker' + FETCH_INTERVAL);
 
   // run the first time immediately
   getQuote(socket, ticker);
@@ -55,8 +55,18 @@ function trackTicker(socket, ticker) {
   var timer = setInterval(function() {
     getQuote(socket, ticker);
   }, FETCH_INTERVAL);
+  
+  socket.on('changeTime', function(setTimePrice) {
+    console.log('set interval server' + setTimePrice);
+    clearInterval(timer);
+    FETCH_INTERVAL = setTimePrice;
+    timer = setInterval(function() {
+      getQuote(socket, ticker);
+    }, FETCH_INTERVAL);
+  });
 
   socket.on('disconnect', function() {
+    console.log('Disconnect server');
     clearInterval(timer);
   });
 }

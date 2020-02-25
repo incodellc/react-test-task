@@ -1,26 +1,39 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Provider} from 'react-redux';
+import { connect } from 'react-redux';
 import {Route} from 'react-router-dom';
+import {history} from '../store/configureStore';
 import {ConnectedRouter} from 'react-router-redux';
-
-import App from '../components/App';
+import {appOperations} from '../reducers/app';
+import App from '../components/App/AppContainer';
 import DevTools from './DevTools';
 
-export default function Root({store, history}) {
-    return (
-        <Provider store={store}>
-            <div>
-                <ConnectedRouter history={history}>
-                    <Route path="/" component={App}/>
-                </ConnectedRouter>
-                <DevTools />
-            </div>
-        </Provider>
-    );
+class RootConnect extends React.Component {
+    constructor(props) {
+        super(props);
+        props.dispatch(appOperations.init());
+    }
+    render() {
+        return (
+        <div>
+            <ConnectedRouter history={history}>
+                <Route path="/" component={App}/>
+            </ConnectedRouter>
+            <DevTools />
+        </div>
+        );
+    }
 }
 
-Root.propTypes = {
-    store: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+function mapStateToProps(state) {
+    return state;
+}
+
+const Root = connect(mapStateToProps)(RootConnect);
+
+export default Root;
+
+RootConnect.propTypes = {
+    dispatch: PropTypes.func,
+    history: PropTypes.object.isRequired,
 };

@@ -1,8 +1,8 @@
-const stockTicker = (state = {}, action) => {
-    switch (action.type) {
-        default:
-            return state;
-    }
-};
+import { combineReducers } from 'redux';
+import app from './app';
+import price from './price';
 
-export default stockTicker;
+export default combineReducers({
+    app,
+    price,
+});
