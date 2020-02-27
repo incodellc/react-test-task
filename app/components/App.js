@@ -35,7 +35,7 @@ class App extends PureComponent {
     this.managePrices()
     return (
       <div className="stock-ticker">
-        <StockPanel />
+        <StockPanel firstPrice={this.prices[0]} />
         <PriceChart prices={this.prices} />
         <UpdateInterval />
       </div>
