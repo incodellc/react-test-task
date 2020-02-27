@@ -3,6 +3,8 @@
 ////
 // CONFIGURATION SETTINGS
 ////
+require('dotenv/config')
+
 const PORT = process.env.PORT || 4000
 const PRETTY_PRINT_JSON = true
 var FETCH_INTERVAL = 5000
@@ -14,7 +16,6 @@ var express = require('express')
 var http = require('http')
 var io = require('socket.io')
 var cors = require('cors')
-require('dotenv/config')
 
 var app = express()
 app.use(cors())
@@ -62,10 +63,11 @@ function getUTCDate() {
   )
 }
 
-function generateQuote() {
+function generateQuote(stockSymbol) {
   return {
+    stockSymbol,
     exchange: 'NASDAQ',
-    price: getRandomValBetween(100, 300, 2),
+    price: getRandomValBetween(250, 300, 2),
     change: getRandomValBetween(0, 200, 2),
     change_percent: getRandomValBetween(0, 1, 2),
     last_trade_time: getUTCDate(),
@@ -74,16 +76,16 @@ function generateQuote() {
   }
 }
 
-function sendQuote(socket, ticker) {
-  const quote = generateQuote()
+function sendQuote(socket, stockSymbol) {
+  const quote = generateQuote(stockSymbol)
 
   socket.emit(
-    ticker,
+    stockSymbol,
     PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote)
   )
 }
 
-function trackTicker(socket, ticker) {
+function trackTicker(socket, stockSymbol) {
   console.log('track Ticker')
 
   let interval = null
@@ -92,7 +94,7 @@ function trackTicker(socket, ticker) {
     const time = FETCH_INTERVAL
     interval = setInterval(() => {
       if (time == FETCH_INTERVAL) {
-        sendQuote(socket, ticker)
+        sendQuote(socket, stockSymbol)
         return
       }
 
@@ -103,7 +105,7 @@ function trackTicker(socket, ticker) {
   }
 
   // run the first time immediately
-  sendQuote(socket, ticker)
+  sendQuote(socket, stockSymbol)
   runFetchingInterval()
 
   socket.on('disconnect', function() {

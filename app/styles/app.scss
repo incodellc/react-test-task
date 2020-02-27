@@ -1,3 +1,9 @@
-.stock-ticker {
+@import './chart';
+@import './stock-panel';
+@import './update-interval';
 
+.stock-ticker * {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins';
 }

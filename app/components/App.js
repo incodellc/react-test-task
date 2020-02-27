@@ -1,20 +1,52 @@
 import '../styles/app.scss'
-import { connect } from '../services'
+import { connect as tickerConnect } from '../services'
+import { connect } from 'react-redux'
 import React, { PureComponent } from 'react'
+import PriceChart from './PriceChart.jsx'
+import { UPDATE_STOCK_TICKER } from '../reducers/types'
+import StockPanel from './StockPanel.jsx'
+import UpdateInterval from './UpdateInterval.jsx'
 
-// The below line is here as an example of getting prices
-connect('AAPL', data => {
-  console.log(data)
-})
+const PRICES_LEN = 15
 
 class App extends PureComponent {
+  constructor() {
+    super()
+    this.prices = []
+  }
+
+  componentDidMount() {
+    tickerConnect('AAPL', this.props.updateStockTicker)
+  }
+
+  managePrices() {
+    const { ticker } = this.props
+    const { price } = ticker
+    if (!price) return
+
+    if (this.prices.length >= PRICES_LEN) {
+      this.prices.shift()
+    }
+
+    this.prices.push(price)
+  }
+
   render() {
+    this.managePrices()
     return (
       <div className="stock-ticker">
-        <h1>Stock Blotter</h1>
+        <StockPanel />
+        <PriceChart prices={this.prices} />
+        <UpdateInterval />
       </div>
     )
   }
 }
 
-export default App
+const mapStateToProps = state => ({ ticker: state })
+const mapDispatchToProps = dispatch => ({
+  updateStockTicker: data =>
+    dispatch({ type: UPDATE_STOCK_TICKER, payload: data })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
