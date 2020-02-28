@@ -1,16 +1,17 @@
 import React, { useRef } from 'react'
+import { connect } from 'react-redux'
 import { changeInterval } from '../services/tickerService'
 
 const timeValues = [500, 1000, 5000, 10000]
 
-const UpdateInterval = () => {
+const UpdateInterval = ({ ticker }) => {
   const selectedValue = useRef(null)
   const dropdown = useRef(null)
 
   const dropdownChangeState = () => {
-    const isCollapsed = dropdown.current.classList.contains('collapsed')
-    const newClass = isCollapsed ? 'open' : 'collapsed'
-    const oldClass = isCollapsed ? 'collapsed' : 'open'
+    const isOpen = dropdown.current.classList.contains('open')
+    const oldClass = isOpen ? 'open' : 'collapsed'
+    const newClass = isOpen ? 'collapsed' : 'open'
 
     dropdown.current.classList.remove(oldClass)
     dropdown.current.classList.add(newClass)
@@ -28,12 +29,12 @@ const UpdateInterval = () => {
       <div className="dropdown-container">
         <button onClick={dropdownChangeState} className="dropdown-trigger">
           <span ref={selectedValue} className="value">
-            5 sec
+            {ticker.updateInterval / 1000} sec
           </span>
         </button>
-        <ul ref={dropdown} className="dropdown collapsed">
-          {timeValues.map(value => (
-            <li key={value} onClick={() => dropdownItemClick(value)}>
+        <ul ref={dropdown} className="dropdown">
+          {timeValues.map((value, index) => (
+            <li key={index} onClick={() => dropdownItemClick(value)}>
               <span>{value / 1000} sec</span>
             </li>
           ))}
@@ -43,4 +44,6 @@ const UpdateInterval = () => {
   )
 }
 
-export default UpdateInterval
+const mapStateToProps = state => ({ ticker: state })
+
+export default connect(mapStateToProps)(UpdateInterval)

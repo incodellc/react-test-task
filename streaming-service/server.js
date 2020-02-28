@@ -7,7 +7,7 @@ require('dotenv/config')
 
 const PORT = process.env.PORT || 4000
 const PRETTY_PRINT_JSON = true
-var FETCH_INTERVAL = 5000
+var UPDATE_INTERVAL = 5000
 
 ////
 // START
@@ -34,8 +34,8 @@ io.sockets.on('connection', function(socket) {
   })
 
   socket.on('changeInterval', ms => {
-    if (ms < 0) throw new Error('The fetch interval cannot be less than zero')
-    FETCH_INTERVAL = ms
+    if (ms < 0) throw new Error('The update interval cannot be less than zero')
+    UPDATE_INTERVAL = ms
   })
 })
 
@@ -72,7 +72,8 @@ function generateQuote(stockSymbol) {
     change_percent: getRandomValBetween(0, 1, 2),
     last_trade_time: getUTCDate(),
     dividend: getRandomValBetween(0, 1, 2),
-    yield: getRandomValBetween(0, 2, 2)
+    yield: getRandomValBetween(0, 2, 2),
+    updateInterval: UPDATE_INTERVAL
   }
 }
 
@@ -86,27 +87,25 @@ function sendQuote(socket, stockSymbol) {
 }
 
 function trackTicker(socket, stockSymbol) {
-  console.log('track Ticker')
-
   let interval = null
 
-  const runFetchingInterval = () => {
-    const time = FETCH_INTERVAL
+  const runUpdating = () => {
+    const time = UPDATE_INTERVAL
     interval = setInterval(() => {
-      if (time == FETCH_INTERVAL) {
+      if (time == UPDATE_INTERVAL) {
         sendQuote(socket, stockSymbol)
         return
       }
 
       // Clear and set new interval time
       clearInterval(interval)
-      runFetchingInterval()
-    }, FETCH_INTERVAL)
+      runUpdating()
+    }, UPDATE_INTERVAL)
   }
 
   // run the first time immediately
   sendQuote(socket, stockSymbol)
-  runFetchingInterval()
+  runUpdating()
 
   socket.on('disconnect', function() {
     clearInterval(interval)

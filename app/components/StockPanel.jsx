@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
 
-const StockPanel = ({ firstPrice, ticker }) => {
-  const priceFound = firstPrice && ticker.price
+const StockPanel = ({ initialPrice, ticker }) => {
+  const priceFound = initialPrice && ticker.price
 
   let priceUnitChanged = 0
   let pricePercentChanged = 0
@@ -13,9 +13,9 @@ const StockPanel = ({ firstPrice, ticker }) => {
     .fromNow()
 
   if (priceFound) {
-    priceUnitChanged = (ticker.price - firstPrice).toFixed(2)
+    priceUnitChanged = (ticker.price - initialPrice).toFixed(2)
     pricePercentChanged = (
-      ((ticker.price - firstPrice) / firstPrice) *
+      ((ticker.price - initialPrice) / initialPrice) *
       100
     ).toFixed(2)
 
