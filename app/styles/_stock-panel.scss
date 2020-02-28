@@ -6,12 +6,23 @@
   align-items: center;
   padding: 0 35px;
 
-  .stock-symbol {
-    span {
+  .exchange-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .stock-symbol {
       font-size: 40px;
       font-weight: 500;
       color: #fff;
       letter-spacing: 0.2rem;
+    }
+
+    .exchange {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+      letter-spacing: 0.05rem;
+      transform: translateY(-5px);
     }
   }
 
@@ -45,12 +56,8 @@
       }
 
       .change-units[data-change='decreased'],
-      .change-percent[data-change='increased'] {
+      .change-percent[data-change='decreased'] {
         color: $decreased;
-
-        &::before {
-          content: '-';
-        }
       }
     }
 
