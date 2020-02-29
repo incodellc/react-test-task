@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import { connect } from 'react-redux'
 import { changeInterval } from '../services/tickerService'
 
 const timeValues = [500, 1000, 5000, 10000]
@@ -44,6 +43,4 @@ const UpdateInterval = ({ ticker }) => {
   )
 }
 
-const mapStateToProps = state => ({ ticker: state })
-
-export default connect(mapStateToProps)(UpdateInterval)
+export default UpdateInterval

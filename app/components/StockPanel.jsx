@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import moment from 'moment'
 
 const StockPanel = ({ initialPrice, ticker }) => {
@@ -53,6 +52,4 @@ const StockPanel = ({ initialPrice, ticker }) => {
   )
 }
 
-const mapStateToProps = state => ({ ticker: state })
-
-export default connect(mapStateToProps)(StockPanel)
+export default StockPanel

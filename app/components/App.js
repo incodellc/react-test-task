@@ -20,24 +20,25 @@ class App extends PureComponent {
   }
 
   managePrices() {
-    const { ticker } = this.props
-    const { price } = ticker
+    const { price } = this.props.ticker
     if (!price) return
 
-    if (this.prices.length >= PRICES_LEN) {
-      this.prices.shift()
-    }
-
     this.prices.push(price)
+
+    if (this.prices.length > PRICES_LEN) {
+      this.prices.splice(0, this.prices.length - PRICES_LEN)
+    }
   }
 
   render() {
+    const { ticker } = this.props
     this.managePrices()
+
     return (
       <div className="stock-ticker">
-        <StockPanel initialPrice={this.prices[0]} />
+        <StockPanel ticker={ticker} initialPrice={this.prices[0]} />
         <PriceChart prices={this.prices} />
-        <UpdateInterval />
+        <UpdateInterval ticker={ticker} />
       </div>
     )
   }
