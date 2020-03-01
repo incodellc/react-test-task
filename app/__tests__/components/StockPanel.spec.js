@@ -25,7 +25,6 @@ describe('StockPanel component:', () => {
   }
 
   const wrapper = shallow(<StockPanel {...props} />)
-  console.log(wrapper.debug())
 
   describe('Render props:', () => {
     it('should render stockSymbol', () => {
@@ -93,21 +92,21 @@ describe('StockPanel component:', () => {
           }
         }
 
+        beforeEach(() => wrapper.setProps(nextProps))
+        after(() => wrapper.setProps(props))
+
         it('should render currentPrice', () => {
-          wrapper.setProps(nextProps)
           const { price } = nextProps.ticker
           expect(+wrapper.find('.current-price').text()).to.equal(price)
         })
 
         it('change units should have data-change attr value of `increased`', () => {
-          wrapper.setProps(nextProps)
           expect(wrapper.find('.change-units').prop('data-change')).to.equal(
             'increased'
           )
         })
 
         it('change percent should have data-change attr value of `increased`', () => {
-          wrapper.setProps(nextProps)
           expect(wrapper.find('.change-percent').prop('data-change')).to.equal(
             'increased'
           )
