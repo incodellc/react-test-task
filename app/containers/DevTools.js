@@ -1,7 +1,7 @@
-import React from 'react';
-import { createDevTools } from 'redux-devtools';
-import LogMonitor from 'redux-devtools-log-monitor';
-import DockMonitor from 'redux-devtools-dock-monitor';
+import React from 'react'
+import { createDevTools } from 'redux-devtools'
+import LogMonitor from 'redux-devtools-log-monitor'
+import DockMonitor from 'redux-devtools-dock-monitor'
 // import ChartMonitor from 'redux-devtools-chart-monitor';
 
 // Enable LogMonitor to view the tabular debugging output for the store
@@ -12,4 +12,4 @@ export default createDevTools(
     <LogMonitor />
     {/* <ChartMonitor /> */}
   </DockMonitor>
-);
+)
