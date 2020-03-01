@@ -1,3 +1,35 @@
 .stock-ticker {
+}
 
+.update-interval-btn {
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.update-interval-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.update-interval-content {
+    display: none;
+    position: absolute;
+    min-width: 100%;
+    z-index: 1;
+}
+
+.update-interval-content button {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.update-interval-dropdown:hover .update-interval-content {
+    display: block;
+}
+
+.update-interval-btn:focus,
+.update-interval-item:focus {
+    outline: none;
 }
