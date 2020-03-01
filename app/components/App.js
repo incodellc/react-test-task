@@ -31,8 +31,8 @@ class App extends PureComponent {
   }
 
   render() {
-    const { ticker } = this.props
     this.managePrices()
+    const { ticker } = this.props
 
     return (
       <div className="stock-ticker">
