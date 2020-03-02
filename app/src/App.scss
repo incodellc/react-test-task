@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  .row {
+    .name {
+      padding-right: 15px;
+      text-transform: capitalize;
+    }
+    .value {
+      font-weight: bold;
+      padding-right: 5px;
+    }
+    .arrow {
+      font-weight: bold;
+      &.arrow-up {
+        color: green;
+      }
+      &.arrow-down {
+        color: red;
+      }
+    }
+  }
+}
