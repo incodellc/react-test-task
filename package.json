@@ -4,15 +4,11 @@
   "description": "A boilerplate for playing around with react. Developed to be given as a test task for internship.",
   "main": "index.js",
   "scripts": {
-    "test_watch": "mocha --opts mocha.opts --watch app/**/*spec.js",
+    "test_watch": "jest --watch app/components/_tests_/App.spec.js",
+    "test": "react-scripts test --env=jsdom",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint ."
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   },
   "keywords": [
     "es6",
@@ -22,7 +18,9 @@
   "author": "Oleh Meleshko",
   "license": "MIT",
   "dependencies": {
+    "enzyme-adapter-react-16": "^1.15.2",
     "file-loader": "^0.9.0",
+    "jest": "^25.1.0",
     "moment": "^2.18.1",
     "prop-types": "^15.5.9",
     "react": "^15.0.2",
@@ -31,6 +29,8 @@
     "react-redux": "^4.4.5",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "next",
+    "react-scripts": "^3.4.0",
+    "react-test-renderer": "^16.13.0",
     "redux": "^3.5.2",
     "redux-thunk": "^2.2.0",
     "rxjs": "^5.4.3",
