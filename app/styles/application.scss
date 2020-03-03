@@ -1,3 +1,17 @@
-.stock-ticker {
-
+table,
+td {
+  border: 1px solid #000;
+}
+td {
+  padding: 5px;
+}
+.red,
+.green {
+  font-weight: bold;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
 }
