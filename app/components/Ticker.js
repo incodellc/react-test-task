@@ -7,37 +7,48 @@ class Ticker extends Component {
     componentDidMount() {
         connectSocket(this.props, this.props.tickerName);
     }
-    parsedDataView = () => {
-        const data = this.props.data ? Object.entries(JSON.parse(this.props.data)) : undefined;
-        let parsedData = null;
+    priceView = (difference) => {
+        if(difference >= 0) {
+            return <span> ( <span className = "dif-red"> {'+' + Math.abs(difference)}</span> ) </span>;
+        }
+        if(difference < 0) {
+            return <span> ( <span className = "dif-blue"> {'-' + Math.abs(difference)}</span> ) </span>;
+        }
+    }
+    preparedData = () => {
+        const data = this.props.data;
+        let dataView = null;
         if(data) {
             data[5][1] = new Date(data[5][1]).toUTCString();
-            parsedData = data.map((item, key) => {
+            const difference = Math.round((data[2][1] - this.props.oldPrice) * 100) / 100;
+            dataView = data.map((item, key) => {
                 const [name, value] = item;
-                return (<li  key={key}>
-                    {<span className = "names">{name.replace(/_/g, ' ')} :</span>}
-                    {<span className = "values">{value}</span>}
+                return (
+                <li  key={key}>
+                    <p className = "names">{name.replace(/_/g, ' ')} :</p>
+                    <p className = "values">{value}
+                    {name === 'price' ? this.priceView(difference) : ''}
+                    </p>
                 </li>);
             });
         }
-        return parsedData || 'Sorry. We have not had data yet';
+        return dataView || 'Sorry. We have not had data yet';
     }
     render() {
         return(
         <div className="ticker">
-            <ul className="data-wrapper">{this.parsedDataView()}</ul>
+            <ul className="data-wrapper">{this.preparedData()}</ul>
         </div>
         );
     }
 }
 
 export function mapStateToProps(state) {
-    return {
-        data: state.data,
-    };
+    return state;
 }
 Ticker.propTypes = {
-    data: PropTypes.string,
+    data: PropTypes.array,
     tickerName: PropTypes.string,
+    oldPrice: PropTypes.string
 };
 export default connect(mapStateToProps)(Ticker);
