@@ -1,15 +1,10 @@
-const init = {
-    data: null,
-    oldPrice: '0'
-};
-
-const stockTicker = (state = init, action) => {
+const stockTicker = (state = {}, action = {type: ''}) => {
     switch (action.type) {
         case 'UPDATEDATA':
-            const newData = Object.entries(JSON.parse(action.data));
+            const data = JSON.parse(action.data);
             return {
-                data: newData,
-                oldPrice: state.data ? state.data[2][1] : '0',
+                data,
+                oldPrice: Object.keys(state).length === 0  ? '0' : state.data.price,
             };
         default:
             return state;
