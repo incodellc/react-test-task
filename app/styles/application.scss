@@ -1,3 +1,35 @@
-.stock-ticker {
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+$table-thead-back-color: #8798C1;
+$table-tbody-back-color: #E1E1E1;
+* {
+    margin: 0;
+    padding: 0;
 }
+body {
+    background: #182952;
+    font-size: 1.4rem;
+    font-family: 'Roboto Slab', serif;
+}
+.stock-ticker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15rem;
+    table {
+        width: 80%;
+        th {
+            background-color: $table-thead-back-color;
+        }
+        &, th, td {
+            border: 1px solid #fff;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: .3rem;
+        }
+        td {
+            text-align: center;
+            background-color: $table-tbody-back-color;
+        }
+    }
+};
