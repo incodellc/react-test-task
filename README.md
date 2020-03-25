@@ -1,4 +1,7 @@
 
+############
+Я забыл форкнуть с начала, если что тот-же тест с коммитами тут --> https://github.com/Austral1a/react-test-task
+############
 # React Test Task
 ## Contains:
 
