@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { connect as connectSocket } from '../services';
+import { connect as connectSocket } from '../services/tickerService';
 import { connect } from 'react-redux';
 
+import TickerView from './TickerView';
 
 class Ticker extends Component {
   componentDidMount() {
@@ -11,17 +12,13 @@ class Ticker extends Component {
   render() {
     const { data } = this.props;
 
-    if (data) {
-      return(
-        <div>
-          <h1>{data.price}</h1>
-        </div>
-      );
-    }
+    const ticker = data ? <TickerView data={this.props} /> : null;
+    const loading = !data ? <h1>Loading...</h1> : null;
 
     return(
       <div>
-        <h1>Loading...</h1>
+        {ticker}
+        {loading}
       </div>
     );
   }
