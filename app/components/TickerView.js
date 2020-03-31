@@ -15,38 +15,38 @@ const TickerView = ({ data }) => {
   } = data;
 
   return (
-    <div>
-      <li>
-        <p>Ticker:</p>
-        <p>{ticker}</p>
+    <div className="ticker ticker_form">
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Ticker:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{ticker}</p>
       </li>
-      <li>
-        <p>Exchange:</p>
-        <p>{exchange}</p>
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Exchange:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{exchange}</p>
       </li>
-      <li>
-        <p>Price:</p>
-        <p>{price}</p>
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Price:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{price}</p>
       </li>
-      <li>
-        <p>Change:</p>
-        <p>{change}</p>
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Change:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{change}</p>
       </li>
-      <li>
-        <p>Change percent:</p>
-        <p>{change_percent}</p>
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Change percent:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{change_percent}</p>
       </li>
-      <li>
-        <p>Last Trade Time:</p>
-        <p>{new Date(last_trade_time).toUTCString()}</p>
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Last Trade Time:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{new Date(last_trade_time).toUTCString()}</p>
       </li>
-      <li>
-        <p>Dividend:</p>
-        <p>{dividend}</p>
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Dividend:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{dividend}</p>
       </li>
-      <li>
-        <p>Yield:</p>
-        <p>{yieldValue}</p>
+      <li className="ticker__list-item ticker__list-item_position">
+        <p className="ticker__list-item-data ticker__list-item-data_size">Yield:</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{yieldValue}</p>
       </li>
     </div>
   );
