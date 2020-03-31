@@ -1,20 +1,21 @@
 import '../styles/application.scss';
-import {connect} from '../services';
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 
-// The below line is here as an example of getting prices
-connect('AAPL');
+import Ticker from './Ticker';
 
 class App extends PureComponent {
-    render() {
-        return (
-            <div className="stock-ticker">
-                <h1>Stock Blotter</h1>
+  state = {
+    stockSymbol: 'AAPL',
+  };
 
-
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="stock-ticker">
+        <h1>Stock Blotter</h1>
+        <Ticker stockSymbol={this.state.stockSymbol} />
+      </div>
+    );
+  }
 }
 
 export default App;

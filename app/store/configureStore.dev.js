@@ -9,12 +9,9 @@ export const history = createHistory();
 const middleware = routerMiddleware(history);
 
 export function configureStore(initialState) {
-    return createStore(
-        rootReducer,
-        initialState,
-        compose(
-            applyMiddleware(thunkMiddleware, middleware),
-            DevTools.instrument()
-        )
-    );
+  return createStore(
+    rootReducer,
+    initialState,
+    compose(applyMiddleware(thunkMiddleware, middleware), DevTools.instrument())
+  );
 }
