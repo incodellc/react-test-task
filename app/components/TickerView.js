@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { differents } from '../services/differentsService';
+
 const TickerView = ({ data }) => {
   const {
     data: {
@@ -12,6 +14,7 @@ const TickerView = ({ data }) => {
       dividend,
       ['yield']: yieldValue,
     },
+    oldPrice,
   } = data;
 
   return (
@@ -26,7 +29,7 @@ const TickerView = ({ data }) => {
       </li>
       <li className="ticker__list-item ticker__list-item_position">
         <p className="ticker__list-item-data ticker__list-item-data_size">Price:</p>
-        <p className="ticker__list-item-data ticker__list-item-data_size">{price}</p>
+        <p className="ticker__list-item-data ticker__list-item-data_size">{price} (<span className="ticker__price-differents">{differents(price, oldPrice)}</span>)</p>
       </li>
       <li className="ticker__list-item ticker__list-item_position">
         <p className="ticker__list-item-data ticker__list-item-data_size">Change:</p>
