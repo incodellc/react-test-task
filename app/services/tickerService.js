@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 
 let socket = null;
 
-export const connect = (stockSymbol, ticker) => {
+export const connection = (stockSymbol, ticker) => {
     socket = io('http://localhost:4000');
 
     socket.on('connect', () => {

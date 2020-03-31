@@ -1,3 +1,38 @@
 .stock-ticker {
 
 }
+
+tr, th {
+  text-align: center;
+}
+
+td.price.arrow-down{
+  color: orangered;
+  position: relative;
+}
+td.price.arrow-up{
+  color: green;
+  position: relative;
+}
+td.price.arrow-down:after{
+  content: "";
+  position: absolute;
+  top: 19px;
+  right: -4px;
+  width:0;
+  height:0;
+  border: 10px solid transparent;
+  border-top-color: orangered;
+  border-bottom:0;
+}
+td.price.arrow-up:after{
+  content: "";
+  position: absolute;
+  top: 19px;
+  right: -4px;
+  width:0;
+  height:0;
+  border: 10px solid transparent;
+  border-bottom-color: green;
+  border-top:0;
+}
