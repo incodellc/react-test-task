@@ -1,4 +1,4 @@
-import '../styles/application.scss';
+import '../../styles/application.scss';
 import {connect} from '../services';
 import React, {PureComponent} from 'react';
 
