@@ -12,14 +12,26 @@ const connectionSocketFailure = (error) => ({
     payload: error
 });
 
-// const setFetchInterval = (interval) => ({
-//     type: 'SET_FETCH_INTERVAL',
-//     payload: interval
-// });
+const setFetchInterval = (interval) => ({
+    type: 'SET_FETCH_INTERVAL',
+    payload: interval
+});
+
+const startFetching = (dispatch, connectFunc) => () => {
+    dispatch(connectionSocket());
+    try {
+        connectFunc('AAPL', data => {
+            dispatch(connectionSocketSuccess(data));
+        });
+    } catch (error) {
+        dispatch(connectionSocketFailure(error));
+    }
+};
 
 export {
-    connectionSocket,
-    connectionSocketSuccess,
-    connectionSocketFailure
-    // setFetchInterval
+    // connectionSocket,
+    // connectionSocketSuccess,
+    // connectionSocketFailure,
+    startFetching,
+    setFetchInterval
 };

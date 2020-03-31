@@ -3,7 +3,7 @@
 ////
 // CONFIGURATION SETTINGS
 ////
-var FETCH_INTERVAL = 5000;
+var FETCH_INTERVAL = 500;
 var PRETTY_PRINT_JSON = true;
 
 ////
@@ -67,6 +67,16 @@ var server = http.createServer(app);
 
 var io = io.listen(server);
 io.set('origins', '*:*');
+
+//post request for changing FETCH_INTERVAL
+app.post('/:sec', function(req, res) {
+  try {
+    FETCH_INTERVAL = req.params.sec;
+    res.status(200).send();
+  } catch(error) {
+    res.status(400).send();
+  }
+});
 
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
