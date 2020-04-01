@@ -29,9 +29,6 @@ const startFetching = (dispatch, connectFunc) => () => {
 };
 
 export {
-    // connectionSocket,
-    // connectionSocketSuccess,
-    // connectionSocketFailure,
     startFetching,
     setFetchInterval
 };

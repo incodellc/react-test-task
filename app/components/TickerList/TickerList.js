@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 
 import {connection} from '../../services';
 import {startFetching } from '../../actions';
+import {Ticker} from '../Ticker/Ticker';
 
 
 class  TickerList extends React.Component {
@@ -42,18 +42,9 @@ class  TickerList extends React.Component {
                         {tickers.map((item, idx) => {
                             const isPositiveDynamic = !tickers[idx - 1] ? null : item.price >= tickers[idx - 1].price;
                             const className = isPositiveDynamic ? 'arrow-up' : 'arrow-down';
-                            console.log();
-                            return(<tr key={idx}>
-                                <th scope="row">{idx + 1}</th>
-                                <td>{item.ticker}</td>
-                                <td>{item.exchange}</td>
-                                <td className={`price ${className}`}>{item.price}</td>
-                                <td>{item.change}</td>
-                                <td>{item.change_percent}</td>
-                                <td>{moment(item.last_trade_time).format('LLL')}{" "}</td>
-                                <td>{item.dividend}</td>
-                                <td>{item.yield}</td>
-                            </tr>);
+                            return(
+                                <Ticker key={idx} id={idx + 1} item={item} className={className}/>
+                            );
                         })}
                         </tbody>
                     </table>

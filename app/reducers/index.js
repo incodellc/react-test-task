@@ -2,7 +2,7 @@ const initialState = {
     tickers: [],
     loading: true,
     error: null,
-    interval: 500
+    interval: JSON.parse(localStorage.getItem('interval')) || 500
 };
 const stockTicker = (state = initialState, action) => {
     switch (action.type) {

@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { setFetchInterval } from '../../actions';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import { setFetchInterval } from '../../actions';
 
 class SetIntervalForm extends React.Component {
     constructor(props) {
@@ -18,6 +17,7 @@ class SetIntervalForm extends React.Component {
     }
 
     setReloadTime(res) {
+        localStorage.setItem('interval', JSON.stringify(res));
         try {
             axios.post(`http://localhost:4000/${res}`);
         } catch(error) {
@@ -26,6 +26,7 @@ class SetIntervalForm extends React.Component {
     }
 
     render() {
+        const{interval} = this.props;
         return (
             <div className="set-interval-form col-md-4">
                 <form className="form-inline">
@@ -33,7 +34,7 @@ class SetIntervalForm extends React.Component {
                         <label>
                             Select data acquisition interval:
                         </label>
-                            <select className="form-control" value={this.props.interval} onChange={this.handleChange}>
+                            <select className="form-control" value={interval} onChange={this.handleChange}>
                                 <option value="500">500</option>
                                 <option value="1000">1000</option>
                                 <option value="1500">1500</option>
@@ -45,18 +46,13 @@ class SetIntervalForm extends React.Component {
                                 <option value="4500">4500</option>
                                 <option value="5000">5000</option>
                             </select>
-                        <button className="btn btn-light" onClick={() => this.setReloadTime(this.props.interval)}> Set interval </button>
+                        <button className="btn btn-light" onClick={() => this.setReloadTime(interval)}> Set interval </button>
                     </div>
                 </form>
             </div>
         );
     }
 }
-
-SetIntervalForm.propTypes = {
-    interval: PropTypes.number.isRequired,
-    setFetchInterval: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = (state) => {
     return {
@@ -66,6 +62,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     setFetchInterval
+};
+
+SetIntervalForm.propTypes = {
+    interval: PropTypes.number.isRequired,
+    setFetchInterval: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SetIntervalForm);
