@@ -45,7 +45,7 @@ class  TickerList extends React.Component {
                             return(
                                 <Ticker key={idx} id={idx + 1} item={item} className={className}/>
                             );
-                        })}
+                        }).reverse()}
                         </tbody>
                     </table>
                 </div>

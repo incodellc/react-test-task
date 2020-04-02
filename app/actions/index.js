@@ -1,19 +1,20 @@
+import * as actionTypes from '../constatns/actionTypes';
 const connectionSocket = () => ({
-    type: 'CONNECTION_SOCKET'
+    type: actionTypes.CONNECTION_SOCKET
 });
 
 const connectionSocketSuccess = (ticker) => ({
-    type: 'CONNECTION_SOCKET_SUCCESS',
+    type: actionTypes.CONNECTION_SOCKET_SUCCESS,
     payload: ticker
 });
 
 const connectionSocketFailure = (error) => ({
-    type: 'CONNECTION_SOCKET_FAILURE',
+    type: actionTypes.CONNECTION_SOCKET_FAILURE,
     payload: error
 });
 
 const setFetchInterval = (interval) => ({
-    type: 'SET_FETCH_INTERVAL',
+    type: actionTypes.SET_FETCH_INTERVAL,
     payload: interval
 });
 
@@ -29,6 +30,9 @@ const startFetching = (dispatch, connectFunc) => () => {
 };
 
 export {
+    connectionSocket,
+    connectionSocketSuccess,
+    connectionSocketFailure,
     startFetching,
     setFetchInterval
 };

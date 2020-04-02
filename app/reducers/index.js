@@ -1,19 +1,21 @@
-const initialState = {
+import * as actionTypes from '../constatns/actionTypes';
+
+export const initialState = {
     tickers: [],
-    loading: true,
+    loading: false,
     error: null,
     interval: JSON.parse(localStorage.getItem('interval')) || 500
 };
 const stockTicker = (state = initialState, action) => {
     switch (action.type) {
-        case 'CONNECTION_SOCKET':
+        case actionTypes.CONNECTION_SOCKET:
             return {
                 ...state,
                 tickers: [],
                 loading: true,
                 error: null
             };
-        case 'CONNECTION_SOCKET_SUCCESS':
+        case actionTypes.CONNECTION_SOCKET_SUCCESS:
             const newTickersArr = [...state.tickers, action.payload];
             return {
                 ...state,
@@ -21,14 +23,14 @@ const stockTicker = (state = initialState, action) => {
                 loading: false,
                 error: null
             };
-        case 'CONNECTION_SOCKET_FAILURE':
+        case actionTypes.CONNECTION_SOCKET_FAILURE:
             return {
                 ...state,
                 tickers: [],
                 loading: false,
                 error: action.payload
             };
-        case 'SET_FETCH_INTERVAL':
+        case actionTypes.SET_FETCH_INTERVAL:
             return {
                 ...state,
                 interval: action.payload
