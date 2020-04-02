@@ -1,6 +1,6 @@
 import '../../styles/application.scss';
 import React, {PureComponent} from 'react';
-import TickerList from '../TickerList/TickerList';
+import TickersContainer from '../../containers/TickersContainer/TickersContainer';
 import Header from '../Header/Header';
 
 class App extends PureComponent {
@@ -9,7 +9,7 @@ class App extends PureComponent {
             <div className="stock-ticker">
                 <div className="container">
                     <Header />
-                    <TickerList />
+                    <TickersContainer />
                 </div>
             </div>
         );
