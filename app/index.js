@@ -4,7 +4,12 @@ import { AppContainer } from 'react-hot-loader';
 import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
 
-const store = configureStore();
+const initialState = {
+    tickerData: [],
+    prevPrice: 0,
+};
+
+export const store = configureStore(initialState);
 
 render(
     <AppContainer>
