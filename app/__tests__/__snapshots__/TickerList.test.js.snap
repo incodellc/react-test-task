@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TickerList test should renders properly 1`] = `
+<div
+  className="table-responsive-lg"
+>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr>
+        <th
+          scope="col"
+        >
+          #
+        </th>
+        <th
+          scope="col"
+        >
+          Ticker
+        </th>
+        <th
+          scope="col"
+        >
+          Exchange
+        </th>
+        <th
+          scope="col"
+        >
+          Price
+        </th>
+        <th
+          scope="col"
+        >
+          Change
+        </th>
+        <th
+          scope="col"
+        >
+          Change percent
+        </th>
+        <th
+          scope="col"
+        >
+          Last trade time
+        </th>
+        <th
+          scope="col"
+        >
+          Dividend
+        </th>
+        <th
+          scope="col"
+        >
+          Yield
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <Ticker
+        className="arrow-up"
+        id={2}
+        item={
+          Object {
+            "change": "-0.36",
+            "change_percent": "-0.29",
+            "dividend": "0.55",
+            "exchange": "NASDAQ",
+            "last_trade_time": "Oct 21, 3:00PM EDT",
+            "price": "16.60",
+            "ticker": "AAPL",
+            "yield": "1.01",
+          }
+        }
+        key="1"
+      />
+      <Ticker
+        className="arrow-down"
+        id={1}
+        item={
+          Object {
+            "change": "-0.46",
+            "change_percent": "-0.39",
+            "dividend": "0.57",
+            "exchange": "NASDAQ",
+            "last_trade_time": "Oct 21, 4:00PM EDT",
+            "price": "116.60",
+            "ticker": "AAPL",
+            "yield": "1.96",
+          }
+        }
+        key="0"
+      />
+    </tbody>
+  </table>
+</div>
+`;

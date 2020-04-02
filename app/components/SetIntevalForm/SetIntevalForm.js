@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import { setFetchInterval } from '../../actions';
 
-class SetIntervalForm extends React.Component {
+export class SetIntervalForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);

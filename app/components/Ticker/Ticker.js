@@ -3,6 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 
 export const Ticker = ({id, item, className}) => {
+    const tradeTime = moment( new Date(item.last_trade_time)).format('HH:mm:ss, MM-DD');
     return (
         <tr>
             <th scope="row">{id}</th>
@@ -11,7 +12,7 @@ export const Ticker = ({id, item, className}) => {
             <td className={`price ${className}`}>{item.price}</td>
             <td>{item.change}</td>
             <td>{item.change_percent}</td>
-            <td>{moment(item.last_trade_time).format('LLL')}{" "}</td>
+            <td>{tradeTime}{" "}</td>
             <td>{item.dividend}</td>
             <td>{item.yield}</td>
         </tr>
