@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tickets Container test  Tickers Container initial in componentDidMount should renders properly 1`] = `
+<div>
+  0
+</div>
+`;
+
+exports[`Tickets Container test  Tickers Container initial should renders properly 1`] = `
+<div>
+  0
+</div>
+`;
+
+exports[`Tickets Container test  Tickers Container is error should renders properly 1`] = `
+<div>
+  <p
+    className="row"
+  >
+    ERROR!!!!!!!!!!!!!
+  </p>
+  0
+</div>
+`;
+
+exports[`Tickets Container test  Tickers Container is loading should renders properly 1`] = `
+<div>
+  <p
+    className="row"
+  >
+    Loading...
+  </p>
+  0
+</div>
+`;
+
+exports[`Tickets Container test  Tickers Container render < TickersList /> should renders properly 1`] = `
+<div>
+  <TickerList
+    tickers={
+      Array [
+        1,
+      ]
+    }
+  />
+</div>
+`;

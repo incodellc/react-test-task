@@ -12,12 +12,8 @@ describe('Tickets Container test ', () => {
     describe('Tickers Container initial', () => {
         const tickersContainer = shallow(<TickersContainer {...props} />);
 
-        it('should not render <p>', () => {
-            expect(tickersContainer.find('p')).toHaveLength(0);
-        });
-
-        it('should not render <TickersList />', () => {
-            expect(tickersContainer.find('TickerList')).toHaveLength(0);
+        it('should renders properly', () => {
+            expect(tickersContainer).toMatchSnapshot();
         });
     });
 
@@ -29,16 +25,12 @@ describe('Tickets Container test ', () => {
 
         const tickersContainer = shallow(<TickersContainer {...nextProps} />);
 
+        it('should renders properly', () => {
+            expect(tickersContainer).toMatchSnapshot();
+        });
+
         it ('should render preloader', () => {
             expect(tickersContainer.find('p').text()).toEqual('Loading...');
-        });
-
-        it ('should render only one <p>', () => {
-            expect(tickersContainer.find('p')).toHaveLength(1);
-        });
-
-        it ('should not render <TickersList />', () => {
-            expect(tickersContainer.find('TickerList')).toHaveLength(0);
         });
     });
 
@@ -50,16 +42,12 @@ describe('Tickets Container test ', () => {
 
         const tickersContainer = shallow(<TickersContainer {...nextProps} />);
 
+        it('should renders properly', () => {
+            expect(tickersContainer).toMatchSnapshot();
+        });
+
         it ('should render errorIndicator', () => {
             expect(tickersContainer.find('p').text()).toEqual('ERROR!!!!!!!!!!!!!');
-        });
-
-        it ('should render only one <p>', () => {
-            expect(tickersContainer.find('p')).toHaveLength(1);
-        });
-
-        it ('should not render <TickersList />', () => {
-            expect(tickersContainer.find('TickerList')).toHaveLength(0);
         });
     });
 
@@ -71,12 +59,31 @@ describe('Tickets Container test ', () => {
 
         const tickersContainer = shallow(<TickersContainer {...nextProps} />);
 
-        it ('should not render <p>', () => {
-            expect(tickersContainer.find('p')).toHaveLength(0);
+        it('should renders properly', () => {
+            expect(tickersContainer).toMatchSnapshot();
         });
 
         it ('should render <TickersList /> template', () => {
             expect(tickersContainer.find('TickerList')).toHaveLength(1);
         });
     });
+
+    describe('Tickers Container initial in componentDidMount', () => {
+        const mockFetchGetItems = jest.fn();
+        const nextProps = {
+            ...props,
+            startFetching: mockFetchGetItems
+        };
+
+        const tickersContainer = shallow(<TickersContainer {...nextProps} />);
+
+        it('should renders properly', () => {
+            expect(tickersContainer).toMatchSnapshot();
+        });
+
+        it ('should dispatches the `startFetching()` method it receives from props', () => {
+            expect(mockFetchGetItems).toHaveBeenCalledTimes(1);
+        });
+    });
+
 });
