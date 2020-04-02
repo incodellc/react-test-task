@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component test  should renders properly 1`] = `
+<div
+  className="row"
+>
+  <h1
+    className="col-lg-4 text-center"
+  >
+    Stock Blotter
+  </h1>
+  <Connect(SetIntervalForm) />
+</div>
+`;

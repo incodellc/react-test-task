@@ -12,7 +12,7 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
-    path.join(__dirname, 'app/index.js'),
+    path.join(__dirname, 'App/index.js'),
   ],
 
   output: {
@@ -23,12 +23,12 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.tpl.html',
+      template: 'App/index.tpl.html',
       inject: 'body',
       filename: 'index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
@@ -48,9 +48,14 @@ module.exports = {
         },
       },
       {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
         test: /\.json?$/,
