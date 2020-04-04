@@ -1,3 +1,37 @@
 .stock-ticker {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 15rem;
+}
 
+.priceBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.05rem solid grey;
+  border-radius: 0.5rem;
+
+  &-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 1rem 0;
+  }
+
+  &-price {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-element {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.25rem;
+  }
 }
