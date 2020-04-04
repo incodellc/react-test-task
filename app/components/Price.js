@@ -1,13 +1,25 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { useSelector } from 'react-redux';
 import { getTickerData } from '../selectors';
 
 const Price = () => {
     const tickerData = useSelector(getTickerData);
-    console.log('my data:', tickerData);
+    let parsedData;
+
+    if (tickerData) {
+        parsedData = JSON.parse(tickerData);
+    }
+
     return (
-<div>Hello</div>
-  );
+      <Fragment>
+        {parsedData && (
+            <p>
+              {parsedData.price}
+            </p>
+        )
+        }
+      </Fragment>
+    );
 };
 
 export default Price;
