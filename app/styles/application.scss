@@ -35,3 +35,18 @@
     padding: 0.5rem 0.25rem;
   }
 }
+
+.price {
+
+  &-positive {
+    color: green;
+  }
+
+  &-negative {
+    color: red;
+  }
+
+  &-neutral {
+    color: black;
+  }
+}

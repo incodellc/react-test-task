@@ -5,7 +5,8 @@ const stockTicker = (state = {}, action) => {
         case RECEIVE_DATA:
             return {
                 ...state,
-                data: action.payload
+                prevPrice: state.ticker ? state.ticker.price : 0,
+                ticker: action.payload
             };
 
         default:

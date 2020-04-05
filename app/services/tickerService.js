@@ -11,7 +11,7 @@ export const connect = (stockSymbol) => {
         console.log('connected');
 
         socket.on(stockSymbol, (data) => {
-            store.dispatch(receiveData(data));
+            store.dispatch(receiveData(JSON.parse(data)));
         });
 
         socket.emit('ticker', stockSymbol);
