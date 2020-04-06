@@ -1,13 +1,9 @@
 import React, {Fragment} from 'react';
-import { useSelector } from 'react-redux';
-import { getTickerData, getPriceChanging} from '../selectors';
+import PropTypes from 'prop-types';
 import '../styles/application.scss';
 import cn from 'classnames';
 
-const Price = () => {
-    const tickerData = useSelector(getTickerData);
-    const priceChanging = useSelector(getPriceChanging);
-
+const Price = ({tickerData, priceChanging}) => {
     return (
       <Fragment>
         {tickerData && (
@@ -35,6 +31,11 @@ const Price = () => {
         }
       </Fragment>
     );
+};
+
+Price.propTypes = {
+    tickerData: PropTypes.object,
+    priceChanging: PropTypes.string
 };
 
 export default Price;
