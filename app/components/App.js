@@ -2,8 +2,8 @@ import '../styles/application.scss';
 import {connect} from '../services';
 import {connect as connectRedux} from 'react-redux';
 import React, {PureComponent} from 'react';
-import { DataTable } from './DataTable';
-import { Chart } from './Chart';
+import { DataTable } from './DataTable/DataTable';
+import { Chart } from './Chart/Chart';
 import { getNewData } from '../actions/actions';
 import '../styles/application.scss';
 

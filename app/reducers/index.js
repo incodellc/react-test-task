@@ -1,6 +1,6 @@
 import { GET_NEW_DATA } from '../actions/actions';
 
-const stockTicker = (state, action) => {
+const stockTicker = (state = {}, action) => {
     switch (action.type) {
         case GET_NEW_DATA: {
             const newTickerData = [

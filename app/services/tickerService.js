@@ -10,8 +10,6 @@ export const connect = (stockSymbol, cb) => {
         console.log('connected');
 
         socket.on(stockSymbol, (data) => {
-            // console.log(data);
-            // console.log(cb);
             cb(JSON.parse(data));
         });
 
