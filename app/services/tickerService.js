@@ -1,4 +1,6 @@
 import io from 'socket.io-client';
+import {store} from '../index';
+import {receiveData} from '../actions';
 
 let socket = null;
 
@@ -9,7 +11,7 @@ export const connect = (stockSymbol) => {
         console.log('connected');
 
         socket.on(stockSymbol, (data) => {
-            console.log(data);
+            store.dispatch(receiveData(JSON.parse(data)));
         });
 
         socket.emit('ticker', stockSymbol);

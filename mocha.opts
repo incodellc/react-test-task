@@ -1,2 +1,5 @@
 --compilers js:babel-register
 --require babel-polyfill
+--require jsdom-global/register
+--require ignore-styles
+--require chai/register-expect

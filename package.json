@@ -4,15 +4,11 @@
   "description": "A boilerplate for playing around with react. Developed to be given as a test task for internship.",
   "main": "index.js",
   "scripts": {
+    "test": "mocha --opts mocha.opts",
     "test_watch": "mocha --opts mocha.opts --watch app/**/*spec.js",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint ."
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   },
   "keywords": [
     "es6",
@@ -22,13 +18,14 @@
   "author": "Oleh Meleshko",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.6",
     "file-loader": "^0.9.0",
     "moment": "^2.18.1",
     "prop-types": "^15.5.9",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-hot-loader": "^3.0.0-beta.2",
-    "react-redux": "^4.4.5",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "next",
     "redux": "^3.5.2",
@@ -37,6 +34,7 @@
     "socket.io-client": "^2.0.3"
   },
   "devDependencies": {
+    "@testing-library/react": "^9.3.2",
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.8.0",
     "babel-eslint": "^6.0.4",
@@ -52,7 +50,11 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "faker": "^4.1.0",
     "html-webpack-plugin": "^2.16.1",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^16.2.2",
+    "jsdom-global": "^3.0.2",
     "json-loader": "^0.5.4",
     "mocha": "^3.5.0",
     "mock-socket": "^7.0.0",
