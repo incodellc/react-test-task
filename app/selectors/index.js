@@ -3,15 +3,11 @@ export const getTickerData = state => {
 };
 
 export const getPrevPrice = state => {
-    if (state.prevPrice) {
-        return state.prevPrice;
-    }
+    return state.prevPrice;
 };
 
 export const getCurrPrice = state => {
-    if (state.ticker) {
-        return state.ticker.price;
-    }
+    return state.ticker && state.ticker.price;
 };
 
 export const getPriceChanging = state => {

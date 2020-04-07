@@ -2,9 +2,6 @@ import React from 'react';
 import { PriceTickerMock } from '../app/__mocks__/priceTicker.js';
 import Price from '../app/components/Price';
 import { render } from '@testing-library/react';
-import chai from 'chai';
-
-const expect = chai.expect;
 
 describe('<Price/>', () => {
     let priceMock;

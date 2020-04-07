@@ -1,8 +1,5 @@
-import chai from 'chai';
 import { PriceTickerMock } from '../app/__mocks__/priceTicker.js';
 import { getPriceChanging} from '../app/selectors';
-
-const expect = chai.expect;
 
 describe('getPriceChanging()', () => {
     let priceMock;

@@ -1,12 +1,13 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/application.scss';
 import cn from 'classnames';
 
 const Price = ({tickerData, priceChanging}) => {
+    if (!tickerData) {
+        return null;
+    }
     return (
-      <Fragment>
-        {tickerData && (
           <div className="priceBlock">
             <div className="priceBlock-title">
               AAPL
@@ -27,9 +28,6 @@ const Price = ({tickerData, priceChanging}) => {
               <div className="priceBlock-element">{`${tickerData.change_percent}%`}</div>
             </div>
         </div>
-        )
-        }
-      </Fragment>
     );
 };
 

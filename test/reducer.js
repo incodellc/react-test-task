@@ -1,8 +1,5 @@
-import chai from 'chai';
 import { PriceTickerMock } from '../app/__mocks__/priceTicker.js';
 import stockTicker from '../app/reducers/index.js';
-
-const expect = chai.expect;
 
 describe('stockTicker()', () => {
     let priceMock;
@@ -21,6 +18,7 @@ describe('stockTicker()', () => {
         });
 
         expect(newState.ticker).to.be.equal(priceMock);
+        expect(newState.prevPrice).to.be.equal(undefined);
     });
 
     it('prevPrice is updated', () => {
