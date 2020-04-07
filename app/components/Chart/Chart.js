@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import  PropTypes  from 'prop-types';
+import { dataType} from '../../constants';
 import {
     AreaChart,
     Area,
@@ -20,7 +22,7 @@ export class Chart extends PureComponent {
         })).reverse();
 
         return (
-            <div className="chart">
+            <div className="chart" data-test="chart">
                 <ResponsiveContainer>
                     <AreaChart
                         data={dataForChart}
@@ -49,3 +51,7 @@ export class Chart extends PureComponent {
         );
     }
 }
+
+Chart.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape(dataType)).isRequired,
+};

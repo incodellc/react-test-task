@@ -15,6 +15,11 @@
       "@babel/react"
     ]
   },
+  "jest": {
+    "setupFiles": [
+      "./app/setupTests.js"
+    ]
+  },
   "keywords": [
     "es6",
     "react",
@@ -69,6 +74,7 @@
     "postcss-loader": "^0.9.1",
     "proxyquire": "^1.8.0",
     "react-addons-test-utils": "^15.0.2",
+    "react-test-renderer": "^15.6.2",
     "redux-devtools": "^3.2.0",
     "redux-devtools-chart-monitor": "^1.6.1",
     "redux-devtools-dock-monitor": "^1.1.1",

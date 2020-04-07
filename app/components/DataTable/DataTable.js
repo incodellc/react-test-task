@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { dataType } from '../../constants';
 
 export const DataTable = ({ data }) => (
     <div className="table-container">
-        <table className="table">
+        <table className="table" data-test="table">
             <thead className="table__head">
             <tr className="table__row table__row_thead">
                 <th className="table__cell table__cell_thead">Ticker</th>
@@ -38,5 +39,5 @@ export const DataTable = ({ data }) => (
     </div>);
 
 DataTable.propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.arrayOf(PropTypes.shape(dataType)).isRequired
 };
