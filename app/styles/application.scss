@@ -1,3 +1,77 @@
+body {
+  margin: 0;
+  background-color: #131722;
+}
 .stock-ticker {
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
 
+  h1 {
+    text-align: center;
+    color: #0a59a4;
+  }
+
+  .delay-select {
+    justify-self: center;
+    width: 4em;
+    height: 2em;
+    border-radius: .3em;
+    background-color: #1d2031;
+    margin: 0 0 1em 0;
+    border: 1px solid #000;
+    color: #eee;
+  }
+  .delay-control {
+    display: flex;
+    margin: 1em auto;
+    label {
+      color: #fff;
+      font-weight: 500;
+      margin-right: .5em;
+    }
+    button {
+      background-color: #333752;
+      color: #fff;
+      border: 1px solid #131722;
+      margin: 0 .3em;
+      &:hover {
+        transition: .5s;
+        background-color: #26a59a;
+      }
+    }
+  }
+
+  .ticker-table {
+    padding: 0 .5em;
+    margin: 0 auto;
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1.6em;
+      align-items: center;
+    }
+    tr:nth-child(odd) {
+      background-color: #1d2031;
+    }
+    tr:nth-child(even) {
+      background: none;
+    }
+    th {
+      font-size: 1.1em;
+      padding: 0 1em;
+      text-align: start;
+      text-transform: capitalize;
+      color: #fafafa;
+    }
+    td {
+      padding: 0 1em;
+      font-weight: 600;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      span {
+        margin-left: 1em;
+      }
+    }
+  }
 }
