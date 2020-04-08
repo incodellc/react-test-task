@@ -10,6 +10,7 @@ class App extends PureComponent {
         return (
             <div className="stock-ticker">
                 <h1>Stock Blotter</h1>
+                <h2>test</h2>
 
 
             </div>
