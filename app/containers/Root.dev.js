@@ -3,16 +3,15 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {Route} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
-
-import App from '../components/App';
 import DevTools from './DevTools';
+import AppContainer from './AppContainer';
 
 export default function Root({store, history}) {
     return (
         <Provider store={store}>
             <div>
                 <ConnectedRouter history={history}>
-                    <Route path="/" component={App}/>
+                    <Route path="/" component={AppContainer}/>
                 </ConnectedRouter>
                 <DevTools />
             </div>
