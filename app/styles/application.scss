@@ -1,3 +1,46 @@
-.stock-ticker {
-
+body {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+}
+.green-background {
+  background: #cfff9c;
+}
+.red-background {
+  background: #ffa3a3;
+}
+#ticker-value {
+  width: 200px;
+  border: 0px solid black;
+  border-radius: 0px;
+  padding: 10pt 5pt;
+  font-weight: 300;
+  text-align: center;
+  font-size: 30pt;
+}
+select {
+  color: #585858;
+  font-weight: 400;
+  border-radius: 2px;
+  font-size: 1em;
+  line-height: 1.42;
+  padding: 8px 10px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDU1IDU2Ij4KPHBhdGggZD0iTTQ0LjU1NyAxOS40OTVjLTIuMDY5IDIuMDY5LTE2LjU1NCAxNi4wMzYtMTYuNTU0IDE2LjAzNnMtMTUuMDAyLTEzLjk2Ny0xNy4wNzEtMTYuMDM2LTMuMTA0IDMuMTA0LTMuMTA0IDMuMTA0bDIwLjE3NSAxOC42MjMgMTkuNjU4LTE4LjYyM2MwIDAtMS4wMzUtNS4xNzMtMy4xMDQtMy4xMDR6IiBmaWxsPSIjNTg1ODU4Ii8+Cjwvc3ZnPg==");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+  text-indent: 0.01px;
+  text-overflow: "";
+  border: 1px solid #ececec;
+  display: block;
+  margin: 0 0 20px;
+  max-width: 100%;
+  width: 100%;
 }
