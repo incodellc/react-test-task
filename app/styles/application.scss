@@ -1,3 +1,67 @@
-.stock-ticker {
+* {
+    padding: 0;
+    margin: 0;
+}
 
+.stock-ticker {
+    height: 90vh;
+
+}
+
+.card-container {
+    margin: auto;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: yellow;
+    text-align: center;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 13px 15px 25px 0px rgba(0,0,0,0.7);
+    font-size: large;
+}
+
+
+.card-header {
+    text-align: start;
+    background-color: orange;
+    border-radius: 12px;
+    padding: 10px
+}
+
+.card-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    text-align: start;
+}
+
+.section {
+    padding: 5px;
+    background-color:#0de3e8;
+    border-radius: 5px;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+
+.up {
+    border-color: green;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+
+.down {
+    border-color: red;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
