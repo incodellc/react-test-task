@@ -1,21 +1,24 @@
 import io from 'socket.io-client';
-
-let socket = null;
+import { store } from '../';
+import { updateTickerData } from '../modules/Tickers/actions';
 
 export const connect = (stockSymbol) => {
-    socket = io('http://localhost:4000');
+  const socket = io('http://localhost:4000');
 
-    socket.on('connect', () => {
-        console.log('connected');
+  socket.on('connect', () => {
+    console.log(`connected ${stockSymbol}`);
 
-        socket.on(stockSymbol, (data) => {
-            console.log(data);
-        });
-
-        socket.emit('ticker', stockSymbol);
+    socket.on(stockSymbol, (response) => {
+      const data = JSON.parse(response);
+      store.dispatch(updateTickerData({ name: data.ticker, data }));
     });
 
-    socket.on('disconnect', () => {
-        console.log('disconnected');
-    });
+    socket.emit('ticker', stockSymbol);
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`disconnected ${stockSymbol}`);
+  });
+
+  return socket;
 };

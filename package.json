@@ -4,7 +4,7 @@
   "description": "A boilerplate for playing around with react. Developed to be given as a test task for candidates/internship.",
   "main": "index.js",
   "scripts": {
-    "test_watch": "mocha --opts mocha.opts --watch app/**/*spec.js",
+    "test": "jest --coverage --watch",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint ."
@@ -17,8 +17,10 @@
   "author": "Oleh Meleshko",
   "license": "MIT",
   "dependencies": {
+    "chart.js": "^2.9.3",
     "connected-react-router": "^6.8.0",
     "file-loader": "^6.1.0",
+    "immer": "^7.0.9",
     "moment": "^2.28.0",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
@@ -35,18 +37,23 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
     "autoprefixer": "^6.3.6",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.8.0",
+    "canvas": "^2.6.1",
     "chai": "^4.1.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.9.1",
+    "escope": "^3.6.0",
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^4.4.1",
+    "jest": "^26.4.2",
     "json-loader": "^0.5.4",
     "mocha": "^3.5.0",
     "mock-socket": "^7.0.0",
@@ -66,5 +73,10 @@
     "url-loader": "^0.5.7",
     "webpack": "^4.44.1",
     "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
   }
 }

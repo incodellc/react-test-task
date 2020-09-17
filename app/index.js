@@ -4,26 +4,28 @@ import { AppContainer } from 'react-hot-loader';
 import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
 
-const store = configureStore();
+export const store = configureStore();
 
-render(
+document.addEventListener('DOMContentLoaded', () => {
+  render(
     <AppContainer>
-        <Root store={store} history={history} />
+      <Root store={store} history={history} />
     </AppContainer>,
-    document.getElementById('root')
-);
+    document.querySelector('#root')
+  );
+});
 
 if (module.hot) {
-    module.hot.accept('./containers/Root', () => {
-        const newConfigureStore = require('./store/configureStore');
-        const newStore = newConfigureStore.configureStore();
-        const newHistory = newConfigureStore.history;
-        const NewRoot = require('./containers/Root').default;
-        render(
-            <AppContainer>
-                <NewRoot store={newStore} history={newHistory} />
-            </AppContainer>,
-            document.getElementById('root')
-        );
-    });
+  module.hot.accept('./containers/Root', () => {
+    const newConfigureStore = require('./store/configureStore');
+    const newStore = newConfigureStore.configureStore();
+    const newHistory = newConfigureStore.history;
+    const NewRoot = require('./containers/Root').default;
+    render(
+      <AppContainer>
+        <NewRoot store={newStore} history={newHistory} />
+      </AppContainer>,
+      document.getElementById('root')
+    );
+  });
 }
