@@ -26,7 +26,14 @@ function getRandomValBetween(min, max, precision) {
 
 function getUTCDate() {
   var now = new Date();
-  return new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+  return new Date(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+    now.getUTCHours(),
+    now.getUTCMinutes(),
+    now.getUTCSeconds()
+  );
 }
 
 function getQuote(socket, ticker) {
@@ -42,7 +49,10 @@ function getQuote(socket, ticker) {
   quote.dividend = getRandomValBetween(0, 1, 2);
   quote.yield = getRandomValBetween(0, 2, 2);
 
-  socket.emit(ticker, PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote));
+  socket.emit(
+    ticker,
+    PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote)
+  );
 }
 
 function trackTicker(socket, ticker) {
@@ -52,11 +62,11 @@ function trackTicker(socket, ticker) {
   getQuote(socket, ticker);
 
   // every N seconds
-  var timer = setInterval(function() {
+  var timer = setInterval(function () {
     getQuote(socket, ticker);
   }, FETCH_INTERVAL);
 
-  socket.on('disconnect', function() {
+  socket.on('disconnect', function () {
     clearInterval(timer);
   });
 }
@@ -68,12 +78,12 @@ var server = http.createServer(app);
 var io = io.listen(server);
 io.set('origins', '*:*');
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
-io.sockets.on('connection', function(socket) {
-  socket.on('ticker', function(ticker) {
+io.sockets.on('connection', function (socket) {
+  socket.on('ticker', function (ticker) {
     trackTicker(socket, ticker);
   });
 });
