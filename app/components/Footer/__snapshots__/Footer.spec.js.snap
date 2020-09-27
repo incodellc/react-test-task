@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Footer component 1`] = `
+<div
+  className="stock-ticker__footer"
+>
+  <div
+    className="stock-ticker__footer-content"
+  >
+     © 2020 London Stock Exchange. All rights reserved.
+  </div>
+</div>
+`;

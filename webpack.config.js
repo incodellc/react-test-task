@@ -56,6 +56,17 @@ module.exports = {
         use: 'json-loader',
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          }
+        ],
+      },
+      {
         test: /\.scss$/,
         use: [
           {
@@ -78,8 +89,13 @@ module.exports = {
         },
       },
       {
-        test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
-        use: 'file-loader',
+        test: /\.(png|ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
+        use: {
+          loader:'file-loader',
+          options: {
+            esModule: false
+          }
+        }
       },
     ],
   },

@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import 'semantic-ui-css/semantic.min.css';
 import { AppContainer } from 'react-hot-loader';
 import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
