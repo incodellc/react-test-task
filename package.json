@@ -4,10 +4,11 @@
   "description": "A boilerplate for playing around with react. Developed to be given as a test task for candidates/internship.",
   "main": "index.js",
   "scripts": {
-    "test_watch": "mocha --opts mocha.opts --watch app/**/*spec.js",
+    "test_watch": "mocha --watch app/**/*spec.js",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "test": "mocha"
   },
   "keywords": [
     "es6",
@@ -33,12 +34,16 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "autoprefixer": "^6.3.6",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-polyfill": "^6.8.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.9.1",
@@ -53,6 +58,7 @@
     "postcss-loader": "^0.9.1",
     "proxyquire": "^1.8.0",
     "react-addons-test-utils": "^15.0.2",
+    "react-scripts": "^3.4.3",
     "redux-devtools": "^3.2.0",
     "redux-devtools-chart-monitor": "^1.6.1",
     "redux-devtools-dock-monitor": "^1.1.1",
