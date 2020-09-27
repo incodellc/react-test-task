@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header component 1`] = `
+<div
+  className="stock-wrapper__header"
+>
+  <div
+    className="stock-wrapper__header-logo"
+  >
+    <img
+      className="stock-wrapper__header-img"
+      src="londonStock.png"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,48 @@
+@import "../variables";
+
+.CustomFetchIntervalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10%;
+
+  @media (min-width: $layout-breakpoint-small) {
+    margin-left: 2em;
+    flex: 1;
+  }
+
+  &__label {
+    color: $textSecondary;
+  }
+
+  &__input {
+    border: 1px solid $inputBorder;
+    outline: none;
+    height: 30px;
+    text-align: start;
+    border-radius: 3px;
+    padding-left: 10px;
+    width: 13em;
+    position: relative;
+    background-color: $backgroundTransparent;
+    color: $textSecondary;
+
+    &:focus {
+      border-color: $inputBorderFocus;
+    }
+  }
+
+
+  &__footer {
+    padding-top: 2em;
+    position: relative;
+    align-self: stretch;
+  }
+
+  &__error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top:0.3em;
+  }
+}

@@ -1,0 +1,50 @@
+@import "../variables";
+
+.StockActivityTable {
+  margin-left: 10% !important;
+  width: 80% !important;
+
+  @media (min-width: $layout-breakpoint-small) {
+    width: 60% !important;
+  }
+
+  &__price {
+    color: $green;
+
+    &.down {
+      color: $red;
+    }
+  }
+
+  &__img {
+    @media (max-width: $layout-breakpoint-small) {
+      width: 6px;
+    }
+  }
+
+  &__cell {
+    color: $textSecondary;
+  }
+
+  &__price,
+  &__cell {
+    @media (max-width: $layout-breakpoint-small) {
+      padding: 0.4em 0 !important;
+      font-size: 10px;
+      text-align: center !important;
+    }
+  }
+}
+.ui.table th.one.wide {
+  color: $textSecondary !important;
+
+  @media (max-width: $layout-breakpoint-small) {
+    padding: 0.3em;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+.ui.inverted.table {
+  background: $backgroundTransparent;
+}
