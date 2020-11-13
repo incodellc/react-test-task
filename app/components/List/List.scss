@@ -1,0 +1,10 @@
+.list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.5s;
+}
+
+.list-visible {
+    max-height: 250px;
+    transition: max-height 1.5s;
+}

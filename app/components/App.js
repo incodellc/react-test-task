@@ -1,20 +1,25 @@
 import '../styles/application.scss';
-import {connect} from '../services';
-import React, {PureComponent} from 'react';
+import { connectDataProvider } from '../services';
+import React from 'react';
 
-// The below line is here as an example of getting prices
-connect('AAPL');
+import ActualPrice from './ActualPrice/ActualPrice';
+import Details from './Details/Details';
+import SelectIntervalDropdown from '../components/SelectIntervalDropdown/SelectIntervalDropdown';
 
-class App extends PureComponent {
-    render() {
-        return (
-            <div className="stock-ticker">
-                <h1>Stock Blotter</h1>
-
-
+const App = () => {
+    const intervals = [2, 5, 8, 10];
+    React.useEffect(() => {
+        connectDataProvider('AAPL');
+    }, []);
+    return (
+        <div className="app__container" data-testid="app">
+            <div className="app">
+                <ActualPrice />
+                <SelectIntervalDropdown intervals={intervals}/>
+                <Details/>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default App;

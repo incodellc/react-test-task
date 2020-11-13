@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {Route, BrowserRouter} from 'react-router-dom';
 
 import App from '../components/App';
-import DevTools from './DevTools';
+// import DevTools from './DevTools';
 
 export default function Root({ store }) {
     return (
@@ -14,7 +14,7 @@ export default function Root({ store }) {
                     <App />
                 </Route>
             </BrowserRouter>
-            <DevTools />
+            {/* <DevTools /> */}
         </Provider>
     );
 }

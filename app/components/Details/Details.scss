@@ -1,0 +1,29 @@
+.details {
+    background-color: #62c97e;
+    border-radius: 8px;
+    padding: 10px;
+    width: 220px;
+    height: fit-content;
+
+    h3 {
+        cursor: pointer;
+    }
+}
+
+.details__list-item {
+    padding: 5px 0;
+
+    .list__parameter {
+        font-size: 14px;
+        line-height: 1.1;
+        font-weight: normal;
+        padding-right: 5px;
+        font-style: italic;
+    }
+
+    .list__value {
+        font-size: 16px;
+        line-height: 1.1;
+        font-weight: normal;
+    }
+}
