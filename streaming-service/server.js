@@ -13,6 +13,8 @@ var express = require('express');
 var http = require('http');
 var io = require('socket.io');
 var cors = require('cors');
+var bodyParser = require('body-parser');
+var moment = require('moment');
 
 function getRandomValBetween(min, max, precision) {
   min = min === undefined ? 0 : min;
@@ -25,8 +27,7 @@ function getRandomValBetween(min, max, precision) {
 }
 
 function getUTCDate() {
-  var now = new Date();
-  return new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+  return moment().format("MMMM Do YYYY, h:mm:ss a");
 }
 
 function getQuote(socket, ticker) {
@@ -36,7 +37,7 @@ function getQuote(socket, ticker) {
   quote.ticker = ticker;
   quote.exchange = 'NASDAQ';
   quote.price = getRandomValBetween(100, 300, 2);
-  quote.change = getRandomValBetween(0, 200, 2);
+  quote.change = getRandomValBetween(-5, 5, 2);
   quote.change_percent = getRandomValBetween(0, 1, 2);
   quote.last_trade_time = getUTCDate();
   quote.dividend = getRandomValBetween(0, 1, 2);
@@ -46,24 +47,30 @@ function getQuote(socket, ticker) {
 }
 
 function trackTicker(socket, ticker) {
+  var timer;
   console.log('track Ticker');
+  console.log('socket1', socket);
 
   // run the first time immediately
   getQuote(socket, ticker);
 
-  // every N seconds
-  var timer = setInterval(function() {
+  var setOwnInterval = function() {
     getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
+    timer = setTimeout(setOwnInterval, FETCH_INTERVAL);
+  };
+
+  timer = setTimeout(setOwnInterval, FETCH_INTERVAL);
 
   socket.on('disconnect', function() {
-    clearInterval(timer);
+    clearTimeout(timer);
   });
 }
 
 var app = express();
 app.use(cors());
 var server = http.createServer(app);
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 var io = io.listen(server);
 io.set('origins', '*:*');
@@ -71,6 +78,13 @@ io.set('origins', '*:*');
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
 });
+
+app.post('/', function(request, response){
+    FETCH_INTERVAL = request.body.interval;
+    var interval = FETCH_INTERVAL.toString();
+    response.send(interval);
+});
+
 
 io.sockets.on('connection', function(socket) {
   socket.on('ticker', function(ticker) {

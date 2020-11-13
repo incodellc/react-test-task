@@ -5,7 +5,6 @@ import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
 
 const store = configureStore();
-
 render(
     <AppContainer>
         <Root store={store} history={history} />
@@ -27,3 +26,5 @@ if (module.hot) {
         );
     });
 }
+
+export {store};
