@@ -3,7 +3,7 @@
 ////
 // CONFIGURATION SETTINGS
 ////
-var FETCH_INTERVAL = 5000;
+var FETCH_INTERVAL = 500;
 var PRETTY_PRINT_JSON = true;
 
 ////

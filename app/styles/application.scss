@@ -1,3 +1,27 @@
 .stock-ticker {
+  .tickers {
+    border-top: 1px solid gray;
+    max-width: 500px;
+  }
 
+  .ticker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+
+    &__value {
+      text-align: right;
+      font-family: sans-serif;
+      font-weight: 600;
+    }
+  }
+
+  .increased {
+    color: green;
+  }
+
+  .decreased {
+    color: red;
+  }
 }
