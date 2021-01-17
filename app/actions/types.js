@@ -1,0 +1,3 @@
+const FETCH_TICKERS = 'FETCH_TICKERS';
+
+export { FETCH_TICKERS };
