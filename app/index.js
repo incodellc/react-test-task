@@ -1,10 +1,12 @@
+import 'bootstrap/scss/bootstrap.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
+import { configureStore, history } from './store/configureStore';
 
 const store = configureStore();
+
 
 render(
     <AppContainer>

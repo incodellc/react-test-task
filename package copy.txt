@@ -85,17 +85,27 @@
     "setupFilesAfterEnv": [
       "<rootDir>/app/setupTests.js"
     ],
+    "testDirectoryName": "build",
+    "testPathDirs": [
+      "app"
+    ],
+    "testFileExtensions": [
+      "spec.js"
+    ],
+    "unmockedModulePathPatterns": [
+      "/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
     "collectCoverageFrom": [
-      "app/**/*.{ts,js}"
+      "app/**/*.{ts,tsx,js,jsx}"
     ],
     "moduleNameMapper": {
       "\\.(css|less|scss|sss|styl)$": "<rootDir>/app/styleMock.js"
-    },
-    "coveragePathIgnorePatterns": [
-      "node_modules",
-      "app/containers",
-      "app/services",
-      "app/store"
-  ]
+    }
   }
 }

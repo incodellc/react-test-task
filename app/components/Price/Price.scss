@@ -1,0 +1,19 @@
+.price__wrapper {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  i {
+    font-size: 50px;
+  }
+  span {
+    font-size: 24px;
+  }
+  .down {
+    color: red;
+  }
+  .up {
+    color: greenyellow;
+  }
+}

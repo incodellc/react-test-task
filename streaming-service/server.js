@@ -5,7 +5,6 @@
 ////
 var FETCH_INTERVAL = 5000;
 var PRETTY_PRINT_JSON = true;
-
 ////
 // START
 ////
@@ -52,12 +51,18 @@ function trackTicker(socket, ticker) {
   getQuote(socket, ticker);
 
   // every N seconds
-  var timer = setInterval(function() {
-    getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
+  const setCustomInterval = (interval = FETCH_INTERVAL) =>
+    setInterval(function () {
+      getQuote(socket, ticker);
+    }, interval);
+  let customInterval = setCustomInterval();
 
-  socket.on('disconnect', function() {
-    clearInterval(timer);
+  socket.on('disconnect', function () {
+    clearInterval(customInterval);
+  });
+  socket.on('changeInterval', (interval) => {
+    clearInterval(customInterval);
+    customInterval = setCustomInterval(interval);
   });
 }
 
@@ -68,12 +73,12 @@ var server = http.createServer(app);
 var io = io.listen(server);
 io.set('origins', '*:*');
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
-io.sockets.on('connection', function(socket) {
-  socket.on('ticker', function(ticker) {
+io.sockets.on('connection', function (socket) {
+  socket.on('ticker', function (ticker) {
     trackTicker(socket, ticker);
   });
 });
