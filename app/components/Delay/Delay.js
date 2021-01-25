@@ -2,7 +2,6 @@ import React from 'react';
 import { FormGroup, Input, Label } from 'reactstrap';
 import Swal from 'sweetalert2';
 import { socket } from '../../services';
-import './Delay.scss';
 
 // eslint-disable-next-line
 const Delay = ({ intervals = [] }) => {
