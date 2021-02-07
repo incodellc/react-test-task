@@ -1,3 +1,42 @@
-.stock-ticker {
 
+#root,
+body {
+  height: 100vh;
+}
+.stock-ticker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  background-color: rgb(1, 1, 61);
+  color: white;
+  .app {
+    display: grid;
+    grid-template-rows: 75px auto 50px;
+    grid-template-columns: 250px 250px;
+    grid-template-areas: "title title title" " price delay details " ". . .";
+    width: 75%;
+    border: solid 2px greenyellow;
+    border-radius: 25px;
+    &__title {
+      margin: 10px auto;
+      grid-area: title;
+    }
+    &__price {
+      grid-area: price;
+    }
+    &__delay {
+      grid-area: delay;
+    }
+    &__details {
+      grid-area: details;
+    }
+    &__price,
+    &__delay,
+    &__details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }

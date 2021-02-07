@@ -4,10 +4,11 @@
   "description": "A boilerplate for playing around with react. Developed to be given as a test task for candidates/internship.",
   "main": "index.js",
   "scripts": {
-    "test_watch": "mocha --opts mocha.opts --watch app/**/*spec.js",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "test": "jest --watchAll",
+    "test-coverage": "jest --coverage --verbose --watchAll=false "
   },
   "keywords": [
     "es6",
@@ -17,38 +18,46 @@
   "author": "Oleh Meleshko",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^4.6.0",
+    "bootstrap-scss": "^4.5.3",
+    "classnames": "^2.2.6",
     "connected-react-router": "^6.8.0",
     "file-loader": "^6.1.0",
+    "lodash": "^4.17.20",
     "moment": "^2.28.0",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-hot-loader": "^4.12.21",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
+    "reactstrap": "^8.9.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "sweetalert2": "^10.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
     "autoprefixer": "^6.3.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.8.0",
-    "chai": "^4.1.1",
     "css-loader": "^0.23.1",
-    "enzyme": "^2.9.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^4.4.1",
+    "jest": "^26.6.3",
     "json-loader": "^0.5.4",
-    "mocha": "^3.5.0",
     "mock-socket": "^7.0.0",
     "postcss-loader": "^0.9.1",
     "proxyquire": "^1.8.0",
@@ -66,5 +75,27 @@
     "url-loader": "^0.5.7",
     "webpack": "^4.44.1",
     "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/app/setupTests.js"
+    ],
+    "collectCoverageFrom": [
+      "app/**/*.{ts,js}"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/app/styleMock.js"
+    },
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "app/containers",
+      "app/services",
+      "app/store"
+  ]
   }
 }

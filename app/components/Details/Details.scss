@@ -1,0 +1,32 @@
+
+.delais_container {
+  display: inline-block;
+
+  .up {
+    color: red;
+  }
+  .down {
+    color: greenyellow;
+  }
+  .toogle-detailt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 6px;
+    i {
+      font-size: 42px;
+    }
+  }
+  .list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.5s;
+    p {
+      margin: 5px 0;
+    }
+  }
+  .open {
+    max-height: 400px;
+    transition: max-height 1.5s;
+  }
+}
