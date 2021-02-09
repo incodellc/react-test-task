@@ -42,19 +42,24 @@ function getQuote(socket, ticker) {
   quote.dividend = getRandomValBetween(0, 1, 2);
   quote.yield = getRandomValBetween(0, 2, 2);
 
-  socket.emit(ticker, PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote));
+  socket.emit('ticker1', PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote));
 }
+let timer;
 
-function trackTicker(socket, ticker) {
+function trackTicker(socket, ticker, interval ) {
+
+  clearInterval(timer);
+
   console.log('track Ticker');
 
   // run the first time immediately
   getQuote(socket, ticker);
+  console.log(interval);
 
   // every N seconds
-  var timer = setInterval(function() {
+  timer = setInterval(function() {
     getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
+  }, Number(interval)*1000 || FETCH_INTERVAL);
 
   socket.on('disconnect', function() {
     clearInterval(timer);
@@ -73,9 +78,10 @@ app.get('/', function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
-  socket.on('ticker', function(ticker) {
-    trackTicker(socket, ticker);
+  socket.on('ticker', function(ticker, interval) {
+    trackTicker(socket, ticker, interval);
   });
+
 });
 
 server.listen(process.env.PORT || 4000);
