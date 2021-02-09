@@ -1,21 +1,20 @@
 import io from 'socket.io-client';
+import { SOCKET_PATH } from '../constans';
 
-let socket = null;
+let _socket = null;
 
-export const connect = (stockSymbol) => {
-    socket = io('http://localhost:4000');
+export const socket = () => _socket || (_socket = io(SOCKET_PATH));
 
-    socket.on('connect', () => {
-        console.log('connected');
+export const setInterval = (interval) => socket().emit('interval', interval);
 
-        socket.on(stockSymbol, (data) => {
-            console.log(data);
-        });
-
-        socket.emit('ticker', stockSymbol);
+export const connect = (stockName, interval, callback) => {
+    socket().on('connect', () => {
+        socket().emit('ticker', stockName, interval);
+        socket().on(stockName, (stock) => callback(JSON.parse(stock)));
     });
+};
 
-    socket.on('disconnect', () => {
-        console.log('disconnected');
-    });
+export const disconnect = () => {
+    _socket?.close();
+    _socket = null;
 };
