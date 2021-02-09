@@ -1,0 +1,86 @@
+.stock-card__ {
+    
+    $lightColor: #c7c2c2;
+    $mediumColor: #8d8d8d;
+    $darkColor: #222222;
+
+    &container,
+    &info,
+    &data {
+        display: flex;
+    }
+
+    &container {
+        justify-content: space-between;
+        align-items: center;
+        margin: {
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+        }
+        padding: 30px;
+        border-radius: 10px;
+        background: #fff;
+
+        .down {
+            color: #ac0000;
+        }
+        
+        .up {
+            color: #00ac07;
+        }        
+
+        .to-black {
+            color: $darkColor;
+        }
+    }
+
+    &info,
+    &data {
+        flex-direction: column;
+    }
+
+    &data {
+        text-align: right;
+    }
+
+    &name {
+        font-weight: 600;
+        font-size: 30px;
+        color: $darkColor;
+    }
+
+    &exchange {
+        font-size: 20px;
+        color: $mediumColor;
+    }
+
+    &time {
+        margin: {
+            top: 10px
+        };
+        font-size: 12px;
+        color: $lightColor;
+        transition: 300ms;
+    }
+
+    &price {
+        font-size: 40px;
+        line-height: 40px;
+        font-weight: 500;
+        color: $darkColor;
+    }
+
+    &details {
+        color: $lightColor;
+        line-height: 14px;
+        font-size: 14px;
+    }
+
+    &change {
+        margin: {
+            top: 10px;
+        }
+        font-size: 20px;
+    }
+}
