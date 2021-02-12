@@ -70,6 +70,17 @@ module.exports = {
         ],
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+        ],
+      },
+      {
         test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
         loader: 'url-loader',
         options: {

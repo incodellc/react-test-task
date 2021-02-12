@@ -1,0 +1,2 @@
+export const SET_STOCK = 'SET_STOCK';
+export const SET_STOCK_INTERVAL = 'SET_STOCK_INTERVAL';
