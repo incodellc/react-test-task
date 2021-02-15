@@ -1,3 +1,37 @@
-.stock-ticker {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+}
 
+
+body {
+  background-color: #272822;
+  height: 100vh;
+}
+.stock-ticker {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  align-items: start;
+
+  & p {
+    margin: 1.2em;
+  }
+  
+  & .container {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  & .warning {
+    color: #d40909;
+}
 }

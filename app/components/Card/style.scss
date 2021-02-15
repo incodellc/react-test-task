@@ -1,0 +1,26 @@
+.card {
+    margin: 0 20px;
+
+    & .card__table {
+        border-collapse: collapse;
+        background-color: green($color: #000000);
+
+        & th {
+            background: #ccc;
+            color: #000000;
+            text-align: center;
+        }
+        & td,
+        th {
+            border: 1px solid #00aa39;
+            padding: 5px;
+            text-align: center;
+        }
+        & tr .green {
+            color: #00aa39;
+        }
+        & tr .red {
+            color: #be2317;
+        }
+    }
+}
