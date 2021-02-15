@@ -1,0 +1,27 @@
+.menu {
+    
+    & .section, & .label {
+        display: inline-grid;
+      }
+    & .section {
+        & * {
+            margin-top: 5px;
+        }
+        padding: 10px;
+        border: 1px solid #848484;
+        max-width: 200px;
+
+        & option {
+            color: #000;
+        }
+        & .label, & .input, & select {
+            width: 100%;
+            font-size: 1em;
+            font-weight: bold;
+        }
+    }
+    & .input, select {
+        color: #000;
+    }
+    
+}

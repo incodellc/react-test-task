@@ -5,6 +5,8 @@ import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
 
 const store = configureStore();
+const { getState } = store;
+export default getState;
 
 render(
     <AppContainer>

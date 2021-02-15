@@ -1,3 +1,6 @@
+# Format setts
+.prettierrc
+
 # Logs
 logs
 *.log
