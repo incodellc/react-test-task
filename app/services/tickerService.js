@@ -7,7 +7,6 @@ export const connect = (stockSymbol, setToState) => {
 
     socket.on('connect', () => {
         console.log('connected');
-
         socket.on(stockSymbol, (data) => {
             setToState(JSON.parse(data));
         });
