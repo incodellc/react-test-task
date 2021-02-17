@@ -1,20 +1,26 @@
 import '../styles/application.scss';
-import {connect} from '../services';
+import {connect as socketConnect} from '../services';
 import React, {PureComponent} from 'react';
-
-// The below line is here as an example of getting prices
-connect('AAPL');
+import { connect } from 'react-redux';
+import {setStockTicker} from '../actions';
 
 class App extends PureComponent {
+    componentDidMount() {
+        socketConnect('AAPL', this.props.setStockTicker);
+    }
     render() {
         return (
             <div className="stock-ticker">
                 <h1>Stock Blotter</h1>
-
-
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = state => ({ stockTicker: state.stockTicker });
+const mapDispatchToProps = {
+    setStockTicker
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
