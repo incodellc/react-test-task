@@ -6,6 +6,7 @@ import {setStockTicker} from '../actions';
 import DataTable from './DataTable/DataTable';
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import Info from './Info/Info';
+import Delay from './Delay/Delay';
 
 class App extends PureComponent {
     componentDidMount() {
@@ -14,10 +15,11 @@ class App extends PureComponent {
     render() {
         return (
             <div className="stock-ticker">
-                <h2>AAPL</h2>
+                <h1>AAPL</h1>
                 <div className="settings">
                     <Link to="/info" className="settings__view">Info</Link>
                     <Link to="/table" className="settings__view">Table</Link>
+                    <Delay/>
                 </div>
                 <Switch>
                     <Route path="/info" component={Info} />
@@ -28,10 +30,11 @@ class App extends PureComponent {
         );
     }
 }
+const mapStateToProps = state => ({ stockTicker: state.stockTicker, location: state.router.location });
 
 const mapDispatchToProps = {
     setStockTicker
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

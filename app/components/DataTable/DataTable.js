@@ -30,10 +30,11 @@ class DataTable extends Component {
     }
 }
 
-const mapStateToProps = state => ({ stockTicker: state.stockTicker });
+const mapStateToProps = state => ({ stockTicker: state.stockTicker, location: state.router });
 
 DataTable.propTypes = {
     stockTicker: PropTypes.array.isRequired,
+    location: PropTypes.object,
 };
 
 export default connect(mapStateToProps, null)(DataTable);

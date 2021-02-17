@@ -18,3 +18,7 @@ export const connect = (stockSymbol, setToState) => {
         console.log('disconnected');
     });
 };
+
+export const changeDelay = (time) => {
+    socket.emit('changeIntervalTime', time);
+};

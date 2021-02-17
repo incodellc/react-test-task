@@ -21,28 +21,73 @@ body {
     align-items: center;
 }
 .settings{
-
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
   &__view{
     display: inline-block;
     padding: 0.5rem;
     text-decoration: none;
-    width: 10rem;
+    width: 8rem;
     font-size: 1.8rem;
     background-color: $white-color;
     text-align: center;
     margin-right: 1rem;
     color: $text-grey-color;
     transition: all 0.2s linear;
+    &:last-of-type{
+      margin-right: 1.5rem;
+    }
     &:hover{
       background-color: $text-grey-color;
       color: $background-light-color;
     }
-  
+  }
+  .delay-sign{
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .interval-form {
+    margin-left: auto;
+    &__label {
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    &__input {
+      box-sizing: border-box;
+      width: 60px;
+      height: 3rem;
+      font-size: 1.6rem;
+      margin-right: 0.5rem;
+      padding-left: 0.5rem;
+      border: none;
+
+    }
+    &__button{
+      box-sizing: border-box;
+      font-size: 1.6rem;
+      background-color: $white-color;
+      text-align: center;
+      color: $text-grey-color;
+      transition: all 0.2s linear;
+      border: none;
+      padding: 0.5rem;
+      height: 3rem;
+      outline: none;
+
+      &:hover{
+        background-color: $text-grey-color;
+        color: $background-light-color;
+      }
+    }
   }
 }
 
 .data-table{
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
 
     table{
@@ -78,11 +123,12 @@ body {
         
         border-bottom: solid 1px $white-color;
       }
+
 }
 .info{
   width: 100%;
   &-list{
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     padding: 0;
     list-style: none;
@@ -107,6 +153,12 @@ body {
       }
   }
   
+}
+.increment{
+  background-color:rgba(40, 184, 27, 0.5);
+}
+.decrement{
+  background-color: rgba(255, 117, 117, 0.5);
 }
 
   
