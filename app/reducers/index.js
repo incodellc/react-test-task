@@ -5,8 +5,8 @@ const createRootReducer = (history) => combineReducers({
     router: connectRouter(history),
     stockTicker: (state = {}, action) => {
         switch (action.type) {
-            default:
-                return state;
+            case 'SET_DATA': return JSON.parse(action.payload);
+            default: return state;
         }
     }
 });
