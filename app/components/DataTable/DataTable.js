@@ -1,10 +1,11 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import TableItem from '../TableItem/TableItem';
+import TableItem from '../TableItem';
 
-class DataTable extends Component {
+export class DataTable extends Component {
     render() {
+        const {stockTicker} = this.props;
         return(
             <section className="data-table">
                 <div className="table-header">
@@ -21,7 +22,8 @@ class DataTable extends Component {
                 <div className="table-content">
                     <table cellPadding="0" cellSpacing="0" border="0">
                         <tbody>
-                            {this.props.stockTicker.map((stock)=><TableItem key={stock.last_trade_time} stock={stock}/>)}
+                            {!!stockTicker && stockTicker.map((stock)=>
+                                <TableItem key={stock.last_trade_time} stock={stock}/>)}
                         </tbody>
                     </table>
                 </div>
@@ -30,12 +32,11 @@ class DataTable extends Component {
     }
 }
 
-const mapStateToProps = state => ({ stockTicker: state.stockTicker, location: state.router });
+const mapStateToProps = state => ({ stockTicker: state.stockTicker });
 
 DataTable.propTypes = {
-    stockTicker: PropTypes.array.isRequired,
-    location: PropTypes.object,
+    stockTicker: PropTypes.array,
 };
 
-export default connect(mapStateToProps, null)(DataTable);
+export default connect(mapStateToProps)(DataTable);
 

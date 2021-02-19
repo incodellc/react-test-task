@@ -22,3 +22,10 @@ export const connect = (stockSymbol, setToState) => {
 export const changeDelay = (time) => {
     socket.emit('changeIntervalTime', time);
 };
+
+export const changeTicker = (stockSymbol, setToState, interval) => {
+    socket.close();
+    socket = null;
+    connect(stockSymbol, setToState);
+    changeDelay(interval);
+};

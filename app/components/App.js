@@ -3,19 +3,21 @@ import {connect as socketConnect} from '../services';
 import React, {PureComponent} from 'react';
 import { connect } from 'react-redux';
 import {setStockTicker} from '../actions';
-import DataTable from './DataTable/DataTable';
+import DataTable from './DataTable';
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
-import Info from './Info/Info';
-import Delay from './Delay/Delay';
+import Info from './Info';
+import Delay from './Delay';
+import Tickers from './Tickers';
 
 class App extends PureComponent {
     componentDidMount() {
-        socketConnect('AAPL', this.props.setStockTicker);
+        const {setTicker} = this.props;
+        socketConnect('APPL', setTicker);
     }
     render() {
         return (
             <div className="stock-ticker">
-                <h1>AAPL</h1>
+                <Tickers/>
                 <div className="settings">
                     <Link to="/info" className="settings__view">Info</Link>
                     <Link to="/table" className="settings__view">Table</Link>
@@ -30,10 +32,10 @@ class App extends PureComponent {
         );
     }
 }
-const mapStateToProps = state => ({ stockTicker: state.stockTicker, location: state.router.location });
+const mapStateToProps = state => ({ stockTicker: state.stockTicker });
 
 const mapDispatchToProps = {
-    setStockTicker
+    setTicker: setStockTicker
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import {changeDelay} from '../../services/tickerService';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import {changeDelay} from '../../services';
+import {setInterval} from '../../actions';
 
-class Delay extends Component {
+export class Delay extends Component {
     constructor(props) {
         super(props);
         this.state = {
             delay: '',
-            current: '5'
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,14 +18,18 @@ class Delay extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        const timeInMillisec = this.state.delay * 1000;
-        changeDelay(timeInMillisec);
-        this.setState({current: this.state.delay});
+        const {delay} = this.state;
+        const {setIntervalTime} = this.props;
+        const timeInMs = delay * 1000;
+        setIntervalTime(timeInMs);
+        changeDelay(timeInMs);
     }
     render() {
+        const {delay} = this.state;
+        const {currentInterval} = this.props;
         return (
             <>
-                <p className="delay-sign">Update every {this.state.current} seconds</p>
+                <p className="delay-sign">Update every {currentInterval / 1000} seconds</p>
                 <form className="interval-form" onSubmit={this.handleSubmit}>
                     <label className="interval-form__label" htmlFor="delay">Change time</label>
                     <input
@@ -31,7 +37,7 @@ class Delay extends Component {
                         min="1"
                         max="100"
                         onChange={this.handleChange}
-                        value={this.state.delay}
+                        value={delay}
                         placeholder="5"
                         id="delay"
                         className="interval-form__input"
@@ -43,4 +49,16 @@ class Delay extends Component {
     }
 }
 
-export default Delay;
+Delay.propTypes = {
+    setIntervalTime: PropTypes.func,
+    currentInterval: PropTypes.number
+};
+
+const mapStateToProps = state => ({ currentInterval: state.interval });
+
+const mapDispatchToProps = {
+    setIntervalTime: setInterval
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Delay);
+
+
