@@ -1,3 +1,233 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300);
+
+$background-light-color: rgb(243,243,243);
+$background-dark-color: rgb(233, 233, 233);
+$white-color: rgb(255,255,255);
+$text-grey-color: rgb(46, 46, 46);
+$green-color: rgba(40, 184, 27, 0.5);
+$red-color: rgba(255, 117, 117, 0.5);
+$grey-color: rgb(155, 155, 155);
+$border: 0.1rem solid $white-color;
+
+@mixin button{
+  color: $text-grey-color;
+  background-color: $white-color;
+  transition: all 0.2s linear;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  text-align: center;
+  &:hover{
+    background-color: $text-grey-color;
+    color: $background-light-color;
+  }
+}
+
+:root {
+    font-size: 10px;
+}
+body {
+    margin: 0;
+    background-color: $background-dark-color;
+    font-family: 'Roboto', sans-serif;
+    color: $text-grey-color;
+}
+ul{
+  list-style: none;
+}
 .stock-ticker {
+    padding: 2vh 3vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tickers-list{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  padding: 0;
+  margin: 0 0 2rem;
+  &__item{
+    box-sizing: border-box;
+    width: 18%;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.5;
+    background-color: $white-color;
+    border: 0.1rem solid $text-grey-color;
+    transition: all 0.2s linear;
+
+    &:hover{
+      background-color: $text-grey-color;
+      color: $white-color;
+    }
+  }
+  .current{
+    font-weight: 500;
+    background-color: $grey-color;
+    border-color: $grey-color;
+  }
+}
+.settings{
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &__view{
+    text-decoration: none;
+    width: 8rem;
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    @include button();
+    &:last-of-type{
+      margin-right: 1.5rem;
+    }
+  }
+  .delay-sign{
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .interval-form {
+    margin-left: auto;
+
+    &__label {
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    &__input {
+      box-sizing: border-box;
+      width: 6rem;
+      height: 3rem;
+      font-size: 1.6rem;
+      margin-right: 0.5rem;
+      padding-left: 0.5rem;
+      border: none;
+    }
+    &__button{
+      box-sizing: border-box;
+      font-size: 1.6rem;
+      color: $text-grey-color;
+      border: none;
+      height: 3rem;
+      outline: none;
+      @include button();
+    }
+  }
+}
+.data-table{
+    width: 70%;
+    margin: 0 auto;
+
+    table{
+        width: 100%;
+        table-layout: fixed;
+        margin: 0 auto;
+      }
+      .table-header{
+        display: block;
+        background-color: $white-color;
+       }
+      .table-content{
+        height: 70vh;
+        overflow-x: auto;
+        margin-top: 0;
+        border: $border;
+        background-color: $background-light-color;
+      }
+      th{
+        padding: 2rem 1.5rem;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+      td{
+        padding: 1.5rem;
+        text-align: center;
+        vertical-align:middle;
+        font-weight: 300;
+        font-size: 1.2rem;
+        
+        border-bottom: $border;
+      }
 
 }
+.info{
+  width: 100%;
+  &-list{
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: 300;
+    background-color: $background-light-color;
+    border: $border;
+  
+      &__item{
+        padding: 1.5rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: $border;
+  
+        &> span:first-of-type{
+          font-weight: 400;
+        }
+      }
+      &__item:last-of-type{
+        border-bottom: none;
+      }
+  }
+  
+}
+.increment{
+  background-color:$green-color;
+}
+.decrement{
+  background-color: $red-color;
+}
+
+@media screen and (max-width:850px){
+  .settings{
+    flex-direction: column;
+    &>*{
+      margin-bottom: 1rem;
+    }
+    &__view{
+      margin-right: 0rem;
+      &:last-of-type{
+        margin-right: 0rem;
+      }
+    }
+    .delay-sign{
+      margin-bottom: 1rem;
+    }
+    .interval-form{
+      margin: auto;
+    }
+  }
+}
+@media screen and (max-width:580px){
+  .stock-ticker {
+    padding: 2vh 0 0;
+}
+  .tickers-list{
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
+    &__item{
+      min-width: 8rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+  .data-table{
+    width: 100%;
+  }
+  .info{
+    &-list {
+      width: 100%;
+    }
+  }
+}
+  

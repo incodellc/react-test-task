@@ -36,7 +36,7 @@ function getQuote(socket, ticker) {
   quote.ticker = ticker;
   quote.exchange = 'NASDAQ';
   quote.price = getRandomValBetween(100, 300, 2);
-  quote.change = getRandomValBetween(0, 200, 2);
+  quote.change = getRandomValBetween(-200, 200, 2);
   quote.change_percent = getRandomValBetween(0, 1, 2);
   quote.last_trade_time = getUTCDate();
   quote.dividend = getRandomValBetween(0, 1, 2);
@@ -52,13 +52,23 @@ function trackTicker(socket, ticker) {
   getQuote(socket, ticker);
 
   // every N seconds
-  var timer = setInterval(function() {
-    getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
-
-  socket.on('disconnect', function() {
-    clearInterval(timer);
-  });
+  var setIntervalTime = function(time = FETCH_INTERVAL) {
+    return setInterval(function() {
+       getQuote(socket, ticker);
+     }, time);
+   }
+ 
+   let timer = setIntervalTime();
+ 
+   socket.on('changeIntervalTime', (time) => {
+     clearInterval(timer);
+     timer = null;
+     timer = setIntervalTime(time);
+   });
+ 
+   socket.on('disconnect', function() {
+     clearInterval(timer);
+   });
 }
 
 var app = express();
