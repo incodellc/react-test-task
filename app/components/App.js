@@ -1,20 +1,30 @@
+import { connect as ioConnect } from '../services';
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateTicker } from '../reducers/actions';
+import Table from './Table';
+import Detail from './Detail';
+import Controls from './Controls';
 import '../styles/application.scss';
-import {connect} from '../services';
-import React, {PureComponent} from 'react';
 
-// The below line is here as an example of getting prices
-connect('AAPL');
+const App = () => {
+    const dispatch = useDispatch();
+    const updateData = (data) => dispatch(updateTicker(data));
 
-class App extends PureComponent {
-    render() {
-        return (
-            <div className="stock-ticker">
-                <h1>Stock Blotter</h1>
+    ioConnect('AAPL', updateData);
 
-
-            </div>
-        );
-    }
-}
+    return (
+        <div className="stock-ticker">
+            <h1 className="title">Stock Blotter</h1>
+            <Controls />
+            <Switch>
+                <Route path="/table" component={Table} />
+                <Route path="/detail" component={Detail} />
+                <Redirect to="/table"/>
+            </Switch>
+        </div>
+    );
+};
 
 export default App;
