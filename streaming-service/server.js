@@ -52,9 +52,19 @@ function trackTicker(socket, ticker) {
   getQuote(socket, ticker);
 
   // every N seconds
-  var timer = setInterval(function() {
-    getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
+  var interval = function(time = FETCH_INTERVAL) {
+    return setInterval(function() {
+      getQuote(socket, ticker);
+    }, time);
+  }
+
+  let timer = interval();
+
+  socket.on('setInterval', (time) => {
+    clearInterval(timer);
+    timer = null;
+    timer = interval(time);
+  });
 
   socket.on('disconnect', function() {
     clearInterval(timer);

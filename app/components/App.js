@@ -2,7 +2,7 @@ import { connect as ioConnect } from '../services';
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { updateTicker } from '../reducers/actions';
+import { updateTicker } from '../actions/tickers';
 import Table from './Table';
 import Detail from './Detail';
 import Controls from './Controls';

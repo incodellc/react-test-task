@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Delay from '../Delay';
 
 const Controls = () => {
     return (
@@ -8,7 +9,7 @@ const Controls = () => {
                 <Link to="detail" className="controls__btn controls__btn--info">Detail</Link>
                 <Link to="table" className="controls__btn controls__btn--table">Table</Link>
             </div>
-            <div className="controls__delay"></div>
+            <Delay />
         </div>
     );
 };

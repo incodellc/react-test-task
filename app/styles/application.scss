@@ -48,7 +48,10 @@ body {
 
 .controls {
   width: 65%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   
   .controls__btn {
     color:  #FFF;
@@ -84,5 +87,19 @@ body {
     justify-content: space-between;
     border-bottom: 0.1rem solid rgb(255,255,255);
   }
+}
 
+.delay__select {
+  color: #384047;
+  font-weight: 400;
+  border-radius: 2px;
+  font-size: 1em;
+  line-height: 1.42;
+  padding: 10px;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid #ececec;
+  display: block;
+  max-width: 25%;
+  width: 25%;
 }

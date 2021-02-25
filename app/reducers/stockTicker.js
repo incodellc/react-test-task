@@ -1,4 +1,4 @@
-import { UPDATE_TICKER } from './actions';
+import { UPDATE_TICKER} from '../actions/tickers';
 
 const initialState = {
     tickers: []

@@ -17,7 +17,7 @@ const Table = () => {
             <tbody className="table__body">
                 {tickers.map((item) => (
                     <Row
-                        key={item.toString()}
+                        key={item.last_trade_time}
                         row={item}
                     />
                 ))}

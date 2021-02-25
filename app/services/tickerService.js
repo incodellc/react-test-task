@@ -20,3 +20,7 @@ export const connect = (stockSymbol, cb) => {
         console.log('disconnected');
     });
 };
+
+export const setDelay = (time) => {
+    socket.emit('setInterval', time);
+};

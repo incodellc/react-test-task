@@ -15,4 +15,10 @@ describe('Table tests', () => {
         const { wrapper } = mountComponent();
         expect(wrapper).toHaveLength(1);
     });
+
+    it('Should has 1 table', () => {
+        const { wrapper } = mountComponent();
+        const btn = wrapper.find('.table');
+        expect(btn.length).toBe(1);
+    });
 });

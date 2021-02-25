@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import * as actions from '../reducers/actions';
+import * as actions from '../actions/tickers';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
     useDispatch: jest.fn(() => jest.fn()),
 }));
 
-jest.mock('../reducers/actions', () => ({
+jest.mock('../actions/tickers', () => ({
     updateTicker: jest.fn()
 }));
 
