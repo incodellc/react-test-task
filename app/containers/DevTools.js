@@ -8,7 +8,11 @@ import DockMonitor from 'redux-devtools-dock-monitor';
 // Alternatively enable ChartMonitor to view a tree structure of your store/state object
 
 export default createDevTools(
-    <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-y">
+    <DockMonitor
+        defaultIsVisible={false}
+        toggleVisibilityKey="ctrl-h"
+        changePositionKey="ctrl-y"
+    >
         <LogMonitor />
         {/* <ChartMonitor /> */}
     </DockMonitor>
