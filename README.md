@@ -1,4 +1,3 @@
-
 # React Test Task
 ## Contains:
 
@@ -23,13 +22,18 @@
 3. ```npm install``` or ```yarn install```
 4. ```npm run start``` or ```yarn start```
 
-Once running, if you want to hide the redux dev monitor: ```CTRL+H``` or move it with ```CTRL+Y```
+## Run service and app concurrently:
+1. Open a new bash shell
+2. ```cd app```
+3. ```npm install``` or ```yarn install```
+4. ```npm run dev``` or ```yarn dev```
 
+Once running, if you want to see the redux dev monitor: press ```CTRL+H``` or move it with ```CTRL+Y```
 
 ## Run the tests
 1. Open a new bash shell
 2. ```cd app```
-3. ```npm run test_watch``` or ```yarn test_watch```
+3. ```npm run test``` or ```yarn test```
 
 ## Requirements
 
