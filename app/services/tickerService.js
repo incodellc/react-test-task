@@ -1,8 +1,9 @@
 import io from 'socket.io-client';
+import { createConnection, breakConnection } from '../actions/index';
 
 let socket = null;
 
-export const connect = (stockSymbol) => {
+export const connect = (dispatch, stockSymbol) => {
     socket = io('http://localhost:4000');
 
     socket.on('connect', () => {
@@ -10,6 +11,8 @@ export const connect = (stockSymbol) => {
 
         socket.on(stockSymbol, (data) => {
             console.log(data);
+            const json = JSON.parse(data);
+            dispatch(createConnection(json));
         });
 
         socket.emit('ticker', stockSymbol);
@@ -17,5 +20,6 @@ export const connect = (stockSymbol) => {
 
     socket.on('disconnect', () => {
         console.log('disconnected');
+        dispatch(breakConnection());
     });
 };
