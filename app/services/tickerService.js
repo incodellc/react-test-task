@@ -10,7 +10,7 @@ export const connect = (dispatch, stockSymbol) => {
         console.log('connected');
 
         socket.on(stockSymbol, (data) => {
-            console.log(data);
+            // console.log(data);
             const json = JSON.parse(data);
             dispatch(createConnection(json));
         });
@@ -20,6 +20,12 @@ export const connect = (dispatch, stockSymbol) => {
 
     socket.on('disconnect', () => {
         console.log('disconnected');
-        dispatch(breakConnection());
     });
+};
+
+export const changeConnectSymbol = (dispatch, stockSymbol) => {
+    socket.close();
+    socket = null;
+    dispatch(breakConnection);
+    connect(dispatch, stockSymbol);
 };

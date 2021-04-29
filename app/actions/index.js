@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const createConnection = (data) => (dispatch) => {
-    console.log(data);
+    // console.log(data);
     try {
         dispatch({ type: 'CREATE_CONNECTION', payload: data });
     } catch(error) {
@@ -9,7 +9,7 @@ export const createConnection = (data) => (dispatch) => {
     }
 };
 
-export const breakConnection =  (dispatch) => {
+export const breakConnection = (dispatch) => {
     dispatch({ type: 'BREAK_CONNECTION', payload: {} });
 };
 
@@ -21,6 +21,6 @@ export const deleyTimeChange = (time) => (dispatch) => {
     }
 };
 
-export const stockSymbolChange = (symbol) => (dispatch) => {
-    dispatch({ type: 'STOCK_SYMBOL', payload: symbol });
-};
+// export const stockSymbolChange = (symbol) => (dispatch) => {
+//     dispatch({ type: 'STOCK_SYMBOL', payload: symbol });
+// };
