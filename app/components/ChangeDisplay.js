@@ -4,16 +4,17 @@ import { string } from 'prop-types';
 const ChangeDisplay = ({ preValue, actualValue }) => {
     const [difference, setDifference] = useState(0);
     const calculateDifference = (firstValue, secondValue) => {
-        const result = parseFloat(firstValue) - parseFloat(secondValue);
+        const result = parseFloat(secondValue) - parseFloat(firstValue);
         setDifference(result.toFixed(2));
     };
 
     useEffect(() => {
+        console.log(actualValue, preValue, difference);
         calculateDifference(preValue, actualValue);
-    }, [actualValue]);
+    }, [preValue]);
     return (
         <div className="show-change">
-            {preValue > actualValue ?
+            {actualValue > preValue ?
                 <div className="show-change__positive" style={{color: 'green'}}>
                     <i className="fas fa-chevron-up"></i>
                     <p>{difference}</p>

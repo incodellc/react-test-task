@@ -21,9 +21,8 @@ const StockConfiguration = () => {
 
     return (
         <div className="stock-configuration">
-            <h1>Choose reload time</h1>
             <form onSubmit={(e) => handleChangeDelay(e)}>
-                <select onChange={(e) => setDelayTime(e.target.value)}>
+                <select value={deleyTime} onChange={(e) => setDelayTime(e.target.value)}>
                     <option value="500">0.5 sec</option>
                     <option value="2000">2 sec</option>
                     <option value="5000">5 sec</option>

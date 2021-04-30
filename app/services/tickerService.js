@@ -10,7 +10,6 @@ export const connect = (dispatch, stockSymbol) => {
         console.log('connected');
 
         socket.on(stockSymbol, (data) => {
-            // console.log(data);
             const json = JSON.parse(data);
             dispatch(createConnection(json));
         });
