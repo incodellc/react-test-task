@@ -25,6 +25,6 @@ export const connect = (dispatch, stockSymbol) => {
 export const changeConnectSymbol = (dispatch, stockSymbol) => {
     socket.close();
     socket = null;
-    dispatch(breakConnection);
+    dispatch(breakConnection());
     connect(dispatch, stockSymbol);
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleyTimeChange } from '../actions';
+import { deleyTimeChange, breakConnection } from '../actions';
 import { changeConnectSymbol, connect } from '../services';
 
 const StockConfiguration = () => {
@@ -12,6 +12,7 @@ const StockConfiguration = () => {
     const handleChangeDelay = (e) => {
         e.preventDefault();
         dispatch(deleyTimeChange(deleyTime));
+        breakConnection(dispatch);
         changeConnectSymbol(dispatch, stockSymbol);
     };
 

@@ -1,8 +1,11 @@
-import { createConnection, breakConnection, deleyTimeChange } from './index';
-import axios from 'axios';
-import jest from 'jest';
+import { createConnection, breakConnection } from './index';
+import moxios from 'moxios';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-// jest.mock('axios');
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+const store = mockStore({});
 
 const stock = {
     ticker: 'AAPL',
@@ -18,30 +21,46 @@ const stock = {
 // const ticker = 'AAPL';
 // const time = 2000;
 
+beforeEach(() => {
+    moxios.install();
+});
+
+afterEach(() => {
+    moxios.uninstall();
+});
+
+beforeEach(() => { // Runs before each test in the suite
+    store.clearActions();
+});
+
 describe('create connection action', () => {
     it('should add stock to store', () => {
+        store.dispatch(createConnection(stock));
         const expectedAction = {
             type: 'CREATE_CONNECTION', payload: stock
         };
-
-        expect(createConnection(stock)).toEqual(expectedAction);
+        expect(store.getActions()).toEqual([expectedAction]);
     });
 });
 
 describe('Break connection action', () => {
     it('Should clean stock history', () => {
+        store.dispatch(breakConnection());
         const expectedAction = {
             type: 'BREAK_CONNECTION', payload: {}
         };
 
-        expect(breakConnection()).toEqual(expectedAction);
+        expect(store.getActions()).toEqual([expectedAction]);
     });
 });
 
 describe('change delay time', () => {
     it('should update deley time', () => {
-        deleyTimeChange(5000).then((result) => {
-            expect(result.status).toEqual(200);
+        moxios.wait(() => {
+            const request = moxios.requests.deleyTimeChange(5000);
+            request.respondWith({
+                status: 200,
+            });
         });
     });
 });

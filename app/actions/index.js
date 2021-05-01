@@ -8,7 +8,7 @@ export const createConnection = (data) => (dispatch) => {
     }
 };
 
-export const breakConnection = (dispatch) => {
+export const breakConnection = () => (dispatch) => {
     dispatch({ type: 'BREAK_CONNECTION', payload: {} });
 };
 
