@@ -3,79 +3,73 @@
 ////
 // CONFIGURATION SETTINGS
 ////
-var FETCH_INTERVAL = 5000;
-var PRETTY_PRINT_JSON = true;
+const FETCH_INTERVAL = 5000;
+const PRETTY_PRINT_JSON = true;
 
 ////
 // START
 ////
-var express = require('express');
-var http = require('http');
-var io = require('socket.io');
-var cors = require('cors');
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
+const cors = require('cors');
 
-function getRandomValBetween(min, max, precision) {
-  min = min === undefined ? 0 : min;
-  max = max === undefined ? 9007199254740992 : max;
-  precision = precision === undefined ? 0 : precision;
+const utils = require('./utils/utils');
 
-  var random = Math.random() * (max - min) + min;
 
-  return random.toFixed(precision);
+const getQuote = (socket, ticker) => {
+    const quote = {};
+
+    quote.ticker = ticker;
+    quote.exchange = 'NASDAQ';
+    quote.price = utils.getRandomValBetween(100, 300, 2);
+    quote.change = utils.getRandomValBetween(0, 200, 2);
+    quote.changePercent = utils.getRandomValBetween(0, 1, 2);
+    quote.lastTradeTime = utils.getUTCDate();
+    quote.dividend = utils.getRandomValBetween(0, 1, 2);
+    quote.yield = utils.getRandomValBetween(0, 2, 2);
+
+    socket.emit(ticker, PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote));
 }
 
-function getUTCDate() {
-  var now = new Date();
-  return new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
-}
+const trackTicker = (socket, ticker) => {
+    console.log('track Ticker');
 
-function getQuote(socket, ticker) {
-  var dataObj;
-
-  var quote = {};
-  quote.ticker = ticker;
-  quote.exchange = 'NASDAQ';
-  quote.price = getRandomValBetween(100, 300, 2);
-  quote.change = getRandomValBetween(0, 200, 2);
-  quote.change_percent = getRandomValBetween(0, 1, 2);
-  quote.last_trade_time = getUTCDate();
-  quote.dividend = getRandomValBetween(0, 1, 2);
-  quote.yield = getRandomValBetween(0, 2, 2);
-
-  socket.emit(ticker, PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote));
-}
-
-function trackTicker(socket, ticker) {
-  console.log('track Ticker');
-
-  // run the first time immediately
-  getQuote(socket, ticker);
-
-  // every N seconds
-  var timer = setInterval(function() {
     getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
 
-  socket.on('disconnect', function() {
-    clearInterval(timer);
-  });
+    const timer = (time = FETCH_INTERVAL) => {
+        return setInterval(() => {
+            getQuote(socket, ticker);
+        }, time);
+    }
+
+    let timerInstance = timer();
+
+    socket.on('setIntervalTime', (time) => {
+        clearInterval(timerInstance);
+        timerInstance = timer(time);
+    });
+
+    socket.on('disconnect', () => {
+        clearInterval(timerInstance);
+    });
 }
 
-var app = express();
+const app = express();
 app.use(cors());
-var server = http.createServer(app);
+const server = http.createServer(app);
 
-var io = io.listen(server);
+const io = socketIO.listen(server);
 io.set('origins', '*:*');
 
-app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/index.html');
+app.get('/', (req, res) => {
+    res.sendfile(__dirname + '/index.html');
 });
 
-io.sockets.on('connection', function(socket) {
-  socket.on('ticker', function(ticker) {
-    trackTicker(socket, ticker);
-  });
+io.sockets.on('connection', (socket) => {
+    socket.on('ticker', (ticker) => {
+        trackTicker(socket, ticker);
+    });
 });
 
 server.listen(process.env.PORT || 4000);
