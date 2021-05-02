@@ -1,20 +1,25 @@
-import '../styles/application.scss';
+import React from 'react';
 import {connect} from '../services';
-import React, {PureComponent} from 'react';
+import '../styles/application.scss';
+import {useDispatch} from 'react-redux';
+import {updateTicker} from '../redux/features/stocks/stockTicker';
+import Layout from './Layout/Layout';
+import {Route, Switch} from 'react-router-dom';
+import StocksTable from './Table/StocksTable';
 
-// The below line is here as an example of getting prices
-connect('AAPL');
+const App = () => {
+    const dispatch = useDispatch();
+    const tickerData = (data) => dispatch(updateTicker(data));
 
-class App extends PureComponent {
-    render() {
-        return (
-            <div className="stock-ticker">
-                <h1>Stock Blotter</h1>
+    connect('AAPL', tickerData);
 
-
-            </div>
-        );
-    }
-}
+    return (
+        <Layout>
+            <Switch>
+                <Route exact path="/" component={StocksTable} />
+            </Switch>
+        </Layout>
+    );
+};
 
 export default App;

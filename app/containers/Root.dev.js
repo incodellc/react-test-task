@@ -6,15 +6,15 @@ import {Route, BrowserRouter} from 'react-router-dom';
 import App from '../components/App';
 import DevTools from './DevTools';
 
-export default function Root({ store }) {
+export default function Root({store}) {
     return (
         <Provider store={store}>
             <BrowserRouter>
                 <Route path="/">
-                    <App />
+                    <App/>
                 </Route>
             </BrowserRouter>
-            <DevTools />
+            <DevTools/>
         </Provider>
     );
 }
