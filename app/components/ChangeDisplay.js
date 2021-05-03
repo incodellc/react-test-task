@@ -14,11 +14,11 @@ const ChangeDisplay = ({ preValue, actualValue }) => {
     return (
         <div className="show-change">
             {actualValue > preValue ?
-                <div className="show-change__positive" style={{color: 'green'}}>
+                <div className="show-change__positive">
                     <i className="fas fa-chevron-up"></i>
                     <p>{difference}</p>
                 </div> :
-                <div className="show-change__negative" style={{color: 'red'}}>
+                <div className="show-change__negative">
                     <i className="fas fa-chevron-down"></i>
                     <p>{difference}</p>
                 </div>

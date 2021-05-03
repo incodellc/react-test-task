@@ -51,5 +51,11 @@ describe('Stock ticker reducer', () => {
     it('handle ERROR', () => {
         expect(stockTicker(dummyState, { type: 'ERROR_CONNECTION', payload: '500 Error'})).toEqual({...initialState, error: '500 Error'});
     });
+    it('handle CHANGE_DELEY_TIME', () => {
+        expect(stockTicker(initialState, { type: 'CHANGE_DELEY_TIME', payload: 6000})).toEqual({...initialState, deleyTime: 6000});
+    });
+    it('handle CHANGE_TICK_SYMBOL', () => {
+        expect(stockTicker(initialState, { type: 'CHANGE_TICK_SYMBOL', payload: 'APPLE' })).toEqual({...initialState, tickSymbol: 'APPLE'});
+    });
 });
 

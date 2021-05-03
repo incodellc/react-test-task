@@ -7,7 +7,7 @@ import StockConfiguration from './StockConfiguration';
 function App() {
     return (
         <div className="stock-ticker">
-            <h1 data-testid="stock-header">Price Serive</h1>
+            <h1 data-testid="stock-header">Stock Blotter</h1>
             <StockConfiguration />
             <StockCart />
         </div>

@@ -1,3 +1,7 @@
+$main-green-color: rgb(80, 172, 80);
+$main-grey-color: rgb(128, 123, 123);
+$main-error-color: rgb(189, 67, 67);
+
 * {
     margin: 0;
     padding: 0;
@@ -25,53 +29,89 @@ body {
     }
 
     .stock-configuration {
-        width: 40%;
+        width: 50%;
         margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
 
         form {
-            select {
-                width: 40%;
-                height: 40px;
-                font-size: 1.4rem;
-                background: none;
-                border: 2px solid black;
-                padding-left: 10px;
-                margin-top: 2px;
-                outline: none;
+            display: flex;
+            justify-content: space-between;
+            
+            .selet-time-container {
+                display: flex;
+                flex-direction: column;
+                width: 35%;
+
+                label {
+                    padding-bottom: 11px;
+                    font-size: 18px;
+                    padding-left: 5px;
+                }
+                
+                select {
+                    width: 100%;
+                    height: 40px;
+                    font-size: 1.4rem;
+                    background: none;
+                    border: 2px solid $main-grey-color;
+                    border-radius: 7px;
+                    padding-left: 10px;
+                    outline: none;
+                }
             }
-            input {
-                height: 40px;
-                width: 40%;
-                border: 2px solid black;
-                padding-left: 10px;
-                font-size: 1.4rem;
-                outline: none;
+
+            .symbol-input-container {
+                display: flex;
+                flex-direction: column;
+                width: 37%;
+
+                label {
+                    padding-bottom: 10px;
+                    padding-left: 5px;
+                    font-size: 18px;
+                }
+
+                input {
+                    height: 40px;
+                    border: 2px solid $main-grey-color;
+                    border-radius: 7px;
+                    padding-left: 10px;
+                    font-size: 1.4rem;
+                    outline: none;
+                }
             }
 
             button {
+                margin-top: 33px;
                 height: 40px;
                 width: 20%;
-                border: 2px solid black;
+                border: none;
+                border-radius: 7px;
                 color: white;
-                background: black;
+                background: $main-green-color;
                 font-size: 1.4rem;
                 cursor: pointer;
             }
         }
     }
     .stock-cart {
-        margin-top: 4px;
-        width: 40%;
+        width: 50%;
         margin: 0 auto;
-        border: 2px solid black;
-        background: black;
         min-height: 400px;
 
         .card-loading {
             text-align: center;
-            color: white;
-            font-size: 25px;
-            margin-top: 150px;
+            color: black;
+            font-size: 35px;
+            margin-top: 200px;
+        }
+
+        .card-error {
+            text-align: center;
+            color: $main-error-color;
+            font-size: 35px;
+            margin-top: 200px;
         }
 
         ul {
@@ -80,13 +120,15 @@ body {
                 padding: 15px;
                 justify-content: space-between;
                 font-size: 23px;
-                margin:10px;
-                border: 1px solid black;
+                margin-top:10px;
+                border: 1px solid $main-grey-color;
                 background: white;
+                border-radius: 7px;
 
                 .show-change {
                     width: 25%;
                     &__positive {
+                        color: $main-green-color;
                         display: flex;
                         p {
                             margin-left: 20px;
@@ -99,6 +141,7 @@ body {
 
                     &__negative {
                         display: flex;
+                        color: $main-error-color;
                         p {
                             margin-left: 20px;
                         }
@@ -109,6 +152,18 @@ body {
                     }
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .stock-ticker {
+        .stock-configuration {
+            width: 80%;
+        }
+
+        .stock-cart {
+            width: 80%;
         }
     }
 }

@@ -21,7 +21,7 @@ const StockCart = () => {
 
     return (
         <div className="stock-cart">
-            {error && <div className="card-error" data-testid="card-error">Something goes worng: {error}</div>}
+            {error && <div className="card-error" data-testid="card-error">Something goes wrong: {error}</div>}
             {!tickInfo && <div className="card-loading" data-testid="card-loading">Loading...</div>}
             {tickInfo &&
                 <ul data-testid="card-info">

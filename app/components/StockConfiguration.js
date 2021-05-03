@@ -24,13 +24,19 @@ const StockConfiguration = () => {
     return (
         <div className="stock-configuration">
             <form onSubmit={(e) => handleChangeConfig(e)}>
-                <select value={deleyTime} className="select-time" data-testid="select-time" onChange={(e) => setDelayTime(e.target.value)}>
-                    <option value={500}>0.5 sec</option>
-                    <option value={2000}>2 sec</option>
-                    <option value={5000}>5 sec</option>
-                    <option value={10000}>10 sec</option>
-                </select>
-                <input type="text" value={stockSymbol} className="symbol-input" data-testid="symbol-input" onChange={(e) => setStockSymbol(e.target.value)} />
+                <div className="selet-time-container">
+                    <label htmlFor="select-time">Deley Time</label>
+                    <select id="select-time" value={deleyTime} className="select-time" data-testid="select-time" onChange={(e) => setDelayTime(e.target.value)}>
+                        <option value={500}>0.5 sec</option>
+                        <option value={2000}>2 sec</option>
+                        <option value={5000}>5 sec</option>
+                        <option value={10000}>10 sec</option>
+                    </select>
+                </div>
+                <div className="symbol-input-container">
+                    <label htmlFor="symbol-input">Stock Symbol</label>
+                    <input id="symbol-input" type="text" value={stockSymbol} className="symbol-input" data-testid="symbol-input" onChange={(e) => setStockSymbol(e.target.value)} />
+                </div>
                 <button type="submit" data-testid="change-submit">Submit</button>
             </form>
         </div>
