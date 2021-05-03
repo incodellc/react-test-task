@@ -7,8 +7,6 @@ export const connect = (dispatch, stockSymbol) => {
     socket = io('http://localhost:4000');
 
     socket.on('connect', () => {
-        console.log('connected');
-
         socket.on(stockSymbol, (data) => {
             const json = JSON.parse(data);
             dispatch(createConnection(json));
@@ -18,7 +16,7 @@ export const connect = (dispatch, stockSymbol) => {
     });
 
     socket.on('disconnect', () => {
-        console.log('disconnected');
+        dispatch(breakConnection());
     });
 };
 

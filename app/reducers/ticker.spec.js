@@ -26,12 +26,16 @@ const dummyState = {
     ],
     loading: false,
     error: null,
+    deleyTime: 5000,
+    tickSymbol: 'AAPL',
 };
 
 const initialState = {
     data: [],
     loading: false,
     error: null,
+    deleyTime: 5000,
+    tickSymbol: 'AAPL',
 };
 
 describe('Stock ticker reducer', () => {

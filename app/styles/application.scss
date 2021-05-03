@@ -67,6 +67,13 @@ body {
         background: black;
         min-height: 400px;
 
+        .card-loading {
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            margin-top: 150px;
+        }
+
         ul {
             li {
                 display: flex;

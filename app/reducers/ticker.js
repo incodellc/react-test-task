@@ -2,6 +2,8 @@ const initialState = {
     data: [],
     loading: false,
     error: null,
+    tickSymbol: 'AAPL',
+    deleyTime: 5000,
 };
 
 export const stockTicker = (state = initialState, action) => {
@@ -28,6 +30,18 @@ export const stockTicker = (state = initialState, action) => {
                 ...state,
                 data: [],
                 error: action.payload,
+            };
+        case 'CHANGE_TICK_SYMBOL':
+            return {
+                ...state,
+                data: [],
+                tickSymbol: action.payload
+            };
+        case 'CHANGE_DELEY_TIME':
+            return {
+                ...state,
+                data: [],
+                deleyTime: action.payload
             };
         default:
             return state;

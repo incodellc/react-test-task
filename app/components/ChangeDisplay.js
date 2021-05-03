@@ -9,7 +9,6 @@ const ChangeDisplay = ({ preValue, actualValue }) => {
     };
 
     useEffect(() => {
-        console.log(actualValue, preValue, difference);
         calculateDifference(preValue, actualValue);
     }, [preValue]);
     return (

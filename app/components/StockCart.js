@@ -5,23 +5,26 @@ import moment from 'moment';
 import ChangeDisplay from './ChangeDisplay';
 
 const StockCart = () => {
-    const { data, error } = useSelector(state => state.stockTicker);
+    const { data, error, tickSymbol, deleyTime } = useSelector(state => state.stockTicker);
     const [prevTickInfo, setPrevTickInfo] = useState(null);
     const [tickInfo, setTickInfo] = useState(null);
 
     useEffect(() => {
         setPrevTickInfo(data[0]);
         data.length > 1 && setTickInfo(data[1]);
-        console.log(prevTickInfo);
-        console.log(tickInfo);
     }, [data]);
+
+    useEffect(() => {
+        setPrevTickInfo(null);
+        setTickInfo(null);
+    }, [tickSymbol, deleyTime]);
 
     return (
         <div className="stock-cart">
-            {error && <div>Something goes worng: {error}</div>}
-            {!tickInfo && <div>Loading...</div>}
+            {error && <div className="card-error" data-testid="card-error">Something goes worng: {error}</div>}
+            {!tickInfo && <div className="card-loading" data-testid="card-loading">Loading...</div>}
             {tickInfo &&
-                <ul>
+                <ul data-testid="card-info">
                     <li>Ticker: {tickInfo.ticker}</li>
                     <li>Exchange: {tickInfo.exchange}</li>
                     <li>

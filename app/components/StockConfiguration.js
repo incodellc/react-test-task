@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleyTimeChange, breakConnection } from '../actions';
+import { deleyTimeChange, breakConnection, stockSymbolChange } from '../actions';
 import { changeConnectSymbol, connect } from '../services';
 
 const StockConfiguration = () => {
@@ -9,9 +9,10 @@ const StockConfiguration = () => {
     const [deleyTime, setDelayTime] = useState(5000);
     const [stockSymbol, setStockSymbol] = useState('AAPL');
 
-    const handleChangeDelay = (e) => {
+    const handleChangeConfig = (e) => {
         e.preventDefault();
         dispatch(deleyTimeChange(deleyTime));
+        dispatch(stockSymbolChange(stockSymbol));
         breakConnection(dispatch);
         changeConnectSymbol(dispatch, stockSymbol);
     };
@@ -22,15 +23,15 @@ const StockConfiguration = () => {
 
     return (
         <div className="stock-configuration">
-            <form onSubmit={(e) => handleChangeDelay(e)}>
-                <select value={deleyTime} onChange={(e) => setDelayTime(e.target.value)}>
-                    <option value="500">0.5 sec</option>
-                    <option value="2000">2 sec</option>
-                    <option value="5000">5 sec</option>
-                    <option value="10000">10 sec</option>
+            <form onSubmit={(e) => handleChangeConfig(e)}>
+                <select value={deleyTime} className="select-time" data-testid="select-time" onChange={(e) => setDelayTime(e.target.value)}>
+                    <option value={500}>0.5 sec</option>
+                    <option value={2000}>2 sec</option>
+                    <option value={5000}>5 sec</option>
+                    <option value={10000}>10 sec</option>
                 </select>
-                <input type="text" onChange={(e) => setStockSymbol(e.target.value)} placeholder="Enter stock symbol" />
-                <button type="submit" data-testid="time-change-submit">Submit</button>
+                <input type="text" value={stockSymbol} className="symbol-input" data-testid="symbol-input" onChange={(e) => setStockSymbol(e.target.value)} />
+                <button type="submit" data-testid="change-submit">Submit</button>
             </form>
         </div>
     );

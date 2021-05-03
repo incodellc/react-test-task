@@ -15,12 +15,13 @@ export const breakConnection = () => (dispatch) => {
 export const deleyTimeChange = (time) => async(dispatch) => {
     try {
         const result = await axios.post(`http://localhost:4000/${time}`);
+        dispatch({ type: 'CHANGE_DELEY_TIME', payload: time });
         return result;
     } catch(error) {
         dispatch({ type: 'ERROR_CONNECTION', payload: error });
     }
 };
 
-// export const stockSymbolChange = (symbol) => (dispatch) => {
-//     dispatch({ type: 'STOCK_SYMBOL', payload: symbol });
-// };
+export const stockSymbolChange = (symbol) => (dispatch) => {
+    dispatch({ type: 'CHANGE_TICK_SYMBOL', payload: symbol });
+};
