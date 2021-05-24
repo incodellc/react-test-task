@@ -3,7 +3,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {Route, BrowserRouter} from 'react-router-dom';
 
-import App from '../components/App';
+import App from '../pages/App';
 import DevTools from './DevTools';
 
 export default function Root({ store }) {

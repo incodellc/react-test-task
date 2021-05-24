@@ -1,1 +1,1 @@
-export * from './tickerService';
+export * from './stock.service';

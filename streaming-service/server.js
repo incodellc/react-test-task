@@ -45,7 +45,7 @@ function getQuote(socket, ticker) {
   socket.emit(ticker, PRETTY_PRINT_JSON ? JSON.stringify(quote, null, 4) : JSON.stringify(quote));
 }
 
-function trackTicker(socket, ticker) {
+function trackTicker(socket, ticker, interval) {
   console.log('track Ticker');
 
   // run the first time immediately
@@ -54,7 +54,14 @@ function trackTicker(socket, ticker) {
   // every N seconds
   var timer = setInterval(function() {
     getQuote(socket, ticker);
-  }, FETCH_INTERVAL);
+  }, interval ?? FETCH_INTERVAL);
+
+  socket.on('interval', (ms) => {
+    clearInterval(timer);
+    timer = setInterval(function() {
+      getQuote(socket, ticker);
+    }, ms ?? FETCH_INTERVAL);
+  });
 
   socket.on('disconnect', function() {
     clearInterval(timer);
@@ -73,9 +80,11 @@ app.get('/', function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
-  socket.on('ticker', function(ticker) {
-    trackTicker(socket, ticker);
+  socket.on('ticker', function(ticker, interval) {
+    trackTicker(socket, ticker, interval);
   });
+
+  socket.on('interval', function() {});
 });
 
 server.listen(process.env.PORT || 4000);
