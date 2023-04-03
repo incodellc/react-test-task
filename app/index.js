@@ -6,6 +6,8 @@ import Root from './containers/Root';
 
 const store = configureStore();
 
+console.log('Hello')
+
 render(
     <AppContainer>
         <Root store={store} history={history} />
